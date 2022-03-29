@@ -317,6 +317,10 @@
                             <input type="number" placeholder="USD 0.00" required>
                           </div>
                           <div style="display: grid;" class="form-column">
+                            <div class="form-column">
+                            <label tipe class="required">Valor del Producto</label>
+                            <input type="number" placeholder="USD 0.00" required>
+                          </div>
                             <label>Adjuntar factura de compra (opcional)</label>
                             <input class="hidden" type="file" required><br>
                             <button class="btn btn-primary" type="submit" onclick="grabarClick()">Cargar</button>
@@ -448,7 +452,18 @@
     function grabarClick(){
       $('form[id="formAlerta"]').validate({
         rules: {
-          idCarrier: 
+          idCarrier: {
+            required: true,
+          },
+          trackingNumber: {
+            required: true,
+            minlength: 6
+          },
+          direcciones: {
+            required: true,
+          }
+
+
 
 
         }
