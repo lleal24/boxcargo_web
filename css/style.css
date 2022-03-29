@@ -7471,9 +7471,9 @@ margin-top: 0rem;
 
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[value="todos"]:checked ~ .filters [for="todos"],
-[value="entregado"]:checked ~ .filters [for="entregado"],
-[value="ruta"]:checked ~ .filters [for="ruta"],
+[value="actuales"]:checked ~ .filters [for="actuales"],
+[value="historico"]:checked ~ .filters [for="historico"],
+[value="misAlertas"]:checked ~ .filters [for="misAlertas"],
 [value="bloqueado"]:checked ~ .filters [for="bloqueado"],
 [value="historico"]:checked ~ .filters [for="historico"],
 [value="nuevos"]:checked ~ .filters [for="nuevos"],

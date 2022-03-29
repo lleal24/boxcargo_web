@@ -232,7 +232,7 @@
                 <h5 class="widget-title">Categorias</h5>
                 <ul class="info-links">
                   <li><a href="perfil.html">PERFIL</a></li>
-                  <li><a href="paquetes.html">PAQUETES</a></li>
+                  <li><a href="mc-actuales.html">PAQUETES</a></li>
                   <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
                   <li><a href="consolidacion.html">CONSOLIDACIÓN</a></li>
 
@@ -264,7 +264,7 @@
                 <div class="content-element">
                   <div class="content-element-type-2">                 
                     <h5 class="fw-medium">Mi Bodega</h5>
-                    <h5 class="section-pre-title">Hola, Leonardo Medina <br>BODEGA NÚMERO: <spam id="numCasillero">BC00177BX</spam></h5><br>
+                    <h5 class="section-pre-title">Hola,<span id="nombreCliente"></span><br>BODEGA NÚMERO: <spam id="numCasillero"></spam></h5><br>
                     <h6>Desde el panel de control de su cuenta, puede ver sus pedidos recientes, administrar sus direcciones y editar su contraseña y los detalles de su cuenta. </h6>
                   </div>
                     <!--Bodega-->
@@ -704,6 +704,24 @@
   ============================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/fivepaq.js"></script>
+
+  <!-- cerrar cuenta -->
+  <script type="text/javascript">
+    function cerrarsesion() {
+      fivepaq.logOut();
+      location.href = "index.html";
+    }
+    var dataout = fivepaq.dataOut();
+
+    if (dataout == null || dataout.L !== true) {
+      location.href = "index.html";
+    }
+
+    $("#nombreCliente").html(dataout.U); //este es el campo del usuario
+    $("#numCasillero").html(dataout.N); //Este es campo del casillero
+  </script>
+
 
 </body>
 </html>

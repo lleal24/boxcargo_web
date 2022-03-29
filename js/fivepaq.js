@@ -83,8 +83,7 @@ var fivepaq = {
 				dataIn.Con = result.ConvenioId; /* cambioll */
 				sessionStorage.setItem('appData', JSON.stringify(dataIn));
 				LoginOk();
-			}
-			else {
+			} else {
 
 				dataIn.T = '';
 				dataIn.L = false;
@@ -154,53 +153,19 @@ var fivepaq = {
 	},
 	CuentaAdd: function (ConvenioCta, Documento, Empresa, Nombre, Direccion, CiudadId, CodigoPostal, Telefono, Password, EMail, Asesor, Ticket) {
 		Cuenta = new Object();
-
-		if (ConvenioCta == 19) {
-			Cuenta.Convenio = "BL";
-			Cuenta.LlaveConvenio = "5d8a2833-3d5f-4e52-a73b-e60a69a851e5";
-			Cuenta.Documento = Documento
-			Cuenta.Empresa = Empresa
-			Cuenta.Nombre = Nombre
-			Cuenta.Direccion = Direccion
-			Cuenta.CiudadId = CiudadId
-			Cuenta.CodigoPostal = CodigoPostal
-			Cuenta.Telefono = Telefono
-			Cuenta.Password = Password
-			Cuenta.EMail = EMail
-			Cuenta.Asesor = Asesor
-			Cuenta.TicketId = Ticket
-		} else
-			if (ConvenioCta == 20) {
-				Cuenta.Convenio = "PL";
-				Cuenta.LlaveConvenio = "874e3125-d9bf-436a-9dd2-c73f03ba256a";
-				Cuenta.Documento = Documento
-				Cuenta.Empresa = Empresa
-				Cuenta.Nombre = Nombre
-				Cuenta.Direccion = Direccion
-				Cuenta.CiudadId = CiudadId
-				Cuenta.CodigoPostal = CodigoPostal
-				Cuenta.Telefono = Telefono
-				Cuenta.Password = Password
-				Cuenta.EMail = EMail
-				Cuenta.Asesor = Asesor
-				Cuenta.TicketId = Ticket
-			}
-			else
-				if (ConvenioCta == 21) {
-					Cuenta.Convenio = "TL";
-					Cuenta.LlaveConvenio = "cba5577a-f235-4b89-8988-1a384cdb931e";
-					Cuenta.Documento = Documento
-					Cuenta.Empresa = Empresa
-					Cuenta.Nombre = Nombre
-					Cuenta.Direccion = Direccion;
-					Cuenta.CiudadId = CiudadId;
-					Cuenta.CodigoPostal = CodigoPostal
-					Cuenta.Telefono = Telefono
-					Cuenta.Password = Password
-					Cuenta.Email = EMail
-					Cuenta.Asesor = Asesor
-					Cuenta.TicketId = Ticket
-				}
+		Cuenta.Convenio = "BC";
+		Cuenta.LlaveConvenio = "9156efa1-f3f4-43d3-87ad-6a7df66bee13";
+		Cuenta.Documento = Documento
+		Cuenta.Empresa = Empresa
+		Cuenta.Nombre = Nombre
+		Cuenta.Direccion = Direccion
+		Cuenta.CiudadId = CiudadId
+		Cuenta.CodigoPostal = CodigoPostal
+		Cuenta.Telefono = Telefono
+		Cuenta.Password = Password
+		Cuenta.EMail = EMail
+		Cuenta.Asesor = Asesor
+		Cuenta.TicketId = Ticket
 
 		$.ajax({
 			url: "https://fpaq.azurewebsites.net/api/cuentas",
@@ -232,8 +197,7 @@ var fivepaq = {
 			console.log(jqXHR);
 			console.log(textStatus);
 		});
-	}
-	,
+	},
 	getCiudades: function (request, response) {
 		if (request != null) {
 			var data = JSON.parse(localStorage.getItem('ciudades'));

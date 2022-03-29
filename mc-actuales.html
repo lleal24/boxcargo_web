@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
 <head>
 
   <!-- Google Web Fonts
   ================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+
   <!-- <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Assistant:300,400,600,700,800" rel="stylesheet"> -->
 
@@ -17,7 +22,7 @@
 
   <title>Boxcargo-Profesionales en Comercio Exterior-¡Esos somos!</title>
 
-  <meta name = "format-detection" content = "telephone=no" />
+  <meta name="format-detection" content="telephone=no" />
   <meta charset="utf-8">
 
   <!-- Mobile Specific Metas
@@ -38,14 +43,14 @@
   <link rel="stylesheet" href="plugins/revolution/css/layers.css">
   <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
-
-  
-
   <!-- CSS theme files
   ============================================ -->
   <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
-  
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
 </head>
 
 <body class="wide-layout">
@@ -53,7 +58,7 @@
   <div class="loader"></div>
 
   <!--cookies-->
-   <!-- <div class="cookies">
+  <!-- <div class="cookies">
           <div class="container">
             <div class="clearfix">
               <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
@@ -84,39 +89,43 @@
 
         </div>
       </div>-->
-      
-     <!-- top-bar -->
 
-     <div class="top-bar">
-        
+      <!-- top-bar -->
+
+      <div class="top-bar">
+
         <div class="container">
-          
+
           <div class="table-row">
-            
+
             <div class="col-sm-6">
               <ul class="contact-info">
-                <li><span style="color: #34ccff;font-size: 18px;" class="licon-telephone"></span> <a style="color: #fff;" href="callto:+57 311 335 9603">+57 311 335 9603</a></li>
-                <li><span style="color: #34ccff; font-size: 18px;" class="licon-at-sign"></span> <a style="color: #fff;" href="mailto:servicioalcliente@boxcargoexpress.com">servicioalcliente@boxcargoexpress.com</a></li>
+                <li><span style="color: #34ccff;font-size: 18px;" class="licon-telephone"></span> <a
+                    style="color: #fff;" href="callto:+57 311 335 9603">+57 311 335 9603</a></li>
+                <li><span style="color: #34ccff; font-size: 18px;" class="licon-at-sign"></span> <a style="color: #fff;"
+                    href="mailto:servicioalcliente@boxcargoexpress.com">servicioalcliente@boxcargoexpress.com</a></li>
                 <li>Whatsapp: <a href=""><span style="color: #fff;">+57 316 4542339</span></li> </a>
-               
+
               </ul>
 
             </div>
             <div class="col-sm-6">
-              
+
               <ul class="client-info">
                 <i class="licon-eye"></i>
-                <li ><a href="tracking.html"><span  style="color: #fff;">RASTREO PAQUETE </span> </a></li>
-                <i class="licon-dice"></i> 
+                <li><a href="tracking.html"><span style="color: #fff;">RASTREO PAQUETE </span> </a></li>
+                <i class="licon-dice"></i>
                 <li><a href="ingresobodega.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
                 <i class="licon-keyboard">
-                </i><li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
+                </i>
+                <li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
                 <i class="licon-pencil">
-              </i><li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
-              
+                </i>
+                <li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
+
               </ul>
             </div>
-  
+
           </div>
 
         </div>
@@ -130,32 +139,33 @@
         <div class="container">
 
           <div class="table-row">
-            
+
             <div class="col-md-3">
 
               <!--Logo-->
-              
+
               <a href="index.html" class="index">
-          
+
                 <img src="images/logo.png" alt="logo">
 
               </a>
 
             </div>
             <div class="col-md-9">
-              
+
               <!-- - - - - - - - - - - - / Mobile Menu - - - - - - - - - - - - - -->
 
               <!--main menu-->
 
               <div class="menu-holder">
-                
+
                 <div class="menu-wrap">
 
                   <div class="nav-item">
                     <nav style="display: flex; justify-content: center;" id="main-navigation" class="main-navigation">
                       <ul id="menu" class="clearfix">
-                        <img src="images/perfil.png" alt=""><li class="dropdown"><a href="#">MI BODEGA</a>
+                        <img src="images/perfil.png" alt="">
+                        <li class="dropdown"><a href="#">MI BODEGA</a>
                           <!--sub menu-->
                           <div class="sub-menu-wrap">
                             <ul>
@@ -176,9 +186,9 @@
               </div>
 
             </div>
-  
+
           </div>
-          
+
         </div>
 
       </div>
@@ -192,7 +202,7 @@
     <div class="breadcrumbs-wrap data-grad-bg-bodega">
 
       <div class="container">
-        
+
         <h1 class="page-title">Mis Paquetes</h1>
 
         <ul class="breadcrumbs">
@@ -211,14 +221,14 @@
     <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
 
     <div id="content" class="with-separator-left sbl">
-      
+
       <div class="container">
-        
+
         <div class="row">
 
           <!-- Sidebar-->
           <aside id="sidebar" class="col-md-2">
-            
+
             <!-- page-section -->
             <div class="page-section">
               <div class="team-member">
@@ -232,139 +242,111 @@
                 <h5 class="widget-title">Categorias</h5>
                 <ul class="info-links">
                   <li><a href="perfil.html">PERFIL</a></li>
-                  <li><a href="paquetes.html">PAQUETES</a></li>
+                  <li><a href="mc-actuales.html">PAQUETES</a></li>
                   <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
                   <li><a href="#">CONSOLIDACIÓN</a></li>
                 </ul>
-                
+
               </div>
             </div>
 
           </aside>
-        
+
           <!-- Main content -->
           <main id="main" class="col-md-10">
-            
+
             <!-- page-section -->
             <div class="page-section">
-            
-              <div class="content-element"  id="envio">
+
+              <div class="content-element" id="envio">
                 <div style="  display: flex;
                 flex-direction: unset;
                 justify-content: space-between;
               " class="alert alert-info">
-                  <button  type="button" class="close" data-dismiss="alert"></button>
-                  Hace falta que agregar un método de pago.  <a href="perfil.html" class="btn">Agregar tarjeta</a>
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  Hace falta que agregar un método de pago. <a href="perfil.html" class="btn">Agregar tarjeta</a>
                 </div>
                 <br><br>
                 <h4 style="display: grid; justify-content: center;" class="fw-medium">Envíos recientes</h4>
                 <div class="table-type-1 recent-order responsive-table">
 
-               <!--FILTROS--->
-               <section class="author-archive">
-                <div class="container">
-                  <input type="radio" id="todos" name="categories" value="todos" checked>
-                  <input type="radio" id="entregado" name="categories" value="entregado">
-                  <input type="radio" id="ruta" name="categories" value="ruta">
-                  <input type="radio" id="bloqueado" name="categories" value="bloqueado">
-                  <input type="radio" id="historico" name="categories" value="historico">
-                  <input type="radio" id="nuevos" name="categories" value="nuevos">
-                  <input type="radio" id="abandono" name="categories" value="abandono">
-              
-                  <ol class="filters">
-                    <li>
-                      <label for="todos">TODOS</label>
-                    </li>
-                    <li>
-                      <label for="entregado"> ENTREGADOS</label>
-                    </li>
-                    <li>
-                      <label for="ruta">EN RUTA</label>
-                    </li>
-                    <li>
-                      <label for="bloqueado">BLOQUEADOS</label>
-                    </li>
-                    <li>
-                      <label for="historico">ANTIGUOS</label>
-                    </li>
-                    <li>
-                      <label for="nuevos">NUEVOS</label>
-                    </li>
-                    <li>
-                      <label for="abandono">ABANDONO</label>
-                    </li>
-                  </ol>
+                  <!--FILTROS--->
+                  <section class="author-archive">
+                    <div class="container">
+                      <input type="radio" id="actuales" name="categories" value="actuales" checked>
+                      <input type="radio" id="historico" name="categories" value="historico">
+                      <input type="radio" id="misAlertas" name="categories" value="misAlertas">
+                      <input type="radio" id="bloqueado" name="categories" value="bloqueado">
+                      <ol class="filters">
+                        <li>
+                          <label for="actuales"><a href="mc-actuales.html">ACTUALES</a></label>
+                        </li>
+                        <li>
+                          <label for="historico"><a href="mc-historicos.html">HISTORICOS</a></label>
+                        </li>
+                        <li>
+                          <label for="misAlertas"><a href="mc-misAlertas.html">MIS
+                              ALERTAS</a></label>
+                        </li>
+                        <li>
+                          <label for="bloqueado"><a href="mc-paquetesBloqueados.htm">BLOQUEADOS</a></label>
+                        </li>
+                      </ol>
+                    </div>
+                  </section><br>
+                  <!--FILTROS-->
+                  <div id="appPaq" class="table-responsive" v-cloak>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="order-number">Fecha</th>
+                          <th class="order-date">Guia</th>
+                          <th>Contenido</th>
+                          <th>Vr-USD</th>
+                          <th>Peso(LB)</th>
+                          <th>Estado</th>
+                          <th class="order-view"></th>
+                        </tr>
+                      </thead>
+                      <tbody v-for="paq in results" class="table-responsive">
+                        <tr>
+                          <td class="table-responsive">
+                            {{ paq.ArrivalWinery | formatDate }} </td>
+                          <td class="table-responsive">{{ paq.PackageId }}</td>
+                          <td class="table-responsive" v-if="paq.Description.length <=20">
+                            {{ paq.Description }}</td>
+                          <td class="table-responsive" v-else="paq.Description.length >=20">
+                            {{ paq.Description.substring(0,18)+".."}}</td>
+                          <td class="table-responsive">{{ paq.DeclaredValue }}</td>
+                          <td class="table-responsive">{{ paq.Weight/454 | formatNumber}}</td>
+                          <td class="table-responsive">{{ paq.StateDescription }}</td>
+                          <td class="table-responsive"><a
+                              :href="'mc-tracking.html?id=' + paq.PackageId +'#headingTrack'">Tracking</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </section><br>
-                <!--FILTROS-->
-                  <table>
-                    <thead>
-                      <tr>
-                        <th class="order-number">Contenido</th>
-                        <th class="order-date">Fecha</th>
-                        <th>Guía</th>
-                        <th>Peso</th>
-                        <th>Valor</th>
-                        <th class="order-view"></th>
-                      </tr>
-                    </thead>
-                    <tr>
-                      <td data-title="Order #"><a href="#">Zapatos</a></td>
-                      <td data-title="Date">Octubre 17, 2022</td>
-                      <td data-title="Status">Entregado</td>
-                      <td data-title="Total">5lb</td>
-                      <td data-title="Total">$99.00</td>
-                      <td><a href="#" class="btn btn-small btn-style-6">Tracking</a></td>
-                    </tr>
-                    <tr>
-                      <td data-title="Order #"><a href="#">Accesorios</a></td>
-                      <td data-title="Date">Agosto 20, 2022</td>
-                      <td data-category="ruta">Ruta</td>
-                      <td data-title="Total">2lb</td>
-                      <td data-title="Total">$99.00</td>
-                      <td><a href="#" class="btn btn-small btn-style-6">Tracking</a></td>
-                    </tr>
-                    <tr>
-                      <td data-title="Order #"><a href="#">Herramientas</a></td>
-                      <td data-title="Date">Enero 15, 2022</td>
-                      <td data-title="Status">Bloqueado</td>
-                      <td data-title="Total">3lb</td>
-                      <td data-title="Total">$99.00</td>
-                      <td><a href="#" class="btn btn-small btn-style-6">Tracking</a></td>
-                    </tr>
-                  </table>
-                </div>
-
               </div>
-
             </div>
-
           </main>
-
         </div>
-
       </div>
-
     </div>
-
     <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
-
     <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
 
     <footer id="footer" class="footer">
-      
       <div class="footer-widgets">
-        
         <div class="container">
-        
           <div class="row">
-
             <div class="col-md-6 col-xs-6">
-              
               <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
               <div class="widget">
                 <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
-                <p>Todos los días es un nuevo día para nosotros y trabajamos muy duro para satisfacer a nuestros clientes en todas partes</p>
+                <p>Todos los días es un nuevo día para nosotros y trabajamos muy duro para satisfacer a nuestros
+                  clientes en todas partes</p>
               </div>
               <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
             </div>
@@ -374,14 +356,17 @@
               <div class="widget">
                 <h6 class="widget-title">Contáctenos</h6>
                 <p>BOXCARGOEXPRESS<br>
-                Av.eldorado 96j-66 <br>
-                Oficina 318</p>
+                  Av.eldorado 96j-66 <br>
+                  Oficina 318</p>
 
                 <ul class="contact-info">
 
-                  <li><span class="licon-telephone"></span> <a href="callto:18005596580"><br/>Principal: +57 311 335 9603 <span style="color: #3ECDFD;">| </span>
-                    Whatsapp +57 316 4542339</a></li>
-                  <li><span class="licon-at-sign"></span> <a href="mailto:servicioalcliente@boxcargoexpress.com"> <spam style="color: #34ccff;">servicioalcliente@boxcargoexpress.com </spam></a></li>
+                  <li><span class="licon-telephone"></span> <a href="callto:18005596580"><br />Principal: +57 311 335
+                      9603 <span style="color: #3ECDFD;">| </span>
+                      Whatsapp +57 316 4542339</a></li>
+                  <li><span class="licon-at-sign"></span> <a href="mailto:servicioalcliente@boxcargoexpress.com">
+                      <spam style="color: #34ccff;">servicioalcliente@boxcargoexpress.com </spam>
+                    </a></li>
 
                 </ul>
                 <ul class="social-icons">
@@ -398,14 +383,14 @@
 
             </div>
           </div>
-          
+
         </div>
 
       </div>
       <hr class="item-divider">
-                 <!-- - - - - - - - - - - - - - Copyright - - - - - - - - - - - - - - - - -->
+      <!-- - - - - - - - - - - - - - Copyright - - - - - - - - - - - - - - - - -->
       <div class="copyright">
-        
+
         <div class="container">
 
           <div class="table-row">
@@ -414,12 +399,13 @@
               <spam style="font-size: 18px;">BoxcargoExpress</span> Copyright © 2018-2022
             </div>
             <div class="col-sm-8">
-              
+
               <ul class="info-links h-type">
-              
-                <li ><a style="color: #3ECDFD;font-size:large;" href="terminos.html">* TERMINOS Y CONDICIONES</a></li>
-                <li ><a style="color: #3ECDFD;font-size:large;" href="faq.html">* PREGUNTAS FRECUENTES</a></li>
-                <li ><a style="color: #3ECDFD;font-size:large;" href="restringidos.html">* PRODUCTOS RESTRINGIDOS</a></li>
+
+                <li><a style="color: #3ECDFD;font-size:large;" href="terminos.html">* TERMINOS Y CONDICIONES</a></li>
+                <li><a style="color: #3ECDFD;font-size:large;" href="faq.html">* PREGUNTAS FRECUENTES</a></li>
+                <li><a style="color: #3ECDFD;font-size:large;" href="restringidos.html">* PRODUCTOS RESTRINGIDOS</a>
+                </li>
                 <!-- <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Sitemap</a></li> -->
 
@@ -456,14 +442,17 @@
   <script src="plugins/jquery.fancybox.js"></script>
   <script src="plugins/twitter/jquery.tweet.min.js"></script>
   <script src="plugins/elevatezoom.min.js"></script>
-  
-  <script src="plugins/bootstrap.js"></script>
 
+  <script src="plugins/bootstrap.js"></script>
 
   <!-- JS theme files
   ============================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/fivepaq.js"></script>
+  <script src="js/libs/moment.js"></script>
+  <script src="js/mc-actuales.js"></script>
 
 </body>
+
 </html>

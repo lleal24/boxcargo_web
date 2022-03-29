@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="plugins/revolution/css/layers.css">
   <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <!-- CSS theme files
@@ -256,7 +256,7 @@
 
                 <div class="form-column">
                   <label class="required">Usuario o email</label>
-                  <input type="text">
+                  <input type="email" id="EmailLogin" name="EmailLogin">
                   <footer class="login-form-footer">
 
                     <input type="checkbox" id="login-remember-me" class="type-2" name="login_remember_me">
@@ -266,23 +266,19 @@
                 </div>
                 <div class="form-column">
                   <label class="required">Password</label>
-                  <input type="text">
+                  <input type="password" id="contrasenaLogin">
                   <a href="#" class="forgot-password">¿Olvido contraseña?</a>
                 </div>
                 <div class="form-column-full">
-                  <a style="display: grid; font-size: 20px;" href="#" class="btn">Ingresar</a>
+                  <buton class="btn btn-primary btn-block" type="submit" onclick="logueo()">Ingresar</buton>
+                  <!-- <a style="display: grid; font-size: 20px;" href="#" class="btn">Ingresar</a> -->
                 </div>
-
               </form>
-
               <!-- - - - - - - - - - - - - - End of Login Form - - - - - - - - - - - - - - - - -->
-
             </div>
             <!--/ .content -->
-
           </div>
           <!--/ .hidden-section -->
-
 
           <!--/CUPON -->
           <div class="hidden-section">
@@ -408,13 +404,13 @@
                 <div class="form-column">
                   <label class="required">Tipo Documento</label>
                   <!-- <div class="custom-select"> -->
-                    <div class="select-title">Documento</div>
-                    <ul id="menu-type" class="select-list"></ul>
-                    <select id="tipoDoc" name="tipoDoc">
-                      <option value="menu">Cédula</option>
-                      <option value="menu">Pasaport</option>
-                      <option value="menu">Nit</option>
-                    </select>
+                  <div class="select-title">Documento</div>
+                  <ul id="menu-type" class="select-list"></ul>
+                  <select id="tipoDoc" name="tipoDoc">
+                    <option value="menu">Cédula</option>
+                    <option value="menu">Pasaport</option>
+                    <option value="menu">Nit</option>
+                  </select>
                   <!-- </div> -->
                 </div>
 
@@ -440,19 +436,21 @@
                   <input type="password" placeholder="Confirmar contraseña" id="passwordRegistroConfirm"
                     name="passwordRegistroConfirm" maxlength="100" required>
                 </div>
-                
+
                 <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account" required>
                 <label for="bd_create_an_account">Acepto términos y condiciones</label><br><br>
-                
-                <input hidden="true" id="ciudadIdRegistro"/>
-								<input hidden="true" id="ciudadTipoRegistro" />
-								<input hidden="true" id="zipCode" />
+
+                <input hidden="true" id="ciudadIdRegistro" />
+                <input hidden="true" id="ciudadTipoRegistro" />
+                <input hidden="true" id="zipCode" />
                 <input hidden id="convenioRegistro" value="30">
+                <input hidden id="AsesorID" value="1">
 
                 <!--/ .input-wrapper -->
                 <div class="form-column-full">
                   <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="grabarClick()">CREAR
                     CUENTA</button>
+
                   <!-- <input class="btn btn-primary btn-lg btn-block" type="submit" value="CREAR CUENTA" onclick="grabarClick()">  -->
                 </div>
 
@@ -627,74 +625,69 @@
 
       <script>
         function grabarClick() {
-          //event.preventDefault();
           $('form[id="registro"]').validate({
+            ignore: ".ignore",
             rules: {
-              // convenioRegistro: {
-              //   required: true,
-              // },
               nombre: {
                 required: true,
-                maxlength: 20,
+                maxlength: 50,
               },
               cpostal: {
                 required: true,
               },
-              // apellidos: {
-              //   required: true,
-              //   maxlength: 20,
-              // },
-              // emailRegistro: {
-              //   required: true,
-              //   email: true,
-              // },
-              // emailRegistroConfirm: {
-              //   required: true,
-              //   email: true,
-              //   equalTo: "#emailRegistro"
-              // },
-              // telefono: {
-              //   required: true,
-              //   regex: true,
-              //   maxlength: 20,
-              // },
-              // // AsesorID: {
-              // //   required: true,
-              // // },
-              // tipoDoc: {
-              //   required: true,
-              // },
-              // documento: {
-              //   required: true,
-              // },
-              // passwordRegistro: {
-              //   required: true,
-              //   maxlength: 50,
-              //   minlength: 5
-              // },
-              // passwordRegistroConfirm: {
-              //   required: true,
-              //   maxlength: 50,
-              //   equalTo: "#passwordRegistro",
-              //   minlength: 5
-              // },
-              // bd_create_an_account: {
-              //   required: true,
-              //   minlength: 1
-              // }
+              apellidos: {
+                required: true,
+                maxlength: 50,
+              },
+              emailRegistro: {
+                required: true,
+                email: true,
+              },
+              emailRegistroConfirm: {
+                required: true,
+                email: true,
+                equalTo: "#emailRegistro"
+              },
+              telefono: {
+                required: true,
+                regex: true,
+                maxlength: 20,
+              },
+              direccion: {
+                required: true,
+                maxlength: 100,
+              },
+              tipoDoc: {
+                required: true,
+              },
+              documento: {
+                required: true,
+              },
+              passwordRegistro: {
+                required: true,
+                maxlength: 50,
+                minlength: 5
+              },
+              passwordRegistroConfirm: {
+                required: true,
+                maxlength: 50,
+                equalTo: "#passwordRegistro",
+                minlength: 5
+              },
             },
             messages: {
               nombre: 'El campo es requerido',
-              // apellidos: 'El campo es requerido',
-              // emailRegistro: 'Ingrese un email valido',
-              // telefono: 'Ingrese un teléfono valido',
-              // direccion: 'El campo es requerido',
+              apellidos: 'El campo es requerido',
+              emailRegistro: 'Ingrese un email valido',
+              emailRegistroConfirm: 'El email no coincide',
+              telefono: 'Ingrese un teléfono valido',
+              direccion: 'El campo es requerido',
               cpostal: 'El campo es requerido',
-              //AsesorID: 'El campo es requerido',
-              // tipoDoc: 'El campo es requerido',
-              // documento: 'El campo es requerido',
-              // passwordRegistro: 'Contraseña minimo 6 caracteres',
-              // bd_create_an_account: 'Valide las condiciones'
+              tipoDoc: 'El campo es requerido',
+              documento: 'El campo es requerido',
+              passwordRegistro: 'Contraseña minimo 6 caracteres',
+              passwordRegistroConfirm: 'La contraseña no coincide',
+              bd_create_an_account: 'Acepte las condiciones'
 
             },
             submitHandler: function (form) {
@@ -709,28 +702,80 @@
                 Telefono: $("#telefono").val(),
                 Password: $("#passwordRegistro").val(),
                 EMail: $("#emailRegistro").val(),
-                //Asesor: $("#AsesorID").val(),
                 TicketId: $("#ticketId").val()
               };
-              fivepaq.CuentaAdd(datos.ConvenioCta, datos.Documento, datos.Empresa, datos.Nombre, datos.Direccion, datos.CiudadId, datos.CodigoPostal, datos.Telefono, datos.Password, datos.EMail, datos.Asesor, datos.TicketId);
+              fivepaq.CuentaAdd(datos.ConvenioCta, datos.Documento, datos.Empresa, datos.Nombre, datos.Direccion,
+                datos.CiudadId, datos.CodigoPostal, datos.Telefono, datos.Password, datos.EMail, datos.Asesor,
+                datos.TicketId);
             }
           });
 
-          // $.validator.addMethod(
-          //   "regex",
-          //   function (value, element, regexp) {
-          //     var re = new RegExp(regexp);
-          //     return this.optional(element) || re.test(value);
-          //   },
-          //   "Please check your input."
-          // );
+          $.validator.addMethod(
+            "regex",
+            function (value, element, regexp) {
+              var re = new RegExp(regexp);
+              return this.optional(element) || re.test(value);
+            },
+            "Please check your input."
+          );
 
-          // $("#telefono").rules("add", { regex: "^\\d{1,20}$" })
-          // $("#cpostal").rules("add", { regex: "^\\d{1,10}$" })
+          $("#telefono").rules("add", {
+            regex: "^\\d{1,20}$"
+          })
+          $("#cpostal").rules("add", {
+            regex: "^\\d{1,10}$"
+          })
+        }
 
+        function handleException(request, message, error) {
+          var msg = "";
+          msg += "Code: " + request.status + "\n";
+          msg += "Text: " + request.statusText + "\n";
+          if (request.responseJSON != null) {
+            msg += "Message" + request.responseJSON.Message + "\n";
+          }
+          Swal.fire("¡ha ocurrido un error! ", "por favor comunique con nosotros al Email: soporte@Fivepaq.com ",
+            "error");
+        }
+
+        function CuentaSuccess(noCuenta) {
+          if (noCuenta.Error != null) {
+            Swal.fire("¡ha ocurrido un error! ", noCuenta.Error.ErrorMessage, "error");
+          } else {
+            Swal.fire("¡Ya eres un cliente Luxury! ", "Tu casillero es: " + noCuenta.noCuenta, "success").then((
+              value) => {
+              if (value) {
+                location.href = "index.html";
+              }
+            });;
+          }
+        }
+
+        function logueo() {
+          var datos = {
+            Email: $("#EmailLogin").val(),
+            Password: $("#contrasenaLogin").val(),
+            RememberMe: $("#RememberMe").prop('checked')
+          };
+
+          fivepaq.Login(datos.Email, datos.Password, datos.RememberMe, LoginOk, LoginFail);
+        }
+
+        var LoginOk = function () {
+          $("#mensajeLogin").html('<strong>Ha ingresado al sistema</strong>');
+          $("#mensajeLogin").removeClass('alert alert-danger');
+          $("#mensajeLogin").addClass('alert alert-success');
+          $("#loader").hide();
+          location.href = "perfil.html";
+        }
+
+        var LoginFail = function () {
+          $("#mensajeLogin").html('<strong>Error en intento de Login!</strong>');
+          $("#mensajeLogin").removeClass('alert alert-success');
+          $("#mensajeLogin").addClass('alert alert-danger');
+          $("#loader").hide();
         }
       </script>
-
 </body>
 
 </html>
