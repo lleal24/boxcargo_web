@@ -249,7 +249,7 @@ var fivepaq = {
 					confirmButtonText: 'Ok',
 					allowOutsideClick: false,
 				}).then((result) => {
-					location.href = "http://luxury.fivepaq.com/"
+					location.href = "index.html"
 					/* location.href = "../index.html" */
 					/* 	if (result.value) {
 							debugger;

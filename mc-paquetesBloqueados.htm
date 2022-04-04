@@ -117,7 +117,7 @@
                                 <i class="licon-eye"></i>
                                 <li><a href="tracking.html"><span style="color: #fff;">RASTREO PAQUETE </span> </a></li>
                                 <i class="licon-dice"></i>
-                                <li><a href="ingresobodega.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
                                 <i class="licon-keyboard">
                                 </i>
                                 <li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
@@ -174,30 +174,21 @@
                                                         <ul>
                                                             <li style="margin-left: 1rem;">-Número: BC0976543-</li>
                                                             <li><a href="perfil.html">-Perfil-</a></li>
-                                                            <li><a href="calcular.html">-Cerrar BODEGA</a></li>
+                                                            <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
                                                         </ul>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </nav>
                                         <!-- <div class="search-holder"><button class="search-button"></button></div> -->
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </header>
-
         <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
 
         <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
@@ -243,14 +234,10 @@
                                     <li><a href="perfil.html">PERFIL</a></li>
                                     <li><a href="mc-actuales.html">PAQUETES</a></li>
                                     <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
-                                    <li><a href="#">CONSOLIDACIÓN</a></li>
                                 </ul>
-
                             </div>
                         </div>
-
                     </aside>
-
                     <!-- Main content -->
                     <main id="main" class="col-md-10">
 
@@ -277,7 +264,8 @@
                                             <input type="radio" id="actuales" name="categories" value="actuales">
                                             <input type="radio" id="historico" name="categories" value="historico">
                                             <input type="radio" id="misAlertas" name="categories" value="misAlertas">
-                                            <input type="radio" id="bloqueado" name="categories" value="bloqueado" checked>
+                                            <input type="radio" id="bloqueado" name="categories" value="bloqueado"
+                                                checked>
                                             <ol class="filters">
                                                 <li>
                                                     <label for="actuales"><a
@@ -322,7 +310,7 @@
                                                     <td class="table-responsive" v-if="paq.ValorDeclarado == null">0.00
                                                     </td>
                                                     <td class="table-responsive" v-else="paq.ValorDeclarado != null">{{
-														paq.ValorDeclarado }}</td>
+                                                        paq.ValorDeclarado }}</td>
                                                     <td class="table-responsive">{{paq.PesoLibras}}</td>
                                                     <td class="table-responsive">BLQ</td>
                                                 </tr>
@@ -459,6 +447,19 @@
     <script src="js/libs/moment.js"></script>
     <script src="js/mc-paquetesBloqueados.js"></script>
 
-</body>
+    <script>
+        function cerrarsesion() {
+            fivepaq.logOut();
+            location.href = "index.html";
+        }
+        var dataout = fivepaq.dataOut();
 
+        if (dataout == null || dataout.L !== true) {
+            location.href = "index.html";
+        }
+
+        $("#nombreCliente").html(dataout.U);
+        $("#numCasillero").html(dataout.N);
+    </script>
+</body>
 </html>

@@ -115,7 +115,7 @@
                 <i class="licon-eye"></i>
                 <li><a href="tracking.html"><span style="color: #fff;">RASTREO PAQUETE </span> </a></li>
                 <i class="licon-dice"></i>
-                <li><a href="ingresobodega.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
                 <i class="licon-keyboard">
                 </i>
                 <li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
@@ -171,7 +171,7 @@
                             <ul>
                               <li style="margin-left: 1rem;">-Número: BC0976543-</li>
                               <li><a href="perfil.html">-Perfil-</a></li>
-                              <li><a href="calcular.html">-Cerrar BODEGA</a></li>
+                              <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
                             </ul>
                           </div>
                         </li>
@@ -244,20 +244,14 @@
                   <li><a href="perfil.html">PERFIL</a></li>
                   <li><a href="mc-actuales.html">PAQUETES</a></li>
                   <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
-                  <li><a href="#">CONSOLIDACIÓN</a></li>
                 </ul>
-
               </div>
             </div>
-
           </aside>
-
           <!-- Main content -->
           <main id="main" class="col-md-10">
-
             <!-- page-section -->
             <div class="page-section">
-
               <div class="content-element" id="envio">
                 <div style="  display: flex;
                 flex-direction: unset;
@@ -390,18 +384,13 @@
       <hr class="item-divider">
       <!-- - - - - - - - - - - - - - Copyright - - - - - - - - - - - - - - - - -->
       <div class="copyright">
-
         <div class="container">
-
           <div class="table-row">
-
             <div class="col-sm-4">
               <spam style="font-size: 18px;">BoxcargoExpress</span> Copyright © 2018-2022
             </div>
             <div class="col-sm-8">
-
               <ul class="info-links h-type">
-
                 <li><a style="color: #3ECDFD;font-size:large;" href="terminos.html">* TERMINOS Y CONDICIONES</a></li>
                 <li><a style="color: #3ECDFD;font-size:large;" href="faq.html">* PREGUNTAS FRECUENTES</a></li>
                 <li><a style="color: #3ECDFD;font-size:large;" href="restringidos.html">* PRODUCTOS RESTRINGIDOS</a>
@@ -412,19 +401,12 @@
               </ul>
 
             </div>
-
           </div>
-
         </div>
-
       </div>
       <!-- - - - - - - - - - - - - - End Copyright - - - - - - - - - - - - - - - - -->
-
-
     </footer>
-
     <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
-
   </div>
 
   <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
@@ -453,6 +435,20 @@
   <script src="js/libs/moment.js"></script>
   <script src="js/mc-actuales.js"></script>
 
-</body>
+  <script>
+    function cerrarsesion() {
+      fivepaq.logOut();
+      location.href = "index.html";
+    }
+    var dataout = fivepaq.dataOut();
 
+    if (dataout == null || dataout.L !== true) {
+      location.href = "index.html";
+    }
+
+    $("#nombreCliente").html(dataout.U);
+    $("#numCasillero").html(dataout.N);
+
+  </script>
+</body>
 </html>

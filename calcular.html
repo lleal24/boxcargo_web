@@ -108,7 +108,7 @@
                 <i class="licon-eye"></i>
                 <li ><a href="tracking.html"><span  style="color: #fff;">RASTREO PAQUETE </span> </a></li>
                 <i class="licon-dice"></i> 
-                <li><a href="ingresobodega.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
                 <i class="licon-keyboard">
                 </i><li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
                 <i class="licon-pencil">
@@ -169,7 +169,7 @@
                           <div class="sub-menu-wrap">
                             <ul>
                               <li><a href="tracking.html">Rastreo de paquetes</a></li>
-                              <li><a href=ingresobodega.html">Ingreso Mi Bodega</a></li>
+                              <li><a href=registro.html">Ingreso Mi Bodega</a></li>
                               <li><a href="calcular.html">Mi Calculadora</a></li>
                               <li><a href="registro.html">Mi Registro</a></li>
                             </ul>
@@ -275,86 +275,110 @@
               </div>
 
               <div class="form-column">
+                <div class="select-title">Valor declarado</div>
                 <input type="number" id="valorDeclarado" placeholder="Valor del envío" required>
               </div>
               <div class="form-column">
+                <div class="select-title">Descripción</div>
                 <input type="text" id="descripcion" placeholder="Descripción">
               </div>
               <div class="form-column">
-                <input type="number" id='pesoTotal' placeholder="Peso (Lbs) [1.00 - 5.00]." required>
+                <div class="select-title">Peso(Lbs)</div>
+                <input type="number" id='pesoTotal' min="1" max="6" placeholder="Peso (Lbs) [1.00 - 5.00]." required>
               </div>
               <div class="form-column">
-                <input type="number" id='alto' value='' placeholder="Alto(cm)">
+                <div class="select-title">Alto(cm)</div>
+                <input type="number" id='alto' value='0' placeholder="Alto(cm)">
               </div>
               <div class="form-column">
-                <input type="number" id='largo' value='' placeholder="Largo(cm) ">
+                <div class="select-title">Largo(cm)</div>
+                <input type="number" id='largo' value='0' placeholder="Largo(cm) ">
               </div>
               <div class="form-column">
-                <input type="number" id='ancho' value='' placeholder="Ancho(cm) ">
+                <div class="select-title">Ancho(cm)</div>
+                <input type="number" id='ancho' value='0' placeholder="Ancho(cm) ">
               </div>
-              <input id='tDimension' value='CM'>
-              <input id="tUnidad" value='LB'>
+              <input id='tDimension' value='CM' hidden>
+              <input id="tUnidad" value='LB' hidden>
               <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal">Calcular</button>
               <!-- <a href="#" class="hero__cta">Calcular</a> -->
-
-              <section class="modal" id="modalCalculadora">
-               
-                <div class="modal__container">
-                  <h3>DETALLES DEL COBRO</h3>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="table-type-2">
-                        <table>
-                          <tr>
-                            <td><div>FLETE</div></td>
-                            <td>Nemo enim ipsam</td>
-                            <td>$5.99</td>
-                          </tr>
-                          <tr>
-                            <td>Aranceles + Impuestos </td>
-                            <td>Voluptatem quia</td>
-                            <td>$5.99</td>
-                          </tr>
-                          <tr>
-                            <td>IVA </td>
-                            <td>Sit aspernatur aut odit</td>
-                            <td>$5.99</td>
-                          </tr>
-                          <tr class="bg-cell">
-                            <td>Valor total envío </td>
-                            <td></td>
-                            <td>$5.99</td>
-                          </tr>
-                        </table>
-                      </div>
-      
-                    </div>
-                  </div>
-                    <p><spam style="color: #3ECDFD; font-weight: 700;">Nota:</spam>   Este es un cálculo aproximado de impuestos y aranceles, estas cifras son estimaciones. El peso dimensional aplica si este es mayor que el peso físico. </p>
-                    <a href="#" class="modal__close">Calcular Nuevamente</a>
-                </div>
-            </section>
             </form>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Estimación de costos</h2>
+              <table class="table table-bordered">
+                <tbody id="divTracking">
+                  <tr>
+                    <td>Flete estimado:</td>
+                    <td id="vlFlete"></td>
+                  </tr>
+                  <tr>
+                    <td>Seguro:</td>
+                    <td id="vlSeguro"></td>
+                  </tr>
+                  <tr>
+                    <td>Arancel:</td>
+                    <td id="vlArancel"></td>
+                  </tr>
+                  <tr>
+                    <td>IVA:</td>
+                    <td id="vlIva"></td>
+                  </tr>
+                  <tr>
+                    <td>Valor total USD:</td>
+                    <td id="vlValor"></td>
+                  </tr>
+                </tbody>
+              </table>
+            <!-- <section class="modal" id="modalCalculadora">
+              <div class="modal__container">
+                <h3>DETALLES DEL COBRO</h3>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="table-type-2">
+                      <table>
+                        <tr>
+                          <td><div>FLETE</div></td>
+                          <td>Nemo enim ipsam</td>
+                          <td>$5.99</td>
+                        </tr>
+                        <tr>
+                          <td>Aranceles + Impuestos </td>
+                          <td>Voluptatem quia</td>
+                          <td>$5.99</td>
+                        </tr>
+                        <tr>
+                          <td>IVA </td>
+                          <td>Sit aspernatur aut odit</td>
+                          <td>$5.99</td>
+                        </tr>
+                        <tr class="bg-cell">
+                          <td>Valor total envío </td>
+                          <td></td>
+                          <td>$5.99</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                  <p><spam style="color: #3ECDFD; font-weight: 700;">Nota:</spam>   Este es un cálculo aproximado de impuestos y aranceles, estas cifras son estimaciones. El peso dimensional aplica si este es mayor que el peso físico. </p>
+                  <a href="#" class="modal__close">Calcular Nuevamente</a>
+              </div>
+          </section> -->
+          </div>
+        </div>
       </div>
-
     </div>
-
     <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
-
     <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
 
     <footer id="footer" class="footer">
-      
       <div class="footer-widgets">
-        
         <div class="container">
-        
           <div class="row">
-
             <div class="col-md-6 col-xs-6">
-              
               <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
               <div class="widget">
                 <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
@@ -362,7 +386,6 @@
               </div>
               <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
             </div>
-
             <div class="col-md-6 col-xs-6">
               <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
               <div class="widget">

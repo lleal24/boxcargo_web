@@ -1,36 +1,4 @@
-// const openModal = document.querySelector('.hero__cta');
-// const modal = document.querySelector('.modal');
-// const closeModal = document.querySelector('.modal__close');
-
-// openModal.addEventListener('click', (e)=>{
-//     e.preventDefault();
-//     modal.classList.add('modal--show');
-// });
-
-// closeModal.addEventListener('click', (e)=>{
-//     e.preventDefault();
-//     modal.classList.remove('modal--show');
-// });
-
-/* */
-
 sessionStorage.setItem('appData', '30')
-// function enviarConvenio(convenio) {
-//     event.preventDefault();
-//     limpiarClick();
-//     if (convenio == 5) {
-//         let elementAct = document.getElementById('5');
-//         elementAct.classList.add('active');
-//         let elementInac = document.getElementById('3');
-//         elementInac.classList.remove('active')
-//     } else {
-//         let elementAct = document.getElementById('3');
-//         elementAct.classList.add('active');
-//         let elementInac = document.getElementById('5');
-//         elementInac.classList.remove('active')
-//     }
-//     sessionStorage.setItem('appData', convenio);
-// }
 
 /* VALIDACION DE CONVENIO */
 function validarConvenio() {
@@ -147,11 +115,11 @@ function limpiarClick() {
 }
 
 function CalculadoraResult(request) {
-    $("#lbflete").text("USD$ " + String(request.ValorFlete));
-    $("#lbseguro").text("USD$ " + String(request.ValorSeguro));
-    $("#lbarancel").text("USD$ " + String(request.ValorArancel));
-    $("#lbiva").text("USD$ " + String(request.ValorIva));
-    $("#lbTOTAL").text("$ " + String(request.ValorTotal));
+    $("#vlFlete").text("USD$ " + String(request.ValorFlete));
+    $("#vlSeguro").text("USD$ " + String(request.ValorSeguro));
+    $("#vlArancel").text("USD$ " + String(request.ValorArancel));
+    $("#vlIva").text("USD$ " + String(request.ValorIva));
+    $("#vlValor").text("$ " + String(request.ValorTotal));
 }
 
 /* FUNCION PRINCIPAL */
@@ -164,25 +132,18 @@ async function calcularClick() {
         if (!validarCalculadora()) {
             return;
         }
-
     }
     let url_ws_ciudades = getUrlCalculadora();
     try {
         let req = await fetch(url_ws_ciudades);
         if (req.status === 200) {
             let data = await req.json();
-            //limpiarCalculadora();
-            //CalculadoraResult(data);
-            //window.location.href = "#estimacion"
-            console.log(data);
-            $('#exampleModalCenter').modal('show');
- 
-
+            limpiarCalculadora();
+            CalculadoraResult(data);
         }
 
     } catch (error) {
         console.log(error);
     }
-
 }
 

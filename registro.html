@@ -115,7 +115,7 @@
                 <i class="licon-eye"></i>
                 <li><a href="tracking.html"><span style="color: #fff;">RASTREO PAQUETE </span> </a></li>
                 <i class="licon-dice"></i>
-                <li><a href="ingresobodega.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
                 <i class="licon-keyboard">
                 </i>
                 <li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
@@ -178,7 +178,7 @@
                           <div class="sub-menu-wrap">
                             <ul>
                               <li><a href="tracking.html">Rastreo de paquetes</a></li>
-                              <li><a href="ingresobodega.html">Ingreso Mi Bodega</a></li>
+                              <li><a href="registro.html">Ingreso Mi Bodega</a></li>
                               <li><a href="calcular.html">Mi Calculadora</a></li>
                               <li><a href="registro.html">Mi Registro</a></li>
                             </ul>
@@ -267,10 +267,11 @@
                 <div class="form-column">
                   <label class="required">Password</label>
                   <input type="password" id="contrasenaLogin">
-                  <a href="#" class="forgot-password">¿Olvido contraseña?</a>
+                  <a href="cambioclave.html" class="forgot-password">¿Olvido contraseña?</a>
                 </div>
                 <div class="form-column-full">
                   <buton class="btn btn-primary btn-block" type="submit" onclick="logueo()">Ingresar</buton>
+                  <div id="mensajeLogin"></div>
                   <!-- <a style="display: grid; font-size: 20px;" href="#" class="btn">Ingresar</a> -->
                 </div>
               </form>
@@ -770,10 +771,7 @@
         }
 
         var LoginFail = function () {
-          $("#mensajeLogin").html('<strong>Error en intento de Login!</strong>');
-          $("#mensajeLogin").removeClass('alert alert-success');
-          $("#mensajeLogin").addClass('alert alert-danger');
-          $("#loader").hide();
+          Swal.fire("¡ha ocurrido un error! ", "Error en Usuario y/o contraseña.");
         }
       </script>
 </body>

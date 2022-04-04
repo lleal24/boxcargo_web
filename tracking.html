@@ -48,10 +48,8 @@
   
 </head>
 
-<body class="wide-layout">
-
+<body class="wide-layout" >
   <div class="loader"></div>
-
   <!--cookies-->
    <!-- <div class="cookies">
           <div class="container">
@@ -96,42 +94,28 @@
                 <i class="licon-eye"></i>
                 <li ><a href="tracking.html"><span  style="color: #fff;">RASTREO PAQUETE </span> </a></li>
                 <i class="licon-dice"></i> 
-                <li><a href="ingresobodega.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
                 <i class="licon-keyboard">
                 </i><li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
                 <i class="licon-pencil">
               </i><li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
-              
               </ul>
             </div>
-  
           </div>
-
         </div>
-
       </div>
-
       <!-- top-header -->
 
       <div class="top-header">
-
         <div class="container">
-
           <div class="table-row">
-            
             <div class="col-md-3">
-
               <!--Logo-->
-              
               <a href="index.html" class="index">
-          
                 <img src="images/logo.png" alt="logo">
-
               </a>
-
             </div>
             <div class="col-md-9">
-              
               <!-- - - - - - - - - - - - / Mobile Menu - - - - - - - - - - - - - -->
 
               <!--main menu-->
@@ -157,7 +141,7 @@
                           <div class="sub-menu-wrap">
                             <ul>
                               <li><a href="tracking.html">Rastreo de paquetes</a></li>
-                              <li><a href="ingresobodega.html">Ingreso Mi Bodega</a></li>
+                              <li><a href="registro.html">Ingreso Mi Bodega</a></li>
                               <li><a href="calcular.html">Mi Calculadora</a></li>
                               <li><a href="registro.html">Mi Registro</a></li>
                             </ul>
@@ -224,15 +208,14 @@
           <div class="col-sm-8">
             <h2>Localiza tu paquete  </h2>
             <p>Ingrese la información a continuación para calcular el envío.</p>
-            <form class="form-style2 fx-cols-2">
+            <!-- <form class="form-style2 fx-cols-2"> -->
               <div class="form-column-full">
                 <div class="form-column">
-                  <input type="number" placeholder="Ingrese el número de rastreo o Tracking">
+                  <input type="text" id="numeroGuia" placeholder="Ingrese el número de rastreo o Tracking">
                 </div>
               </div>
-              <button style="display: grid;" type="submit" class="btn" data-type="submit">Buscar</button>
-            </form>
-
+              <button style="display: grid;" onclick="obtenerTraza();" class="btn">Buscar</button>
+            <!-- </form> -->
           </div>
           <div class="col-sm-4">
             <div class="banners-wrap">
@@ -247,6 +230,22 @@
               <!-- Banner -->
             </div>
           </div>  
+        </div>
+        <div class="row" id="filaTracking" hidden>
+          <div class="col-sm-8">
+            <h2>Tracking</h2>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Estado</th>
+                  <th>Descripcion</th>
+                  <th>Fecha</th>
+                </tr>
+              </thead>
+              <tbody id="divTracking">
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -392,6 +391,7 @@
   ============================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/tracking.js"></script>
   
 </body>
 </html>

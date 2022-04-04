@@ -43,8 +43,7 @@
   <link rel="stylesheet" href="plugins/revolution/css/layers.css">
   <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
-
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- CSS theme files
   ============================================ -->
@@ -152,31 +151,22 @@
                           <div class="sub-menu-wrap">
                             <ul>
                               <li><a href="tracking.html">-Número: BC0976543-</a></li>
-                              <li><a href="ingresobodega.html">-Perfil-</a></li>
-                              <li><a href="calcular.html">-Cerrar BODEGA-</a></li>
+                              <li><a href="registro.html">-Perfil-</a></li>
+                              <li><a onclick="cerrarsesion()">-Cerrar BODEGA-</a></li>
                             </ul>
                           </div>
                         </li>
                       </ul>
                     </nav>
                     <!-- <div class="search-holder"><button class="search-button"></button></div> -->
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </header>
-
     <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
 
     <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
@@ -226,20 +216,15 @@
                   <li><a href="perfil.html">PERFIL</a></li>
                   <li><a href="mc-actuales.html">PAQUETES</a></li>
                   <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
-                  <li><a href="consolidacion.html">CONSOLIDACIÓN</a></li>
                 </ul>
-
               </div>
             </div>
-
           </aside>
 
           <!-- Main content -->
           <main id="main" class="col-md-10">
-
             <!-- page-section -->
             <div class="page-section">
-
               <div class="content-element" id="envio">
                 <div style="  display: flex;
                 flex-direction: unset;
@@ -250,12 +235,9 @@
                 </div>
                 <!-- - - - - - - - - - - - - Formulario - - - - - - - - - - - - - - - -->
                 <div class="page-section">
-
                   <div class="container">
-
                     <div class="row">
-                      <div class="col-md-10">
-
+                      <!-- <div class="col-md-10">
                         <h2 class="section-title">Información general del transporte</h2>
                         <p class="section-pre-title">Déjenos saber si a hecho una compra y tiene un paquete en camino a
                           nuestras bodegas, de esta forma podemos ayudale en cada etapa del proceso. </p><br>
@@ -264,7 +246,6 @@
                           <div class="form-column">
                             <label class="required">Correo electrónico </label>
                             <input type="text" placeholder="leonardo.medina@auropaq.com" disabled>
-
                           </div>
                           <div class="form-column">
                             <label tipe class="required">Número de Bodega</label>
@@ -275,13 +256,11 @@
                             <input type="number" placeholder="TBA176914895601">
                           </div>
                         </form><br>
-
-                      </div>
+                      </div> -->
                       <div class="col-md-10">
-
                         <h2 class="section-title">Información del producto </h2>
                         <p class="section-pre-title">Dejenos conocer más del/los producto(s) que compro. </p><br>
-                        <form class="form-style1 fx-cols-2">
+                        <form class="form-style1 fx-cols-2" id="formAlerta">
                           <div class="form-column">
                             <label class="required">Compañia transportadora</label>
                             <select id="idCarrier" name="idCarrier" required>
@@ -296,7 +275,8 @@
                           </div>
                           <div class="form-column">
                             <label class="required">Nùmero de carrier</label>
-                            <input type="text" placeholder="Ingrese el numero de tracking" minlength="6" maxlength="100" required>
+                            <input type="text" id="trackingNumber" name="trackingNumber"
+                              placeholder="Ingrese el numero de tracking" minlength="6" maxlength="100" required>
                           </div>
                           <div class="form-colum">
                             <label class="required">Direcciòn de destino</label>
@@ -306,23 +286,31 @@
                           </div>
                           <div class="form-column">
                             <label class="required">Nombre destino</label>
-                            <input type="text" placeholder="Nombre completo" maxlength="100" required>
+                            <input type="text" id="destinatario" name="destinatario" placeholder="Nombre completo"
+                              maxlength="100" required>
                           </div>
                           <div class="form-column">
                             <label class="required">Producto comprado</label>
-                            <input type="text" placeholder="Describa el producto comprado" maxlength="100" required>
+                            <input type="text" id="descripcion" name="descripcion"
+                              placeholder="Describa el producto comprado" maxlength="100" required>
                           </div>
                           <div class="form-column">
                             <label tipe class="required">Valor del Producto</label>
-                            <input type="number" placeholder="USD 0.00" required>
+                            <input type="number" id="Valor" name="Valor" placeholder="USD 0.00" required>
+                          </div>
+                          <div class="form-column">
+                            <label class="required">Escoje la categoría</label>
+                            <select id="posicionArancelaria" name="posicionArancelaria" required>
+                              <label class="required">Escoje la categoría</label>
+                              <option value="9807200000" selected>Otros envíos Urgentes </option>
+                              <option value="6114909000">Ropa</option>
+                              <option value="8471300000">Tecnología</option>
+                              <option value="8522905000">Otras categorias</option>
+                            </select>
                           </div>
                           <div style="display: grid;" class="form-column">
-                            <div class="form-column">
-                            <label tipe class="required">Valor del Producto</label>
-                            <input type="number" placeholder="USD 0.00" required>
-                          </div>
                             <label>Adjuntar factura de compra (opcional)</label>
-                            <input class="hidden" type="file" required><br>
+                            <input class="hidden" id="ImageUrl" type="file" onchange="validarExtencion()"><br>
                             <button class="btn btn-primary" type="submit" onclick="grabarClick()">Cargar</button>
                             <spam>
                               * Utilice archivos en formato: .gif, .jpg, .png para adjuntar la
@@ -431,6 +419,7 @@
   ============================================ -->
   <script src="js/libs/jquery.modernizr.js"></script>
   <script src="js/libs/jquery-2.2.4.min.js"></script>
+  <script src="js/libs/jquery.validate.js"></script>
   <script src="js/libs/jquery-ui.min.js"></script>
   <script src="js/libs/retina.min.js"></script>
   <script src="plugins/jquery.scrollTo.min.js"></script>
@@ -447,28 +436,108 @@
   ============================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/fivepaq.js"></script>
 
   <script>
-    function grabarClick(){
+    function cerrarsesion() {
+      fivepaq.logOut();
+      location.href = "index.html";
+    }
+    var dataout = fivepaq.dataOut();
+
+    if (dataout == null || dataout.L !== true) {
+      location.href = "index.html";
+    }
+
+    $("#nombreCliente").html(dataout.U);
+    $("#numCasillero").html(dataout.N);
+
+
+    function grabarClick() {
       $('form[id="formAlerta"]').validate({
-        rules: {
-          idCarrier: {
-            required: true,
-          },
-          trackingNumber: {
-            required: true,
-            minlength: 6
-          },
-          direcciones: {
-            required: true,
+        ignore: ".ignore",
+        submitHandler: function (form) {
+          var dataout = JSON.parse(sessionStorage.getItem('appData'));
+          var fil = JSON.parse(sessionStorage.getItem('file'));
+          console.log(fil);
+          var datos = {
+            clientID: dataout.C,
+            trackingNumber: $("#trackingNumber").val(),
+            idCarrier: $("#idCarrier").val(),
+            idLocation: $("#direcciones").val(),
+            destinatario: $("#destinatario").val(),
+            TariffCode: $("#posicionArancelaria").val(),
+            description: $("#descripcion").val(),
+            value: $("#Valor").val().replace(",", ".")
+          };
+
+          if (document.getElementById('ImageUrl').value == "") {
+            fivepaq.prealertaValue(datos.clientID,
+              datos.trackingNumber, datos.idCarrier, datos.idLocation, datos.TariffCode, datos.description, datos.value);
+          } else {
+            fivepaq.prealertaImage(datos.clientID,
+              datos.trackingNumber, datos.idCarrier, datos.idLocation, datos.TariffCode, datos.description);
           }
-
-
-
-
         }
       });
     }
+
+    function validarExtencion() {
+      let fileInput = (document.getElementById('ImageUrl')).value;
+      let fileName = document.getElementById('ImageUrl').files[0].name;
+      let extPermitidas = /(.jpg|.png|.jpeg|.gif|.pdf)$/i;
+      if (!extPermitidas.exec(fileInput)) {
+        console.log('Extension invalida')
+        Swal.fire({
+          title: 'Extension invalida!',
+          text: 'Valida que el archivo sea extension .jpg, .png, .gif, .pdf',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          type: 'error'
+        })
+      } else {
+
+      }
+      document.getElementById("fileName").setAttribute("placeholder", fileName);
+    }
+
+    function DireccionesOk(data) {
+      $.each(data, function (i, item) {
+        $('#direcciones').append(
+          '<option value="' + data[i].idLocation + '">' + data[i].direccion + '</option>'
+        )
+      });
+    }
+
+    function AlertSuccessImage(response) { 
+      $('#formAlerta').trigger("reset");
+      Swal.fire(
+        '¡Se Alerto tu paquete! \n Con el Numero: ' + response.PreAlertId + ' ¡Guardalo!',
+        '¡Nosotros nos encargamos!',
+        'success'
+      );
+    }
+    function AlertSuccessValue(response) {
+      $('#formAlerta').trigger("reset");
+      Swal.fire(
+        '¡Se Alerto tu paquete! \n Con el Numero: ' + response.PreAlertId + ' ¡Guardalo!',
+        '¡Nosotros nos encargamos!',
+        'success'
+      );
+    }
+
+    function limpiarAlerta() {
+				$('#idCarrier').val('');
+				$('#trackingNumber').val('');
+				$('#direcciones').val('');
+				$('#destinatario').val('');
+				$('#posicionArancelaria').val('');
+				$('#descripcion').val('');
+				$('#Valor').val('');
+				$('#ImageUrl').val('');
+			}
+
+    fivepaq.cargarDireccionesCliente();
 
   </script>
 </body>
