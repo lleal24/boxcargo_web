@@ -2,15 +2,22 @@ let urlCiudades = 'https://fpaq.azurewebsites.net/api/ciudades';
 window.onload = callService;
 
 function callService(){
-    getCiudades();
+    let data = JSON.parse(localStorage.getItem("ciudades"));
+    if(data == null){
+        getCiudades();
+    }else{
+        cargaDept();
+    }
 }
+
 async function getCiudades(){
     try {
         let req = await fetch(urlCiudades);
         if(req.status === 200){
             let data = await req.json();
             localStorage.setItem("ciudades", JSON.stringify(data));
-            obtenerPaises(data);
+            //obtenerPaises(data);
+            cargaDept();
         }
 
     } catch (error) {
@@ -18,21 +25,21 @@ async function getCiudades(){
     }
 }
 
-function obtenerPaises(data) {
-    let paises = [];
-    data.forEach(element => {
-        if (paises.indexOf(element.Pais) == -1) {
-            paises.push(element.Pais);
-        }
-    });
-    paises.forEach(element => {
-        let select = document.getElementById('pais');
-        let option = document.createElement('option');
-        option.value = element;
-        option.text = element;
-        select.add(option);
-    });
-}
+// function obtenerPaises(data) {
+//     let paises = [];
+//     data.forEach(element => {
+//         if (paises.indexOf(element.Pais) == -1) {
+//             paises.push(element.Pais);
+//         }
+//     });
+//     paises.forEach(element => {
+//         let select = document.getElementById('pais');
+//         let option = document.createElement('option');
+//         option.value = element;
+//         option.text = element;
+//         select.add(option);
+//     });
+// }
 
 function cargaDept() {
     let tempArray = []

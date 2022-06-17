@@ -1,8 +1,25 @@
+// const openModal = document.querySelector('.hero__cta');
+// const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.modal__close');
+
+// openModal.addEventListener('click', (e)=>{
+//     e.preventDefault();
+//     modal.classList.add('modal--show');
+// });
+
+closeModal.addEventListener('click', (e)=>{
+    e.preventDefault();
+    var modal = document.querySelector('.modal');
+    modal.classList.remove('modal--show');
+    document.getElementById('calculatorForm').reset();
+});
+
 sessionStorage.setItem('appData', '30')
 
 /* VALIDACION DE CONVENIO */
 function validarConvenio() {
     var convenio = sessionStorage.getItem('appData');
+    //var convenio = "30";
     if (convenio == null && convenio == "") {
         swal("¡ha ocurrido un error! ", "Selecciona un Plan", "error");
         $('#idConvenio').focus();
@@ -37,7 +54,7 @@ function getTipoCiudad() {
     let data = JSON.parse(localStorage.getItem("ciudades"));
     let ciudad = document.getElementById('ciudad').value;
     let estado = document.getElementById('estado').value;
-    let pais = document.getElementById('pais').value;
+    let pais = 'Colombia';
     let result;
     data.forEach(element => {
         if (ciudad == element.Ciudad && estado == element.Estado && pais == element.Pais) {
@@ -138,6 +155,8 @@ async function calcularClick() {
         let req = await fetch(url_ws_ciudades);
         if (req.status === 200) {
             let data = await req.json();
+            document.querySelector('.modal').classList.add('modal--show');
+            console.log(data);
             limpiarCalculadora();
             CalculadoraResult(data);
         }

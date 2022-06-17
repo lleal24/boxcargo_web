@@ -9,7 +9,7 @@ var fivepaq = {
 		dataIn.L = false;
 		dataIn.E = email;
 		dataIn.N = '';
-		dataIn.Tel = telefono;
+		dataIn.Tel = '';//telefono;
 		dataIn.Con = ''; /* cambioll */
 
 		var datos = {
@@ -36,7 +36,7 @@ var fivepaq = {
 					dataIn.C = '';
 					dataIn.L = true;
 					dataIn.E = email;
-					dataIn.Tel = telefono;
+					dataIn.Tel = '';//telefono;
 					dataIn.Con = ''; /* cambio */
 					fivepaq.cargarDataUser(dataIn, LoginOk, LoginFail);
 				}
@@ -310,8 +310,8 @@ var fivepaq = {
 					allowOutsideClick: false,
 				}).then((result) => {
 					if (result.value) {
-						debugger;
-						location.href = "index.html";
+						// debugger;
+						// location.href = "index.html";
 					}
 				})
 			})

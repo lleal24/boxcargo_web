@@ -416,19 +416,18 @@
 							});
 					}
 				},function(){
-					$('.message-container').html('<div class="alert-box error"><i class="icon-warning"></i><p>Connection to server failed!</p></div>')
-							.delay(150)
-							.slideDown(300)
-							.delay(4000)
-							.slideUp(300,function(){
-								$(this).html("");
-							});
+					// $('.message-container').html('<div class="alert-box error"><i class="icon-warning"></i><p>Connection to server failed!</p></div>')
+					// 		.delay(150)
+					// 		.slideDown(300)
+					// 		.delay(4000)
+					// 		.slideUp(300,function(){
+					// 			$(this).html("");
+					// 		});
 				});
 
 				event.preventDefault();
 
 			});
-
 		}
     
 		/* ---------------------------------------------------- */

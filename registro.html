@@ -45,7 +45,6 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
   <!-- CSS theme files
   ============================================ -->
   <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
@@ -113,15 +112,15 @@
 
               <ul class="client-info">
                 <i class="licon-eye"></i>
-                <li><a href="tracking.html"><span style="color: #fff;">RASTREO PAQUETE </span> </a></li>
+                <li><a href="tracking.html"><span style="color: #fff;">Rastreo de paquetes </span> </a></li>
                 <i class="licon-dice"></i>
-                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                <li><a href="mibodega.html"> <span style="color: #fff;">Mi bodega</span> </a></li>
                 <i class="licon-keyboard">
                 </i>
-                <li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
+                <li><a href="calcular.html"><span style="color: #fff;"> Mi Calculadora</span> </a></li>
                 <i class="licon-pencil">
                 </i>
-                <li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
+                <li><a href="registro.html"><span style="color: #fff;"> Registrarse</span> </a></li>
 
               </ul>
             </div>
@@ -178,7 +177,7 @@
                           <div class="sub-menu-wrap">
                             <ul>
                               <li><a href="tracking.html">Rastreo de paquetes</a></li>
-                              <li><a href="registro.html">Ingreso Mi Bodega</a></li>
+                              <li><a href="mibodega.html">Mi Bodega</a></li>
                               <li><a href="calcular.html">Mi Calculadora</a></li>
                               <li><a href="registro.html">Mi Registro</a></li>
                             </ul>
@@ -194,19 +193,12 @@
                     <a href="contacto.html" class="btn animated">Cotización</a>
 
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </header>
 
     <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
@@ -223,557 +215,660 @@
 
           <li><a href="index.html">Home</a></li>
           <li>Registro</li>
-
         </ul>
-
       </div>
-
     </div>
-
     <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
-
     <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
 
-    <div id="content" class="page-content-wrap">
-
+    <div id="content" class="page-content">
       <div class="container">
-
-        <div class="content-element-type-2">
-
-          <div class="hidden-section">
-
-            <div class="account-action">
-              <spam style="color: #162180;" class="section-title">&nbsp;&nbsp;&nbsp;¿Soy Cliente?</spam> <a
-                style="color: #3ECDFD;" class="invoker" href="#">Haga clic aquí para ingresar.</a>
-            </div>
-
-            <div class="content">
-              <p class="section-pre-title">Ingrese sus datos en los cuadros a continuación. Si es un cliente nuevo,
-                registrese parte inferior</p><br><br>
-              <!-- - - - - - - - - - - - - - Login Form - - - - - - - - - - - - - - - - -->
-
-              <form class="form-style1 fx-cols-2">
-
-                <div class="form-column">
-                  <label class="required">Usuario o email</label>
-                  <input type="email" id="EmailLogin" name="EmailLogin">
-                  <footer class="login-form-footer">
-
-                    <input type="checkbox" id="login-remember-me" class="type-2" name="login_remember_me">
-                    <label for="login-remember-me">Recordar</label>
-
-                  </footer>
-                </div>
-                <div class="form-column">
-                  <label class="required">Password</label>
-                  <input type="password" id="contrasenaLogin">
-                  <a href="cambioclave.html" class="forgot-password">¿Olvido contraseña?</a>
-                </div>
-                <div class="form-column-full">
-                  <buton class="btn btn-primary btn-block" type="submit" onclick="logueo()">Ingresar</buton>
-                  <div id="mensajeLogin"></div>
-                  <!-- <a style="display: grid; font-size: 20px;" href="#" class="btn">Ingresar</a> -->
-                </div>
-              </form>
-              <!-- - - - - - - - - - - - - - End of Login Form - - - - - - - - - - - - - - - - -->
-            </div>
-            <!--/ .content -->
-          </div>
-          <!--/ .hidden-section -->
-
-          <!--/CUPON -->
-          <div class="hidden-section">
-
-            <div class="account-action">
-              <spam style="color: #162180;" class="section-title">&nbsp;&nbsp;&nbsp;¿Tiene un cupón?</spam> <a
-                style="color: #3ECDFD;" class="invoker" href="#">Haga clic aquí para ingresar su código.</a>
-            </div>
-
-            <div class="content">
-
-              <div class="row">
-                <div class="col-sm-6">
-
-                  <!-- - - - - - - - - - - - - - Coupon Form - - - - - - - - - - - - - - - - -->
-
-                  <form class="lineform">
-
-                    <div class="f-right">
-                      <button class="btn btn-style-6">Aplicar cupon</button>
-                    </div>
-
-                    <div class="wrapper">
-                      <input type="text" name="code" placeholder="Enter coupon code">
-                    </div>
-
-                  </form>
-
-                  <!-- - - - - - - - - - - - - - End of Coupon Form - - - - - - - - - - - - - - - - -->
-
-                </div>
-              </div>
-
-            </div>
-            <!--/ .content -->
-
-          </div>
-          <!--/ .END CUPON -->
-        </div>
-
         <div class="content-element-type-2">
           <div class="row">
-            <div class="col-md-8">
-              <h4 style="font-size: 30px; font-weight: 600;" class="section-sub-title">Detalles de la cuenta</h4>
-              <span style="font-size: 20px; font-weight: 700;" class="section-pre-title">Esta información será empleada
-                para la entrega de los
-                paquetes.</span><br><br>
-              <form class="form-style1 fx-cols-2" id="registro">
-                <div class="form-column">
-                  <label class="required">Nombres</label>
-                  <input type="text" id="nombre" name="nombre" maxlength="50" required>
-                </div>
-                <div class="form-column">
-                  <label class="required">Apellidos</label>
-                  <input type="text" id="apellidos" name="apellidos" maxlength="50" required>
-                </div>
-                <div class="form-column">
-                  <label class="required">Correo electrónico</label>
-                  <input type="email" id="emailRegistro" name="emailRegistro" maxlength="100" required>
-                </div>
-                <div class="form-column">
-                  <label class="required">Confirma tu correo</label>
-                  <input type="text" id="emailRegistroConfirm" name="emailRegistroConfirm" maxlength="100" required>
-                </div>
-                <div class="form-column">
-                  <label class="required">Teléfono Fijo</label>
-                  <input type="number">
-                </div>
-                <div class="form-column">
-                  <label class="required">Teléfono</label>
-                  <input type="number" id="telefono" name="telefono" maxlength="20" required><br><br>
-                </div>
-                <h4 style="font-size: 30px; font-weight: 600;" class="section-sub-title">Dirección de Entrega</h4><br>
+            <div class="row">
+              <div class="col-sm-12" id="containerFormRegister"><br><br>
+                <h4 style="font-size: 30px; font-weight: 600;" class="section-sub-title">Información General</h4>
+                <form class="form-style1 fx-cols-2">
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Tipo de persona</label>
+                    <select class="custom-select col-lg-8" id="account-TipoIdentificacion" onchange="showDiv();">
+                      <option value="" selected>Seleccione una opcion</option>
+                      <option value="NT">Natural</option>
+                      <option value="JU">Juridica</option>
+                    </select>
+                  </div>
+                </form>
+<!-- 
+                <form class="form-style1 fx-cols-4" id="registro">
+                  <div class="form-column">
+                    <label class="required">Nombres</label>
+                    <input type="text" id="nombre" name="nombre" maxlength="50" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" maxlength="50" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Correo electrónico</label>
+                    <input type="email" id="emailRegistro" name="emailRegistro" maxlength="100" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Confirma tu correo</label>
+                    <input type="email" id="emailRegistroConfirm" name="emailRegistroConfirm" maxlength="100" required>
+                  </div>
+                  <div class="form-column">
+                    <label>Teléfono Fijo</label>
+                    <input type="number" maxlength="20">
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Teléfono Celular</label>
+                    <input type="number" id="telefono" name="telefono" maxlength="20" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Plan comercial</label>
+                    <select class="custom-select" id="idConvenio" onchange="change();">
+                      <option value="30">Box Cargo</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Fecha de Nacimiento </label>
+                    <input type="date" placeholder="Apartamento, interior" id="fechaNacimiento" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Forma de Pago</label>
+                    <select class="custom-select" id="tipoDePago" required>
+                      <option value="" selected disabled>Seleccione una opcion</option>
+                      <option value="menu">Efectivo</option>
+                      <option value="menu">Crédito</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">¿Como supiste de Nosotros?</label>
+                    <select class="custom-select" id="AsesorID" required>
+                      <option value="" selected disabled>Seleccione una opcion</option>
+                      <option value="13">En la empresa</option>
+                      <option value="14">Me lo recomendó un amigo</option>
+                      <option value="15">Publicidad en otro sitio WEB</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Dirección</label>
+                    <input type="adress" placeholder="Dirección de entrega" id="direccion" name="direccion"
+                      maxlength="100" required>
+                  </div>
+                  <div class="form-column">
+                    <label>Apartamento </label>
+                    <input type="adress" placeholder="Apartamento, interior" id="apartamento">
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Departamento</label>
+                    <select class="custom-select" name="estado" id="estado" onchange="cargaCiudades()" required>
+                      <option value="" selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Ciudad</label>
+                    <select class="custom-select" name="ciudad" id="ciudad" onchange="getIdLocation()" required>
+                      <option value="" selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Tipo de persona</label>
+                    <select class="custom-select" id="account-TipoIdentificacion">
+                      <option value="" selected>Seleccione una opcion</option>
+                      <option value="MuestraEmp">Natural</option>
+                      <option value="MuestraEmp">Juridica</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Tipo Documento</label>
+                    <select class="custom-select" id="tipoDoc" required>
+                      <option value="" disabled selected>Seleccione una opcion</option>
+                      <option value="13">Cédula</option>
+                      <option value="14">Pasaport</option>
+                      <option value="15">Nit</option>
+                    </select>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Número de Documento</label>
+                    <input type="number" id="documento" name="documento" maxlength="50"
+                      placeholder="Número de Documento" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Código Postal</label>
+                    <input type="number" placeholder="Código postal" id="cpostal" value="" name="cpostal" maxlength="50"
+                      required>
+                    <div data-align-outer="">
+                      <div data-align-inner="">
+                        <span class="TextBlock" id="W0009ZONAPOSTAL" data-gx-evt-control="ZONAPOSTAL"
+                          data-gx-context="[&quot;W0009&quot;,false]">
+                          <a href="https://visor.codigopostal.gov.co/472/visor/" target="new" data-gx-evt="7">Buscar
+                            Zona Postal</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Contraseña</label>
+                    <input type="password" placeholder="Contraseña" id="passwordRegistro" name="passwordRegistro"
+                      maxlength="100" required>
+                  </div>
+                  <div class="form-column">
+                    <label class="required">Confirmar contraseña</label>
+                    <input type="password" placeholder="Confirmar contraseña" id="passwordRegistroConfirm"
+                      name="passwordRegistroConfirm" maxlength="100" required>
+                  </div>
+                  <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account" required>
+                  <label for="bd_create_an_account">Acepto términos y condiciones <br> <span><a style="color: #ff4500;"
+                        href="terminos.html" target="new">&nbsp;&nbsp;Ver terminos</a></span></label>
 
-                <div class="form-column-full">
-                  <label class="required">Dirección</label>
-                  <input type="adress" id="direccion" name="direccion" maxlength="100"
-                    placeholder="Dirección de entrega" required>
-                </div>
+                  <input hidden="true" id="ciudadIdRegistro" />
+                  <input hidden="true" id="ciudadTipoRegistro" />
+                  <input hidden="true" id="zipCode" />
+                  <input hidden id="convenioRegistro" value="30">
+                  <input hidden="true" id="pais" value="Colombia">
 
-                <div class="form-column">
-                  <label class="required">Pais</label>
-                  <!-- <div class="custom-select"> -->
-                  <div class="select-title">Seleccionar pais</div>
-                  <ul id="menu-type" class="select-list"></ul>
-                  <select name="pais" id="pais" onchange="cargaDept()" required>
-                    <option selected value="">Seleccione pais</option>
-                  </select>
-                  <!-- </div> -->
-                </div>
-                <div class="form-column">
-                  <label class="required">Departamento</label>
-                  <!-- <div class="custom-select"> -->
-                  <div class="select-title">Seleccionar Dpto</div>
-                  <ul id="menu-type" class="select-list"></ul>
-                  <select name="estado" id="estado" onchange="cargaCiudades()" required>
-                    <option selected value="">Seleccione departamento</option>
-                  </select>
-                  <!-- </div> -->
-                </div>
-                <div class="form-column">
-                  <label class="required">Ciudad</label>
-                  <!-- <div class="custom-select"> -->
-                  <div class="select-title">Seleccionar Ciudad</div>
-                  <ul id="menu-type" class="select-list"></ul>
-                  <select name="ciudad" id="ciudad" onchange="getIdLocation()" required>
-                    <option selected value="">Seleccione ciudad</option>
-                  </select>
-                  <!-- </div> -->
-                </div>
-
-                <div class="form-column">
-                  <label class="required">Tipo de persona</label>
-                  <!-- <div class="custom-select"> -->
-                  <div class="select-title">Persona</div>
-                  <ul id="menu-type" class="select-list"></ul>
-                  <select id="account-TipoIdentificacion">
-                    <option value="MuestraEmp">Natural</option>
-                    <option value="MuestraEmp">Juridica</option>
-                  </select>
-                  <!-- </div> -->
-                </div>
-                <div class="form-column">
-                  <label class="required">Tipo Documento</label>
-                  <!-- <div class="custom-select"> -->
-                  <div class="select-title">Documento</div>
-                  <ul id="menu-type" class="select-list"></ul>
-                  <select id="tipoDoc" name="tipoDoc">
-                    <option value="menu">Cédula</option>
-                    <option value="menu">Pasaport</option>
-                    <option value="menu">Nit</option>
-                  </select>
-                  <!-- </div> -->
-                </div>
-
-                <div class="form-column">
-                  <label class="required">Número de Documento</label>
-                  <input type="number" id="documento" name="documento" maxlength="50" placeholder="Número de Documento"
-                    required>
-                </div>
-                <div class="form-column">
-                  <label class="required">Código Postal</label>
-                  <input type="number" id="cpostal" value="" name="cpostal" maxlength="50" placeholder="Código postal"
-                    data-original-title="Digita tu código postal, en caso contrario http://www.codigopostal.gov.co/"
-                    required>
-                </div>
-
-                <div class="form-column">
-                  <label class="required">Contraseña</label>
-                  <input type="password" placeholder="Contraseña" id="passwordRegistro" name="passwordRegistro"
-                    maxlength="100" required>
-                </div>
-                <div class="form-column">
-                  <label class="required">Confirmar contraseña</label>
-                  <input type="password" placeholder="Confirmar contraseña" id="passwordRegistroConfirm"
-                    name="passwordRegistroConfirm" maxlength="100" required>
-                </div>
-
-                <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account" required>
-                <label for="bd_create_an_account">Acepto términos y condiciones</label><br><br>
-
-                <input hidden="true" id="ciudadIdRegistro" />
-                <input hidden="true" id="ciudadTipoRegistro" />
-                <input hidden="true" id="zipCode" />
-                <input hidden id="convenioRegistro" value="30">
-                <input hidden id="AsesorID" value="1">
-
-                <!--/ .input-wrapper -->
-                <div class="form-column-full">
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="grabarClick()">CREAR
-                    CUENTA</button>
-
-                  <!-- <input class="btn btn-primary btn-lg btn-block" type="submit" value="CREAR CUENTA" onclick="grabarClick()">  -->
-                </div>
-
-                <!-- <div class="form-column-full"> -->
-                <!-- <input class="btn btn-primary btn-lg btn-block" type="submit" value="CREAR CUENTA" onclick="grabarClick()"> -->
-
-                <!-- <a style="display: grid; font-size: 20px;" href="#" class="btn" type="submit">CREAR CUENTA</a> -->
-                <!-- </div> -->
+                  <div class="form-column-full">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit"
+                      onclick="grabarClick();">Confirmar</button>
+                    <a href="#" class="btn" type="submit">Cancelar</a>
+                  </div>
+                </form> -->
+              </div><br><br><br><br>
               </form>
             </div>
           </div>
         </div>
-
-        <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
-
-
-        <!-- page-section -->
-        <div class="call-out">
-
-          <!-- Blog section -->
-          <div class="container">
-
-            <div class="row">
-              <div class="col-md-9">
-
-                <h3>Con nuestros servicios integrales brindamos un soporte logístico de acuerdo a sus necesidades.</h3>
-                <p style="color: #ffff; font-weight:600;">
-                  En BoxCargo Express le ofrecemos soluciones rápidas y confiables para la importación de sus productos
-                  y documentos desde cualquier parte del mundo.
-                </p>
-
-              </div>
-              <div class="col-md-3">
-
-                <div class="align-right">
-                  <div class="button-holder">
-                    <a href="contacto.html" class="btn btn-big btn-style-6">Contáctenos</a>
-
-                  </div>
-                </div>
-
+      </div>
+    </div><br><br><br><br><br>
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+    <!-- page-section -->
+    <div class="call-out">
+      <!-- Blog section -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <h3>Con nuestros servicios integrales brindamos un soporte logístico de acuerdo a sus necesidades.</h3>
+            <p style="color: #ffff; font-weight:600;">
+              En BoxCargo Express le ofrecemos soluciones rápidas y confiables para la importación de sus productos y
+              documentos desde cualquier parte del mundo.
+            </p>
+          </div>
+          <div class="col-md-3">
+            <div class="align-right">
+              <div class="button-holder">
+                <a href="contacto.html" class="btn btn-big btn-style-6">Contáctenos</a>
               </div>
             </div>
-
           </div>
-
         </div>
-        <!--/ page-section -->
+      </div>
+    </div>
+    <!--/ page-section -->
 
 
-        <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
 
-        <footer id="footer" class="footer">
+    <footer id="footer" class="footer">
 
-          <div class="footer-widgets">
+      <div class="footer-widgets">
 
-            <div class="container">
+        <div class="container">
 
-              <div class="row">
+          <div class="row">
 
-                <div class="col-md-6 col-xs-6">
+            <div class="col-md-6 col-xs-6">
 
-                  <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
-                  <div class="widget">
-                    <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
-                    <p>Todos los días es un nuevo día para nosotros y trabajamos muy duro para satisfacer a nuestros
-                      clientes en todas partes</p>
-                  </div>
-                  <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
-                </div>
+              <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
+              <div class="widget">
+                <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
+                <p>Todos los días es un nuevo día para nosotros y trabajamos muy duro para satisfacer a nuestros
+                  clientes en todas partes</p>
+              </div>
+              <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
+            </div>
 
-                <div class="col-md-6 col-xs-6">
-                  <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
-                  <div class="widget">
-                    <h6 class="widget-title">Contáctenos</h6>
-                    <p>BOXCARGOEXPRESS<br>
-                      Av.eldorado 96j-66 <br>
-                      Oficina 318</p>
+            <div class="col-md-6 col-xs-6">
+              <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
+              <div class="widget">
+                <h6 class="widget-title">Contáctenos</h6>
+                <p>BOXCARGOEXPRESS<br>
+                  Av.eldorado 96j-66 <br>
+                  Oficina 318</p>
 
-                    <ul class="contact-info">
+                <ul class="contact-info">
 
-                      <li><span class="licon-telephone"></span> <a href="callto:18005596580"><br />Principal: +57 311
-                          335 9603 <span style="color: #3ECDFD;">| </span>
-                          Whatsapp +57 316 4542339</a></li>
-                      <li><span class="licon-at-sign"></span> <a href="mailto:servicioalcliente@boxcargoexpress.com">
-                          <spam style="color: #34ccff;">servicioalcliente@boxcargoexpress.com </spam>
-                        </a></li>
+                  <li><span class="licon-telephone"></span> <a href="callto:18005596580"><br />Principal: +57 311 335
+                      9603 <span style="color: #3ECDFD;">| </span>
+                      Whatsapp +57 316 4542339</a></li>
+                  <li><span class="licon-at-sign"></span> <a href="mailto:servicioalcliente@boxcargoexpress.com">
+                      <spam style="color: #34ccff;">servicioalcliente@boxcargoexpress.com </spam>
+                    </a></li>
 
-                    </ul>
-                    <ul class="social-icons">
+                </ul>
+                <ul class="social-icons">
 
-                      <li><a href="#"><i class="icon-facebook"></i></a></li>
-                      <!-- <li><a href="#"><i class="icon-gplus"></i></a></li>
+                  <li><a href="#"><i class="icon-facebook"></i></a></li>
+                  <!-- <li><a href="#"><i class="icon-gplus"></i></a></li>
                 <li><a href="#"><i class="icon-twitter"></i></a></li>
                 <li><a href="#"><i class="icon-linkedin-1"></i></a></li> -->
-                      <!-- <li><a href="#"><i class="icon-mail"></i></a></li> -->
+                  <!-- <li><a href="#"><i class="icon-mail"></i></a></li> -->
 
-                    </ul>
-                  </div>
-                  <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
-
-                </div>
+                </ul>
               </div>
-
+              <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
             </div>
-
           </div>
-          <hr class="item-divider">
-          <!-- - - - - - - - - - - - - - Copyright - - - - - - - - - - - - - - - - -->
-          <div class="copyright">
-
-            <div class="container">
-
-              <div class="table-row">
-
-                <div class="col-sm-4">
-                  <spam style="font-size: 18px;">BoxcargoExpress</span> Copyright © 2018-2022
-                </div>
-                <div class="col-sm-8">
-
-                  <ul class="info-links h-type">
-
-                    <li><a style="color: #3ECDFD;font-size:large;" href="terminos.html">* TERMINOS Y CONDICIONES</a>
-                    </li>
-                    <li><a style="color: #3ECDFD;font-size:large;" href="faq.html">* PREGUNTAS FRECUENTES</a></li>
-                    <li><a style="color: #3ECDFD;font-size:large;" href="restringidos.html">* PRODUCTOS RESTRINGIDOS</a>
-                    </li>
-                    <!-- <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Sitemap</a></li> -->
-
-                  </ul>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <!-- - - - - - - - - - - - - - End Copyright - - - - - - - - - - - - - - - - -->
-
-
-        </footer>
-
-        <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
-
+        </div>
       </div>
+      <hr class="item-divider">
+      <!-- - - - - - - - - - - - - - Copyright - - - - - - - - - - - - - - - - -->
+      <div class="copyright">
 
-      <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+        <div class="container">
 
-      <!-- JS Libs & Plugins
+          <div class="table-row">
+
+            <div class="col-sm-4">
+              <spam style="font-size: 18px;">BoxcargoExpress</span> Copyright © 2018-2022
+            </div>
+            <div class="col-sm-8">
+
+              <ul class="info-links h-type">
+
+                <li><a style="color: #3ECDFD;font-size:large;" href="terminos.html">* TERMINOS Y CONDICIONES</a></li>
+                <li><a style="color: #3ECDFD;font-size:large;" href="faq.html">* PREGUNTAS FRECUENTES</a></li>
+                <li><a style="color: #3ECDFD;font-size:large;" href="restringidos.html">* PRODUCTOS RESTRINGIDOS</a>
+                </li>
+                <!-- <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Sitemap</a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- - - - - - - - - - - - - - End Copyright - - - - - - - - - - - - - - - - -->
+    </footer>
+    <!-- - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+  </div>
+  <!-- - - - - - - - - - - - end Wrapper - - - - - - - - - - - - - - -->
+
+  <!-- JS Libs & Plugins
   ============================================ -->
-      <script src="js/libs/jquery.modernizr.js"></script>
-      <script src="js/libs/jquery-2.2.4.min.js"></script>
-      <script src="js/libs/jquery.validate.js"></script>
-      <script src="js/libs/jquery-ui.min.js"></script>
-      <script src="js/libs/retina.min.js"></script>
-      <script src="plugins/jquery.scrollTo.min.js"></script>
-      <script src="plugins/jquery.localScroll.min.js"></script>
-      <script src="plugins/jquery.queryloader2.min.js"></script>
-      <script src="plugins/owl.carousel.min.js"></script>
-      <script src="plugins/jquery.fancybox.js"></script>
-      <script src="plugins/twitter/jquery.tweet.min.js"></script>
-      <script src="plugins/elevatezoom.min.js"></script>
+  <script src="js/libs/jquery.modernizr.js"></script>
+  <script src="js/libs/jquery-2.2.4.min.js"></script>
+  <script src="js/libs/jquery.validate.js"></script>
+  <script src="js/libs/jquery-ui.min.js"></script>
+  <script src="js/libs/retina.min.js"></script>
+  <script src="plugins/jquery.scrollTo.min.js"></script>
+  <script src="plugins/jquery.localScroll.min.js"></script>
+  <script src="plugins/jquery.queryloader2.min.js"></script>
+  <script src="plugins/owl.carousel.min.js"></script>
+  <script src="plugins/jquery.fancybox.js"></script>
+  <script src="plugins/twitter/jquery.tweet.min.js"></script>
+  <script src="plugins/elevatezoom.min.js"></script>
 
-      <!-- JS theme files
+  <!-- JS theme files
   ============================================ -->
-      <script src="js/plugins.js"></script>
-      <script src="js/script.js"></script>
-      <script src="js/registroCiudades.js"></script>
-      <script src="js/fivepaq.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/fivepaq.js"></script>
+  <script src="js/registroCiudades.js"></script>
 
-      <script>
-        function grabarClick() {
-          $('form[id="registro"]').validate({
-            ignore: ".ignore",
-            rules: {
-              nombre: {
-                required: true,
-                maxlength: 50,
-              },
-              cpostal: {
-                required: true,
-              },
-              apellidos: {
-                required: true,
-                maxlength: 50,
-              },
-              emailRegistro: {
-                required: true,
-                email: true,
-              },
-              emailRegistroConfirm: {
-                required: true,
-                email: true,
-                equalTo: "#emailRegistro"
-              },
-              telefono: {
-                required: true,
-                regex: true,
-                maxlength: 20,
-              },
-              direccion: {
-                required: true,
-                maxlength: 100,
-              },
-              tipoDoc: {
-                required: true,
-              },
-              documento: {
-                required: true,
-              },
-              passwordRegistro: {
-                required: true,
-                maxlength: 50,
-                minlength: 5
-              },
-              passwordRegistroConfirm: {
-                required: true,
-                maxlength: 50,
-                equalTo: "#passwordRegistro",
-                minlength: 5
-              },
-            },
-            messages: {
-              nombre: 'El campo es requerido',
-              apellidos: 'El campo es requerido',
-              emailRegistro: 'Ingrese un email valido',
-              emailRegistroConfirm: 'El email no coincide',
-              telefono: 'Ingrese un teléfono valido',
-              direccion: 'El campo es requerido',
-              cpostal: 'El campo es requerido',
-              tipoDoc: 'El campo es requerido',
-              documento: 'El campo es requerido',
-              passwordRegistro: 'Contraseña minimo 6 caracteres',
-              passwordRegistroConfirm: 'La contraseña no coincide',
-              bd_create_an_account: 'Acepte las condiciones'
-
-            },
-            submitHandler: function (form) {
-              var datos = {
-                ConvenioCta: $("#convenioRegistro").val(),
-                Documento: $("#documento").val(),
-                Empresa: $("#empresa").val(),
-                Nombre: $("#nombre").val() + " " + $("#apellidos").val(),
-                Direccion: $("#direccion").val(),
-                CiudadId: $("#ciudadIdRegistro").val(),
-                CodigoPostal: $("#cpostal").val(),
-                Telefono: $("#telefono").val(),
-                Password: $("#passwordRegistro").val(),
-                EMail: $("#emailRegistro").val(),
-                TicketId: $("#ticketId").val()
-              };
-              fivepaq.CuentaAdd(datos.ConvenioCta, datos.Documento, datos.Empresa, datos.Nombre, datos.Direccion,
-                datos.CiudadId, datos.CodigoPostal, datos.Telefono, datos.Password, datos.EMail, datos.Asesor,
-                datos.TicketId);
-            }
-          });
-
-          $.validator.addMethod(
-            "regex",
-            function (value, element, regexp) {
-              var re = new RegExp(regexp);
-              return this.optional(element) || re.test(value);
-            },
-            "Please check your input."
-          );
-
-          $("#telefono").rules("add", {
-            regex: "^\\d{1,20}$"
-          })
-          $("#cpostal").rules("add", {
-            regex: "^\\d{1,10}$"
-          })
-        }
-
-        function handleException(request, message, error) {
-          var msg = "";
-          msg += "Code: " + request.status + "\n";
-          msg += "Text: " + request.statusText + "\n";
-          if (request.responseJSON != null) {
-            msg += "Message" + request.responseJSON.Message + "\n";
-          }
-          Swal.fire("¡ha ocurrido un error! ", "por favor comunique con nosotros al Email: soporte@Fivepaq.com ",
-            "error");
-        }
-
-        function CuentaSuccess(noCuenta) {
-          if (noCuenta.Error != null) {
-            Swal.fire("¡ha ocurrido un error! ", noCuenta.Error.ErrorMessage, "error");
-          } else {
-            Swal.fire("¡Ya eres un cliente Luxury! ", "Tu casillero es: " + noCuenta.noCuenta, "success").then((
-              value) => {
-              if (value) {
-                location.href = "index.html";
-              }
-            });;
-          }
-        }
-
-        function logueo() {
+  <script>
+    function grabarClick() {
+      $('form[id="formularioRegistro"]').validate({
+        ignore: ".ignore",
+        rules: {
+          emailRegistro: {
+            required: true,
+            email: true,
+          },
+          passwordRegistro: {
+            required: true,
+            maxlength: 50,
+            minlength: 5
+          },
+        },
+        messages: {
+          nombre: 'El campo es requerido',
+          apellidos: 'El campo es requerido',
+          emailRegistro: 'Ingrese un email valido',
+          telefono: 'Ingrese un teléfono valido',
+          direccion: 'El campo es requerido',
+          cpostal: 'El campo es requerido',
+          tipoDoc: 'El campo es requerido',
+          documento: 'El campo es requerido',
+          passwordRegistro: 'Contraseña minimo 6 caracteres',
+          bd_create_an_account: 'Acepte las condiciones',
+          idConvenio: 'El convenio es requerido',
+          tipoDePago: 'El tipo de pago es requerido',
+          fechaNacimiento: 'Fecha nacimiento es requerida'
+        },
+        submitHandler: function (form) {
           var datos = {
-            Email: $("#EmailLogin").val(),
-            Password: $("#contrasenaLogin").val(),
-            RememberMe: $("#RememberMe").prop('checked')
+            ConvenioCta: $("#convenioRegistro").val(),
+            Documento: $("#documento").val(),
+            Empresa: $("#empresa").val(),
+            Nombre:  $("#nombre").val() + " " + $("#apellidos").val(),
+            Direccion: $("#direccion").val(),
+            CiudadId: $("#ciudadIdRegistro").val(),
+            CodigoPostal: $("#cpostal").val(),
+            Telefono: $("#telefono").val(),
+            Password: $("#passwordRegistro").val(),
+            EMail: $("#emailRegistro").val(),
+            TicketId: $("#ticketId").val()
           };
-
-          fivepaq.Login(datos.Email, datos.Password, datos.RememberMe, LoginOk, LoginFail);
+          fivepaq.CuentaAdd(datos.ConvenioCta, datos.Documento, datos.Empresa, datos.Nombre, datos.Direccion,
+            datos.CiudadId, datos.CodigoPostal, datos.Telefono, datos.Password, datos.EMail, datos.Asesor,
+            datos.TicketId);
         }
+      });
 
-        var LoginOk = function () {
-          $("#mensajeLogin").html('<strong>Ha ingresado al sistema</strong>');
-          $("#mensajeLogin").removeClass('alert alert-danger');
-          $("#mensajeLogin").addClass('alert alert-success');
-          $("#loader").hide();
-          location.href = "perfil.html";
-        }
+      $.validator.addMethod(
+        "regex",
+        function (value, element, regexp) {
+          var re = new RegExp(regexp);
+          return this.optional(element) || re.test(value);
+        },
+        "Please check your input."
+      );
+      $("#telefono").rules("add", {
+        regex: "^\\d{1,20}$"
+      })
+      $("#cpostal").rules("add", {
+        regex: "^\\d{1,10}$"
+      })
+    }
 
-        var LoginFail = function () {
-          Swal.fire("¡ha ocurrido un error! ", "Error en Usuario y/o contraseña.");
-        }
-      </script>
+    function handleException(request, message, error) {
+      var msg = "";
+      msg += "Code: " + request.status + "\n";
+      msg += "Text: " + request.statusText + "\n";
+      if (request.responseJSON != null) {
+        msg += "Message" + request.responseJSON.Message + "\n";
+      }
+      Swal.fire("¡ha ocurrido un error! ", "por favor comunique con nosotros al Email: soporte@Fivepaq.com ",
+        "error");
+    }
+
+    function CuentaSuccess(noCuenta) {
+      if (noCuenta.Error != null) {
+        Swal.fire("¡ha ocurrido un error! ", noCuenta.Error.ErrorMessage, "error");
+      } else {
+        Swal.fire("¡Ya eres un cliente Boxcargo! ", "Tu casillero es: " + noCuenta.noCuenta, "success").then((
+          value) => {
+          if (value) {
+            location.href = "index.html";
+          }
+        });;
+      }
+    }
+
+    function logueo() {
+      var datos = {
+        Email: $("#EmailLogin").val(),
+        Password: $("#contrasenaLogin").val(),
+        RememberMe: $("#RememberMe").prop('checked')
+      };
+      fivepaq.Login(datos.Email, datos.Password, datos.RememberMe, LoginOk, LoginFail);
+    }
+
+    var LoginOk = function () {
+      $("#mensajeLogin").html('<strong>Ha ingresado al sistema</strong>');
+      $("#mensajeLogin").removeClass('alert alert-danger');
+      $("#mensajeLogin").addClass('alert alert-success');
+      $("#loader").hide();
+      location.href = "perfil.html";
+    }
+
+    var LoginFail = function () {
+      Swal.fire("¡ha ocurrido un error! ", "Error en Usuario y/o contraseña.");
+    }
+
+    function showDiv(){
+      const container = document.getElementById('containerFormRegister') 
+      var tipoPersona = document.getElementById("account-TipoIdentificacion").value;
+      var formulario = document.getElementById("formularioRegistro");
+      if(formulario != null) formulario.parentNode.removeChild(formulario);
+      if(tipoPersona == 'NT'){
+        container.insertAdjacentHTML(
+          'beforeend',
+          `<form class="form-style1 fx-cols-2" id="formularioRegistro">
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Tipo Documento</label>
+                    <select class="custom-select col-lg-8" id="tipoDoc" required>
+                      <option value="13" selected>Cédula</option>
+                      <option value="14">Pasaporte</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Número documento</label>
+                    <input class="col-lg-8" type="text" id="documento" name="documento" maxlength="50"
+                      placeholder="Número de Documento" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Correo electrónico</label>
+                    <input class="col-lg-8" type="email" id="emailRegistro" name="emailRegistro" maxlength="100"
+                      required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Nombres</label>
+                    <input class="col-lg-8" type="text" id="nombre" name="nombre" maxlength="50" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Apellidos</label>
+                    <input class="col-lg-8" type="text" id="apellidos" name="apellidos" maxlength="50" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Fecha de Nacimiento </label>
+                    <input class="col-lg-8" type="date" placeholder="Apartamento, interior" id="fechaNacimiento"
+                      required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Sexo</label>
+                    <select class="custom-select col-lg-8">
+                      <option value="" selected>Seleccione una opcion</option>
+                      <option value="MuestraEmp">Femenino</option>
+                      <option value="MuestraEmp">Masculino</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Teléfono Celular</label>
+                    <input class="col-lg-8" type="tel" id="telefono" name="telefono" maxlength="20" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="col-lg-4">Teléfono Fijo</label>
+                    <input class="col-lg-8" type="tel" maxlength="20">
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Departamento</label>
+                    <select class="custom-select col-lg-8" name="estado" id="estado" onchange="cargaCiudades()"
+                      required>
+                      <option value="" selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Ciudad</label>
+                    <select class="custom-select col-lg-8" name="ciudad" id="ciudad" onchange="getIdLocation()"
+                      required>
+                      <option value="" selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Dirección</label>
+                    <input class="col-lg-8" type="adress" placeholder="Dirección de entrega" id="direccion"
+                      name="direccion" maxlength="100" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-3">Código Postal</label>
+                    <div class="col-lg-10 flex">
+                      <input class="col-lg-6" type="number" placeholder="Código postal" id="cpostal" value=""
+                        name="cpostal" maxlength="50" required>
+                      <span class="TextBlock col-lg-6" id="W0009ZONAPOSTAL" data-gx-evt-control="ZONAPOSTAL"
+                        data-gx-context="[&quot;W0009&quot;,false]">
+                        <a href="https://visor.codigopostal.gov.co/472/visor/" target="new" data-gx-evt="7">Buscar
+                          Zona Postal</a></span>
+                    </div>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Forma de Pago</label>
+                    <select class="custom-select col-lg-8" id="tipoDePago" required>
+                      <option value="" selected disabled>Seleccione una opcion</option>
+                      <option value="menu">Efectivo</option>
+                      <option value="menu">Crédito</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="col-lg-4">¿Como supiste de Nosotros?</label>
+                    <select class="custom-select col-lg-8" id="AsesorID">
+                      <option value="" selected disabled>Seleccione una opcion</option>
+                      <option value="13">En la empresa</option>
+                      <option value="14">Me lo recomendó un amigo</option>
+                      <option value="15">Publicidad en otro sitio WEB</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="col-lg-4">Actividad económica</label>
+                    <input class="col-lg-8" type="text" maxlength="200">
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Contraseña</label>
+                    <input class="col-lg-8" type="password" placeholder="Contraseña" id="passwordRegistro"
+                      name="passwordRegistro" maxlength="100" required>
+                  </div>
+                  <div class="form-column">
+                    <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account"
+                      required>
+                    <label for="bd_create_an_account">Acepto términos y condiciones <br> <span><a
+                          style="color: #ff4500;" href="terminos.html" target="new">&nbsp;&nbsp;Ver
+                          terminos</a></span></label>
+                  </div>
+                  <input hidden="true" id="ciudadIdRegistro" />
+                  <input hidden="true" id="ciudadTipoRegistro" />
+                  <input hidden="true" id="zipCode" />
+                  <input hidden id="convenioRegistro" value="30">
+                  <input hidden="true" id="pais" value="Colombia">
+
+                  <div class="form-column-full">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit"
+                      onclick="grabarClick();">Confirmar</button>
+                    <a href="#" class="btn" type="submit">Cancelar</a>
+                  </div>
+                </form>`
+        )
+        callService();
+      }else if(tipoPersona == 'JU'){
+        container.insertAdjacentHTML(
+          'beforeend',
+          `<form class="form-style1 fx-cols-2" id="formularioRegistro">
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">NIT</label>
+                    <input class="col-lg-8" type="text" id="documento" name="documento" maxlength="50"
+                      placeholder="Número de Documento" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Correo electrónico</label>
+                    <input class="col-lg-8" type="email" id="emailRegistro" name="emailRegistro" maxlength="100"
+                      required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Razón social</label>
+                    <input class="col-lg-8" type="text" id="empresa" name="emailRegistro" maxlength="100"
+                      required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Nombre contacto</label>
+                    <input class="col-lg-8" type="text" id="nombre" name="nombre" maxlength="50" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Teléfono Celular</label>
+                    <input class="col-lg-8" type="tel" id="telefono" name="telefono" maxlength="20" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="col-lg-4">Teléfono Fijo</label>
+                    <input class="col-lg-8" type="tel" maxlength="20">
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Departamento</label>
+                    <select class="custom-select col-lg-8" name="estado" id="estado" onchange="cargaCiudades()"
+                      required>
+                      <option value="" selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Ciudad</label>
+                    <select class="custom-select col-lg-8" name="ciudad" id="ciudad" onchange="getIdLocation()"
+                      required>
+                      <option value="" selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Dirección</label>
+                    <input class="col-lg-8" type="adress" placeholder="Dirección de entrega" id="direccion"
+                      name="direccion" maxlength="100" required>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-3">Código Postal</label>
+                    <div class="col-lg-10 flex">
+                      <input class="col-lg-6" type="number" placeholder="Código postal" id="cpostal" value=""
+                        name="cpostal" maxlength="50" required>
+                      <span class="TextBlock col-lg-6" id="W0009ZONAPOSTAL" data-gx-evt-control="ZONAPOSTAL"
+                        data-gx-context="[&quot;W0009&quot;,false]">
+                        <a href="https://visor.codigopostal.gov.co/472/visor/" target="new" data-gx-evt="7">Buscar
+                          Zona Postal</a></span>
+                    </div>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="col-lg-4">Actividad económica</label>
+                    <input class="col-lg-8" type="text" maxlength="200">
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Forma de Pago</label>
+                    <select class="custom-select col-lg-8" id="tipoDePago" required>
+                      <option value="" selected disabled>Seleccione una opcion</option>
+                      <option value="menu">Efectivo</option>
+                      <option value="menu">Crédito</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="col-lg-4">¿Como supiste de Nosotros?</label>
+                    <select class="custom-select col-lg-8" id="AsesorID">
+                      <option value="" selected disabled>Seleccione una opcion</option>
+                      <option value="13">En la empresa</option>
+                      <option value="14">Me lo recomendó un amigo</option>
+                      <option value="15">Publicidad en otro sitio WEB</option>
+                    </select>
+                  </div>
+                  <div class="form-column flex">
+                    <label class="required col-lg-4">Contraseña</label>
+                    <input class="col-lg-8" type="password" placeholder="Contraseña" id="passwordRegistro"
+                      name="passwordRegistro" maxlength="100" required>
+                  </div>
+                  <div class="form-column">
+                    <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account"
+                      required>
+                    <label for="bd_create_an_account">Acepto términos y condiciones <br> <span><a
+                          style="color: #ff4500;" href="terminos.html" target="new">&nbsp;&nbsp;Ver
+                          terminos</a></span></label>
+                  </div>
+                  <input hidden="true" id="ciudadIdRegistro" />
+                  <input hidden="true" id="ciudadTipoRegistro" />
+                  <input hidden="true" id="zipCode" />
+                  <input hidden id="convenioRegistro" value="30">
+                  <input hidden="true" id="pais" value="Colombia">
+                  <input hidden id="apellidos" value="">
+
+                  <div class="form-column-full">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit"
+                      onclick="grabarClick();">Confirmar</button>
+                    <a href="#" class="btn" type="submit">Cancelar</a>
+                  </div>
+                </form>`
+        )
+        callService();
+      }
+    }
+  </script>
 </body>
 
 </html>

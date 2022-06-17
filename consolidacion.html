@@ -106,13 +106,13 @@
               
               <ul class="client-info">
                 <i class="licon-eye"></i>
-                <li ><a href="tracking.html"><span  style="color: #fff;">RASTREO PAQUETE </span> </a></li>
+                <li ><a href="tracking.html"><span  style="color: #fff;">Rastreo de paquetes </span> </a></li>
                 <i class="licon-dice"></i> 
-                <li><a href="registro.html"> <span style="color: #fff;">MI BODEGA</span> </a></li>
+                <li><a href="mibodega.html"> <span style="color: #fff;">Mi bodega</span> </a></li>
                 <i class="licon-keyboard">
-                </i><li><a href="calcular.html"><span style="color: #fff;"> CALCULADORA</span> </a></li>
+                </i><li><a href="calcular.html"><span style="color: #fff;"> Mi Calculadora</span> </a></li>
                 <i class="licon-pencil">
-              </i><li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
+              </i><li><a href="registro.html"><span style="color: #fff;"> Registrarse</span> </a></li>
               
               </ul>
             </div>
@@ -155,13 +155,13 @@
                   <div class="nav-item">
                     <nav style="display: flex; justify-content: center;" id="main-navigation" class="main-navigation">
                       <ul id="menu" class="clearfix">
-                        <img src="images/perfil.png" alt=""><li class="dropdown"><a href="#">MI BODEGA</a>
+                        <img src="images/perfil.png" alt=""><li class="dropdown"><a href="#">Mi Bodega</a>
                           <!--sub menu-->
                           <div class="sub-menu-wrap">
                             <ul>
-                              <li style="margin-left: 1rem;">-Número: BC0976543-</li>
+                              <!-- <li style="margin-left: 1rem;">-Número: BC0976543-</li> -->
                               <li><a href="perfil.html">-Perfil-</a></li>
-                              <li><a href="calcular.html">-Cerrar BODEGA</a></li>
+                              <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
                             </ul>
                           </div>
                         </li>
@@ -231,16 +231,20 @@
 
                 <h5 class="widget-title">Categorias</h5>
                 <ul class="info-links">
-                  <li><a  href="perfil.html">PERFIL</a></li>
-                  <li><a href="mc-actuales.html">PAQUETES</a></li>
-                  <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
+                  <li><a  href="perfil.html">Perfil</a></li>
+                  <li><a href="paquetes.html">Paquete</a></li>
+                  <li><a href="alerta.html">Alerta Envíos</a></li>
+                  <!-- <li><a  class="focus-visible-only" href="consolidacion.html">Consolidación</a></li> -->
                 </ul>
+                
               </div>
             </div>
+
           </aside>
         
           <!-- Main content -->
           <main id="main" class="col-md-10">
+            
             <!-- page-section -->
             <div class="page-section-full">
                 <img class="empaque" src="images/sinpaquetes.png" alt="paquetes">

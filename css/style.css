@@ -1223,6 +1223,7 @@ a:hover .tooltip{
   position: relative;
   font-weight: bold;
   padding: 10px 0;
+  text-transform: capitalize;
 }
 
 .searchform-wrap.opened, 
@@ -1235,6 +1236,7 @@ a:hover .tooltip{
   #main-navigation > ul > li.current > a,
   #main-navigation > ul > li:hover > a{
     color: #34ccff;
+  text-transform: capitalize;
   }
 
   .sub-menu-wrap ul li{
@@ -2447,9 +2449,9 @@ button.search-button:before{content: "\e922";}
       width: 100%;
       color: #838383;
       border-radius: 3px;
-      height: 42px;
+      height: 38px;
       padding: 10px 20px;
-      border: 2px solid #34ccff;
+      border: 2px solid #dadcdd;
       background-color: transparent;
       text-align: left;
 
@@ -2468,7 +2470,7 @@ button.search-button:before{content: "\e922";}
 
     input:not([type="submit"]):focus,
     textarea:focus{
-      border-color: rgba(209, 10, 17, .5);
+      border-color: rgba(255, 69, 0, 0.46);
       box-shadow: 0 0 10px 0 rgba(209, 10, 17, .2);
       -moz-appearance:none;
       outline:0px none transparent;
@@ -2613,6 +2615,29 @@ button.search-button:before{content: "\e922";}
     .form-style1 input:not(:last-child){
       margin-bottom: 6px;
     }
+
+/*Added to register*/
+  .custom-select {
+    width: inherit;
+    color: #838383;
+    border-radius: 3px;
+    height: 38px;
+    padding: 5px 20px;
+    border: 2px solid #dadcdd;
+    background-color: transparent;
+    text-align: left;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-transition: box-shadow .35s ease, border-color .35s ease;
+    transition: box-shadow .35s ease, border-color .35s ease;
+  }
+  .flex{
+    display: flex;
+  }
+
 
     /*----------- Custom Select --------------*/
 
@@ -4815,7 +4840,6 @@ button.search-button:before{content: "\e922";}
   .services-holder .service:nth-child(9) .service-title::before{
     content: '0'counter(service-number);   
   }
-
   .services-holder .service-title:not(:last-child){
     margin-bottom: 15px;
   }
@@ -7471,9 +7495,9 @@ margin-top: 0rem;
 
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[value="actuales"]:checked ~ .filters [for="actuales"],
-[value="historico"]:checked ~ .filters [for="historico"],
-[value="misAlertas"]:checked ~ .filters [for="misAlertas"],
+[value="todos"]:checked ~ .filters [for="todos"],
+[value="entregado"]:checked ~ .filters [for="entregado"],
+[value="ruta"]:checked ~ .filters [for="ruta"],
 [value="bloqueado"]:checked ~ .filters [for="bloqueado"],
 [value="historico"]:checked ~ .filters [for="historico"],
 [value="nuevos"]:checked ~ .filters [for="nuevos"],
