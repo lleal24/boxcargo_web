@@ -7487,11 +7487,19 @@ margin-top: 0rem;
   transition: all 0.1s;
 }
 
+.filters .active {
+ background-color: #34ccff;
+}
+
 .filters label:hover {
   background: var(--background-btn);
   color: var(--white);
 }
 
+.filters label > a:hover {
+  background: var(--background-btn);
+  color: var(--white);
+}
 
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

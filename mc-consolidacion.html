@@ -49,8 +49,11 @@
     <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-select@3.1.0/dist/vue-select.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 
 <body class="wide-layout">
@@ -176,11 +179,8 @@
                     <li>Mis Paquetes</li>
 
                 </ul>
-
             </div>
-
         </div>
-
         <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
 
         <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
@@ -230,7 +230,6 @@
                                 <h4 style="display: grid; justify-content: center;" class="fw-medium">Envíos recientes
                                 </h4>
                                 <div class="table-type-1 recent-order responsive-table">
-
                                     <!--FILTROS--->
                                     <section class="author-archive">
                                         <div class="container">
@@ -256,92 +255,90 @@
                                                     <label for="bloqueado"><a
                                                             href="mc-paquetesBloqueados.htm">BLOQUEADOS</a></label>
                                                 </li>
+                                                <li>
+                                                    <label for="bloqueado" class="active"><a href="mc-consolidacion.html">CONSOLIDACIÒN</a></label>
+                                                  </li>
                                             </ol>
                                         </div>
                                     </section><br>
                                     <!--FILTROS-->
-                                    <div id="collapsePaqBlq" class="table-responsive" v-cloak>
+                                    <div id="collapsePaqBlq" class="panel-collapse collapse in" role="tabpanel"
+                                    aria-labelledby="headingOne_2">
                                         <div id="app" class="panel-body">
-                                            <div class="gap-10"></div>
                                             <!-- Table – Bordered -->
                                             <ol class="filters">
                                                 <li>
-                                                    <label for="bloqueado"  @click.prevent="setActive('home')" :class="{ active: isActive('home') }">Estado Unidos</label>
+                                                    <label for="EU" @click.prevent="setActive('home')" :class="{ active: isActive('home') }">Estado Unidos</label>
                                                 </li>
                                                 <li>
-                                                    <label for="bloqueado"><a @click.prevent="setActive('profile')" :class="{ active: isActive('profile') }">China</a></label>
+                                                    <label for="CH" @click.prevent="setActive('profile')" :class="{ active: isActive('profile') }">China</label>
+                                                </li>
+                                                <li>
+                                                    <label for="ES" @click.prevent="setActive('contact')" :class="{ active: isActive('contact') }">España</label>
                                                 </li>
                                             </ol>
-                                            <!-- <ul class="nav nav-tabs nav-justified">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" @click.prevent="setActive('home')"
-                                                        :class="{ active: isActive('home') }" href="#home">Estados Unidos</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" @click.prevent="setActive('profile')"
-                                                        :class="{ active: isActive('profile') }" href="#profile">China</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" @click.prevent="setActive('contact')"
-                                                        :class="{ active: isActive('contact') }" href="#contact">España</a>
-                                                </li>
-                                            </ul> -->
                                             <div class="tab-content py-3" id="myTabContent" v-cloak>
                                                 <div class="tab-pane table-responsive" :class="{ 'active show': isActive('home') }">
                                                     <template v-if="resultsUs.length == 0">
                                                         <h4>Actualmente, no tiene paquetes para consolidar en este Hub.</h4>
                                                     </template>
-                                                    <template v-else>
-                                                        <table class="table table-bordered table-striped  table-bordered ">
-                                                            <thead class="table-responsive">
-                                                                <th>Fecha</th>
-                                                                <th>Guía</th>
-                                                                <th>Contenido</th>
-                                                                <th>VR-USD</th>
-                                                                <th>Peso (Lb)</th>
-                                                                <th>Estado</th>
-                                                                <th><input type="checkbox" @click="selectAllUs"></th>
-                                                            </thead>
-                                                            <tbody v-for="paq in resultsUs" class="table-responsive">
-                                                                <tr>
-                                                                    <td class="table-responsive">{{ paq.Fecha | formatDate }}
-                                                                    </td>
-                                                                    <td class="table-responsive">{{ paq.PaqueteId}}</td>
-                                                                    <td class="table-responsive"
-                                                                        v-if="paq.Descripcion.length <20">
-                                                                        {{ paq.Descripcion }}</td>
-                                                                    <td class="table-responsive"
-                                                                        v-else="paq.Descripcion.length >=20">
-                                                                        {{ paq.Descripcion .substring(0,18)+".."}}</td>
-                                                                    <td class="table-responsive"
-                                                                        v-if="paq.ValorDeclarado == null">
-                                                                        0.00</td>
-                                                                    <td class="table-responsive"
-                                                                        v-else="paq.ValorDeclarado != null">{{
-                                                                        paq.ValorDeclarado }}
-                                                                    </td>
-                                                                    <td class="table-responsive">{{paq.PesoLibras}}</td>
-                                                                    <td class="table-responsive">BLQ</td>
-                                                                    <td><input type="checkbox" v-bind:value="paq.PaqueteId"
-                                                                        v-model="packagesIdUs" @click="selectEvent(paq,$event)" name="ckeckInput"/></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <template v-if="activeItem == 'home'">
-                                                                <div class="col-md-6">
-                                                                    <label>Seleccione los paquetes a consolidar *</label>
-                                                                    <input class="form-control" v-model="packagesIdUs" id="listaPaqueteId" readonly>
-                                                                </div>
-                                                            <my-component-name ></my-component-name>
-                                                        </template>
+                                                    <template v-else v-if="activeItem == 'home'">
+                                                        <div id="divResult">
+                                                            <table class="table table-bordered table-striped  table-bordered ">
+                                                                <thead class="table-responsive">
+                                                                    <th>Fecha</th>
+                                                                    <th>Guía</th>
+                                                                    <th>Contenido</th>
+                                                                    <th>VR-USD</th>
+                                                                    <th>Peso (Lb)</th>
+                                                                    <th>Estado</th>
+                                                                    <th>
+                                                                        <input type="checkbox" @click="selectAllUs" id="allUs">
+                                                                        <label for="allUs">Todos</label>
+                                                                    </th>
+                                                                </thead>
+                                                                <tbody v-for="paq in resultsUs" class="table-responsive">
+                                                                    <tr>
+                                                                        <td class="table-responsive">{{ paq.Fecha | formatDate }}
+                                                                        </td>
+                                                                        <td class="table-responsive">{{ paq.PaqueteId}}</td>
+                                                                        <td class="table-responsive"
+                                                                            v-if="paq.Descripcion.length <20">
+                                                                            {{ paq.Descripcion }}</td>
+                                                                        <td class="table-responsive"
+                                                                            v-else="paq.Descripcion.length >=20">
+                                                                            {{ paq.Descripcion .substring(0,18)+".."}}</td>
+                                                                        <td class="table-responsive"
+                                                                            v-if="paq.ValorDeclarado == null">
+                                                                            0.00</td>
+                                                                        <td class="table-responsive"
+                                                                            v-else="paq.ValorDeclarado != null">{{
+                                                                            paq.ValorDeclarado }}
+                                                                        </td>
+                                                                        <td class="table-responsive">{{paq.PesoLibras}}</td>
+                                                                        <td class="table-responsive">BLQ</td>
+                                                                        <td><input type="checkbox" v-bind:value="paq.PaqueteId" v-bind:id="paq.PaqueteId"
+                                                                            v-model="packagesIdUs" @click="selectEvent(paq,$event)" name="ckeckInput"/>
+                                                                            <label v-bind:for="paq.PaqueteId"></label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <template v-if="activeItem == 'home'">
+                                                                    <div class="form-column">
+                                                                        <label>Seleccione los paquetes a consolidar *</label>
+                                                                        <input class="form-control" v-model="packagesIdUs" id="listaPaqueteId" readonly>
+                                                                    </div>
+                                                                <my-component-name ></my-component-name>
+                                                            </template>
+                                                        </div>
                                                     </template>
                                                 </div>
-                                                <div class="tab-pane table-responsive" :class="{ 'active show': isActive('profile') }"
-                                                    id="profile">
+                                                <div class="tab-pane table-responsive" :class="{ 'active show': isActive('profile') }" >
                                                     <template v-if="resultsCh.length == 0">
                                                         <h4>Actualmente, no tiene paquetes para consolidar en este Hub.</h4>
                                                     </template>
-                                                    <template v-else>
+                                                    <template v-else v-if="activeItem == 'profile'">
                                                         <table class="table table-bordered table-striped  table-bordered ">
                                                             <thead class="table-responsive">
                                                                 <th>Fecha</th>
@@ -350,7 +347,10 @@
                                                                 <th>VR-USD</th>
                                                                 <th>Peso (Lb)</th>
                                                                 <th>Estado</th>
-                                                                <th><input type="checkbox" @click="selectAllCh"></th>
+                                                                <th>
+                                                                    <input type="checkbox" @click="selectAllCh" id="allCh">
+                                                                    <label for="allCh">Todos</label>
+                                                                </th>
                                                             </thead>
                                                             <tbody v-for="paq in resultsCh" class="table-responsive">
                                                                 <tr>
@@ -372,13 +372,15 @@
                                                                     </td>
                                                                     <td class="table-responsive">{{paq.PesoLibras}}</td>
                                                                     <td class="table-responsive">BLQ</td>
-                                                                    <td><input type="checkbox" v-bind:value="paq.PaqueteId" name="ckeckInput"
-                                                                            v-model="packagesIdCh" @click="selectEvent(paq,$event)"/></td>
+                                                                    <td><input type="checkbox" v-bind:value="paq.PaqueteId" v-bind:id="paq.PaqueteId"
+                                                                        v-model="packagesIdCh" @click="selectEvent(paq,$event)" name="ckeckInput"/>
+                                                                        <label v-bind:for="paq.PaqueteId"></label>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                         <template v-if="activeItem == 'profile'">
-                                                            <div class="col-md-6">
+                                                            <div class="form-column">
                                                                 <label>Seleccione los paquetes a consolidar *</label>
                                                                 <input class="form-control" v-model="packagesIdCh" id="listaPaqueteId" readonly>
                                                             </div>
@@ -391,7 +393,7 @@
                                                     <template v-if="resultsEs.length == 0">
                                                         <h4>Actualmente, no tiene paquetes para consolidar en este Hub.</h4>
                                                     </template>
-                                                    <template v-else>
+                                                    <template v-else v-if="activeItem == 'contact'">
                                                         <table class="table table-bordered table-striped  table-bordered ">
                                                             <thead class="table-responsive">
                                                                 <th>Fecha</th>
@@ -400,7 +402,10 @@
                                                                 <th>VR-USD</th>
                                                                 <th>Peso (Lb)</th>
                                                                 <th>Estado</th>
-                                                                <th><input type="checkbox" @click="selectAllEs"></th>
+                                                                <th>
+                                                                    <input type="checkbox" @click="selectAllEs" id="allEs">
+                                                                    <label for="allEs">Todos</label>
+                                                                </th>
                                                             </thead>
                                                             <tbody v-for="paq in resultsEs" class="table-responsive">
                                                                 <tr>
@@ -422,15 +427,17 @@
                                                                     </td>
                                                                     <td class="table-responsive">{{paq.PesoLibras}}</td>
                                                                     <td class="table-responsive">BLQ</td>
-                                                                    <td><input type="checkbox" v-bind:value="paq.PaqueteId"
-                                                                            v-model="packagesIdEs" @click="selectEvent(paq,$event)" name="valorDeclarado"/></td>
+                                                                    <td><input type="checkbox" v-bind:value="paq.PaqueteId" v-bind:id="paq.PaqueteId"
+                                                                        v-model="packagesIdEs" @click="selectEvent(paq,$event)" name="ckeckInput"/>
+                                                                        <label v-bind:for="paq.PaqueteId"></label>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                         <template v-if="activeItem == 'contact'">
-                                                            <div class="col-md-6">
+                                                            <div class="form-column">
                                                                 <label>Seleccione los paquetes a consolidar *</label>
-                                                                <input class="form-control" v-model="packagesIdEs" id="listaPaqueteId" readonly>
+                                                                <input v-if="activeItem == 'contact'" class="form-control" v-model="packagesIdEs" id="listaPaqueteId" readonly>
                                                             </div>
                                                             <my-component-name > </my-component-name>
                                                         </template>

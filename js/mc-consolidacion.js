@@ -13,23 +13,23 @@ Vue.filter("formatDate", function (value) {
 /*Template -> formulario de creacion de orden de consolidación */
 Vue.component("my-component-name", {
     template: `
-            <form id="createOrdenConsolidacionForm" onsubmit="createOrdenConsolidacion(); return false">
-            <div class="form-group col-md-6">
+            <form class="form-style1 fx-cols-2" id="createOrdenConsolidacionForm" onsubmit="createOrdenConsolidacion(); return false">
+            <div class="form-column">
                 <label>Descripcion *</label>
-                <input class="form-control" id="ordenDescipcion" type="text"
+                <input class="col-sd-6" id="ordenDescipcion" type="text"
                     placeholder="Descripción" required>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-column">
                 <label>Observación (opcional)</label>
-                <input class="form-control" id="ordenObservacion" type="text"
+                <input class="col-lg-6" id="ordenObservacion" type="text"
                     placeholder="Observación">
             </div>
-             <div class="form-group col-md-6">
+             <div class="form-column">
                 <label>Valor declarado (USD) *</label>
-                <input class="form-control" id="valorDeclaradoOrden" type="text"
+                <input class="col-lg-6" id="valorDeclaradoOrden" type="text"
                     placeholder="EJM: 32.99" required>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-column">
                 <label>Factura *</label>
                 <div class="input-group input-file" name="Fichier1"></div>
                 <span class="btn btn-primary margin-bottom-none" style="width: 100%;"><input class="" type="file" id="urlFactura"
@@ -40,7 +40,9 @@ Vue.component("my-component-name", {
                     * Utilice archivos con un tamaño NO superior a 1 MB.</p>
                 </p>
             </div>
-            <input class="btn btn-primary btn-block" type="submit" value="Consolidar">
+            <div class="form-column">
+                <input class="btn btn-primary col-lg-12" type="submit" value="Consolidar">
+            </div>
             </form>`,
 });
 
@@ -257,8 +259,8 @@ function createOrdenConsolidacion() {
         formData.append("Observacion", orderObservacion);
 
         $.ajax({
-            //url: "https://fpaqtest.azurewebsites.net/api/OrdenConsolidacion/CreateOrdenConsolidacion",
-            url: "https://localhost:44347/api/OrdenConsolidacion/CreateOrdenConsolidacion",
+            url: "https://fpaqtest.azurewebsites.net/api/OrdenConsolidacion/CreateOrdenConsolidacion",
+            //url: "https://localhost:44347/api/OrdenConsolidacion/CreateOrdenConsolidacion",
             type: "POST",
             contentType: false,
             processData: false,
