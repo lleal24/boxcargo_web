@@ -1,45 +1,3 @@
-
-// Vue.component('modal', {
-//   props: ['address', 'ciudades'],
-//   template: '#modal-template',
-//   methods: {
-//     escribir: function (data) {
-//       debugger;
-//       if (data.NombreDestinatarioValid.input.length < 2) {
-//         debugger;
-//         data.NombreDestinatarioValid.mensaje = "el campo se encuentra en blanco";
-//         data.NombreDestinatarioValid.clase = "warning";
-//       }
-//       debugger;
-//     },
-//     closeModal: function () {
-
-
-//       var dataout = JSON.parse(sessionStorage.getItem('appData'));
-//       // this.address.NombreDestinatario = this.addressValid.NombreDestinatario.input;
-//       debugger;
-//       this.address.CiudadId = this.address.CiudadId.CiudadId;
-//       this.address.ClienteId = dataout.C;
-//       debugger;
-//       axios.post(locationUrl, this.address,
-//         {
-//           headers: {
-//             "Authorization": "Bearer " + dataout.T
-//           }
-//         })
-//         .then(function (response) {
-//           console.log(response);
-//         })
-//         .catch(function (error) {
-//           console.log(error);
-//         });
-//       this.$forceUpdate();
-//       this.$emit('close');
-//       // this.$router.go(0);
-//     }
-//   }
-// })
-
 Vue.component("v-select", VueSelect.VueSelect);
 
 const paqBaseUrlLocation = " https://fpaq.azurewebsites.net/api/locations/";
@@ -72,10 +30,8 @@ const vl = new Vue({
   },
   methods: {
     getLocs() {
-      // debugger;
       var dataout = JSON.parse(sessionStorage.getItem('appData'));
       let url = paqBaseUrlLocation + dataout.C;
-      // debugger;
       axios.get(url,
         {
           headers: {
@@ -83,19 +39,16 @@ const vl = new Vue({
           }
         })
         .then((response) => {
-          // debugger;
           this.loading = false;
           this.results = response.data;
         }).catch((error) => { console.log(error); });
 
       axios.get(ciudadesUrl)
         .then((response) => {
-          // debugger;
           this.ciudades = response.data
         })
         .catch((error) => { console.log(error) });
     }
-
   }
 });
 
@@ -140,13 +93,11 @@ const vmodal = new Vue({
   },
   methods: {
     validarDatos: function (dataValid) {
-      // debugger;
       if (dataValid.input == "") {
         dataValid.mensaje = "el campo es requerido";
         dataValid.clase = "warning";
       }
       else {
-        // debugger;
         dataValid.mensaje = "";
         dataValid.clase = "success";
       }
