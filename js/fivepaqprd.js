@@ -76,7 +76,8 @@ var fivepaq = {
 				dataIn.N = result.Cuenta;
 				dataIn.Tel = result.Telefono;
 				dataIn.L = true;
-				dataIn.Con = result.ConvenioId; /* cambioll */
+				dataIn.Con = result.ConvenioId;
+				dataIn.Ecommerce = result.Ecommerce;
 				sessionStorage.setItem('appData', JSON.stringify(dataIn));
 				LoginOk();
 			} else {
@@ -419,5 +420,31 @@ var fivepaq = {
 			}
 		});
 	},
-
+	prealertaEcommerce: function (data){
+		var dataIn = fivepaq.dataOut();
+		$.ajax({
+			url: "https://fpaq.azurewebsites.net/api/PreAlerts/CreatePrealert/EcommerceIdentityDocumentAsync",
+			type: 'POST',
+			contentType: 'application/json; charset=utf-8',
+			data: JSON.stringify(data),
+			headers: {
+				'Authorization': 'Bearer ' + dataIn.T
+			},
+			success: function (response) {
+				AlertSuccessValue(response);
+			},
+			error: function (request, message, error) {
+				console.log(request);
+				console.log(message);
+				console.log(error);
+				swal.fire({
+					title: '¡Algo Sucedió!',
+					text: request.responseText,
+					type: 'error',
+					confirmButtonText: 'Ok',
+					allowOutsideClick: false,
+				})
+			}
+		});
+	}
 };

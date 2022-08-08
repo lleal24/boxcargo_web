@@ -206,9 +206,16 @@
 
                                 <h5 class="widget-title">Categorias</h5>
                                 <ul class="info-links">
-                                    <li><a href="perfil.html">PERFIL</a></li>
-                                    <li><a href="mc-actuales.html">PAQUETES</a></li>
-                                    <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
+                                    <li><a href="perfil.html">Perfil</a></li>
+                                    <li><a href="mc-actuales.html">Paquetes</a></li>
+                                    <div id="appEcommerce" class="info-links">
+                                        <template v-if="ecommerce == true">
+                                          <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
+                                        </template>
+                                        <template v-else>
+                                          <li><a href="alerta.html">Alertar Envíos</a></li>
+                                        </template>
+                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -279,9 +286,6 @@
                                             </ol>
                                             <div class="tab-content py-3" id="myTabContent" v-cloak>
                                                 <div class="tab-pane table-responsive" :class="{ 'active show': isActive('home') }">
-                                                    <template v-if="resultsUs.length == 0">
-                                                        <h4>Actualmente, no tiene paquetes para consolidar en este Hub.</h4>
-                                                    </template>
                                                     <template v-else v-if="activeItem == 'home'">
                                                         <div id="divResult">
                                                             <table class="table table-bordered table-striped  table-bordered ">
@@ -335,9 +339,6 @@
                                                     </template>
                                                 </div>
                                                 <div class="tab-pane table-responsive" :class="{ 'active show': isActive('profile') }" >
-                                                    <template v-if="resultsCh.length == 0">
-                                                        <h4>Actualmente, no tiene paquetes para consolidar en este Hub.</h4>
-                                                    </template>
                                                     <template v-else v-if="activeItem == 'profile'">
                                                         <table class="table table-bordered table-striped  table-bordered ">
                                                             <thead class="table-responsive">
@@ -390,9 +391,6 @@
                                                 </div>
                                                 <div class="tab-pane" :class="{ 'active show': isActive('contact') }"
                                                     id="contact">
-                                                    <template v-if="resultsEs.length == 0">
-                                                        <h4>Actualmente, no tiene paquetes para consolidar en este Hub.</h4>
-                                                    </template>
                                                     <template v-else v-if="activeItem == 'contact'">
                                                         <table class="table table-bordered table-striped  table-bordered ">
                                                             <thead class="table-responsive">
@@ -467,9 +465,8 @@
                             <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
                             <div class="widget">
                                 <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
-                                <p>Todos los días es un nuevo día para nosotros y trabajamos muy duro para satisfacer a
-                                    nuestros
-                                    clientes en todas partes</p>
+                                <p>Nuestro compromiso es suplir sus requerimiento y expectativas, para contribuir al desarrollo comercial de la empresas y del país.
+                                </p>
                             </div>
                             <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
                         </div>
@@ -568,6 +565,7 @@
     <script src="js/fivepaq.js"></script>
     <script src="js/libs/moment.js"></script>
     <script src="js/mc-consolidacion.js"></script>
+    <script src="js/utilidades.js"></script>
 
     <script>
         function cerrarsesion() {

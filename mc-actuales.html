@@ -233,9 +233,16 @@
 
                 <h5 class="widget-title">Categorias</h5>
                 <ul class="info-links">
-                  <li><a href="perfil.html">PERFIL</a></li>
-                  <li><a href="mc-actuales.html">PAQUETES</a></li>
-                  <li><a href="alerta.html">ALERTAR ENVÍOS</a></li>
+                  <li><a href="perfil.html">Perfil</a></li>
+                  <li><a href="mc-actuales.html">Paquetes</a></li>
+                  <div id="appEcommerce" class="info-links">
+                    <template v-if="ecommerce == true">
+                      <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
+                    </template>
+                    <template v-else>
+                      <li><a href="alerta.html">Alertar Envíos</a></li>
+                    </template>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -334,8 +341,8 @@
               <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
               <div class="widget">
                 <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
-                <p>Todos los días es un nuevo día para nosotros y trabajamos muy duro para satisfacer a nuestros
-                  clientes en todas partes</p>
+                <p>Nuestro compromiso es suplir sus requerimiento y expectativas, para contribuir al desarrollo comercial de la empresas y del país.
+                </p>
               </div>
               <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
             </div>
@@ -429,6 +436,7 @@
   <script src="js/fivepaq.js"></script>
   <script src="js/libs/moment.js"></script>
   <script src="js/mc-actuales.js"></script>
+  <script src="js/utilidades.js"></script>
 
   <script>
     function cerrarsesion() {

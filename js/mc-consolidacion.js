@@ -1,7 +1,6 @@
 const baseUrl =
-    "https://fpaqtest.azurewebsites.net/api/Packages/GetHubPackageBlq?";
-const baselocal =
-    "https://fpaqtest.azurewebsites.net/api/Packages/GetHubPackageBlq?";
+    "https://fpaq.azurewebsites.net/api/Packages/GetHubPackageBlq?";
+//const baselocal = "https://fpaq.azurewebsites.net/api/Packages/GetHubPackageBlq?";
 let dataOut = JSON.parse(sessionStorage.getItem("appData"));
 
 Vue.filter("formatDate", function (value) {
@@ -159,7 +158,7 @@ new Vue({
 
         /*Logica asociada a consumo de microservicio para obtener paquetes para consolidacion Estado Unidos*/
         getPaqUsa() {
-            let url = `${baselocal}hubId=1&motivoBloqueoId=6&cuenta=${dataOut.N}`;
+            let url = `${baseUrl}hubId=1&motivoBloqueoId=6&cuenta=${dataOut.N}`;
             axios
                 .get(url, {
                     headers: {
@@ -259,7 +258,7 @@ function createOrdenConsolidacion() {
         formData.append("Observacion", orderObservacion);
 
         $.ajax({
-            url: "https://fpaqtest.azurewebsites.net/api/OrdenConsolidacion/CreateOrdenConsolidacion",
+            url: "https://fpaq.azurewebsites.net/api/OrdenConsolidacion/CreateOrdenConsolidacion",
             //url: "https://localhost:44347/api/OrdenConsolidacion/CreateOrdenConsolidacion",
             type: "POST",
             contentType: false,

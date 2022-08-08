@@ -25,6 +25,9 @@ const vp = new Vue({
                 var tp = localStorage.getItem('tp');
                 this.options = JSON.parse(tp);
             }
+        },
+        onChange(event){
+            document.getElementById('posicionArancelaria').value = event.target.value;
         }
     }
 });

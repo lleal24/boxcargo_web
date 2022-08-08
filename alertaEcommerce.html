@@ -177,14 +177,17 @@
 
       <div class="container">
 
-        <h1 class="page-title">Alerta Envíos</h1>
+        <h1 class="page-title">Alerta ecommerce</h1>
 
         <ul class="breadcrumbs">
 
           <li><a href="index.html">Home</a></li>
           <li>Mis Alertas</li>
+
         </ul>
+
       </div>
+
     </div>
 
     <!-- - - - - - - - - - - - - end Breadcrumbs - - - - - - - - - - - - - - - -->
@@ -214,22 +217,18 @@
                 <ul class="info-links">
                   <li><a href="perfil.html">Perfil</a></li>
                   <li><a href="mc-actuales.html">Paquetes</a></li>
-                  <div id="appEcommerce" class="info-links">
-                    <template v-if="ecommerce == true">
-                      <li><a href="alertaEcommerce.html">Alertar envíos ecommerce</a></li>
-                    </template>
-                    <template v-else>
-                      <li><a href="alerta.html">Alertar Envíos</a></li>
-                    </template>
-                  </div>
+                  <li><a href="alerta.html">Alertar ecommerce</a></li>
                 </ul>
               </div>
             </div>
           </aside>
+
           <!-- Main content -->
           <main id="main" class="col-md-10">
+
             <!-- page-section -->
             <div class="page-section">
+
               <div class="content-element" id="envio">
                 <div style="  display: flex;
                 flex-direction: unset;
@@ -239,16 +238,23 @@
                   Hace falta que agregar un método de pago. <a href="perfil.html" class="btn">Agregar tarjeta</a>
                 </div>
                 <!-- - - - - - - - - - - - - Formulario - - - - - - - - - - - - - - - -->
-                <div class="page-section" >
+                <div class="page-section">
                   <div class="container">
                     <div class="row">
                       <div class="col-md-10">
-                        <h2 class="section-title">Información general del transporte</h2>
-                        <p class="section-pre-title">Déjenos saber si a hecho una compra y tiene un paquete en camino a
-                          nuestras bodegas, de esta forma podemos ayudale en cada etapa del proceso. </p><br>
-                        <form class="form-style1 fx-cols-2" id="formAlerta">
+                        <h2 class="section-title">Datos del paquete</h2>
+                        <form class="form-style1 fx-cols-2" id="formAlertaEcommerce">
                           <div class="form-column">
-                            <label class="required">Compañia transportadora</label>
+                            <label class="required">Seleccione Hub</label>
+                            <select class="custom-select" id="hubId" required>
+                              <option value='' selected>Seleccione una opcion</option>
+                              <option value='1'>Miami</option>
+                              <option value='2'>España</option>
+                              <option value='3'>China</option>
+                            </select>
+                          </div>
+                          <div class="form-column">
+                            <label class="required">Compañía Transportadora</label>
                             <select class="custom-select" id="idCarrier" required>
                               <option value='' selected>Seleccione una opcion</option>
                               <option value='1'>USPS</option>
@@ -258,8 +264,6 @@
                               <option value='5'>DHL</option>
                               <option value='6'>Otro</option>
                             </select>
-                            <!-- <label class="required">Correo electrónico </label>
-                           <input type="text" placeholder="leonardo.medina@auropaq.com" disabled> -->
                           </div>
                           <div class="form-column">
                             <label tipe class="required">Número de carrier</label>
@@ -267,54 +271,97 @@
                               maxlength="100" required>
                           </div>
                           <div class="form-column">
-                            <label tipe class="required">Direccion de destino</label>
-                            <select id="direcciones" name="direcciones" class="custom-select" required>
-                              <option value="">Seleccione una direcciòn</option>
-                            </select>
+                            <label tipe class="required">Vendedor</label>
+                            <input type="text" id="vendor" name="vendor" placeholder="Nombre" maxlength="100" required>
                           </div>
                           <div class="form-column">
-                            <label tipe class="required">Nombre destino</label>
-                            <input type="text" id="destinatario" name="destinatario" placeholder="Nombre completo"
-                              maxlength="100" required>
-                          </div>
-                          <div class="form-column-full">
-                            <h2 class="section-title">Información del producto </h2>
-                          </div>
-                          <div class="form-column-full">
-                            <p class="section-pre-title">Dejenos conocer más del/los producto(s) que compro. </p>
+                            <label tipe class="required">Descripción producto</label>
+                            <input type="text" id="descripcion" name="descripcion" placeholder="Breve descripción"
+                              maxlength="150" required>
                           </div>
                           <div class="form-column">
-                            <label class="required">Producto comprado</label>
-                            <input type="text" id="descripcion" name="descripcion"
-                              placeholder="Describa el producto comprado" maxlength="100" required>
-                          </div>
-                          <div class="form-column">
-                            <label tipe class="required">Valor del Producto</label>
-                            <input type="number" id="Valor" name="Valor" placeholder="USD 0.00" required>
+                            <div class="row g-3">
+                              <div class="col-sm-4">
+                                <label class="required">Valor(USD)</label>
+                                <input type="number" class="form-control" min="1" max="100000" id="valor" name="Valor"
+                                  required>
+                              </div>
+                              <div class="col-sm-4">
+                                <label class="required">Peso(LB)</label>
+                                <input type="number" class="form-control" min="1" max="100000" id="peso" name="peso"
+                                  required>
+                              </div>
+                              <div class="col-sm-4">
+                                <label class="required">Cantidad</label>
+                                <input type="number" class="form-control" min="1" max="100" id="cantidad"
+                                  name="cantidad" required>
+                              </div>
+                            </div>
                           </div>
                           <div class="form-column-full" id="app">
                             <label>
                               Categoría del producto * </label>
-                              <select class="custom-select">
-                                <option v-for="option in options" v-bind:value="option.value">
-                                  {{ option.Description.substring(0,100)+'...' }}
-                                </option>
-                              </select>
+                            <select class="custom-select" @change="onChange($event)">
+                              <option v-for="option in options" v-bind:value="option.TariffCode">
+                                {{ option.Description.substring(0,100)+'...' }}
+                              </option>
+                            </select>
                           </div>
-                          <div style="display: grid;" class="form-column">
+                          <div style="display: grid;" class="form-column-full">
                             <label>Adjuntar factura de compra (opcional)</label>
+                            <input hidden="true" type="text" id="base64File">
                             <input class="hidden" id="ImageUrl" type="file" onchange="validarExtencion()"><br>
-                            <button class="btn btn-primary" type="submit" onclick="grabarClick()">Cargar</button>
                             <spam>
                               * Utilice archivos en formato: .pdf, .jpg, .png para adjuntar la
                               factura.<br>
                               * Utilice archivos con un tamaño NO superior a 5 MB.</spam>
                             <spam><b>*De no estar seguro de su factura por favor NO adjunte
-                                el archivos</spam>
+                                el archivos</b></spam>
                           </div>
+                          <div class="form-column-full">
+                            <h2 class="section-title">Datos de destino</h2>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Nombre destino</label>
+                            <input type="text" id="nombreDestino" name="nombreDestino" maxlength="100" required>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Documento destino</label>
+                            <input type="text" id="documentoDestino" name="documentoDestino" maxlength="50" required>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Telefono contacto destino</label>
+                            <input type="text" id="telefonoDestino" name="telefonoDestino" maxlength="20" required>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Correo destino</label>
+                            <input type="email" id="correoDestino" name="correoDestino" maxlength="20" required>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Departamento</label>
+                            <select class="custom-select" id="estado" onchange="cargaCiudades()" required>
+                              <option selected value="">Departamento/Estado</option>
+                            </select>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Ciudad</label>
+                            <select class="custom-select" id="ciudad" name="ciudad" onchange="getIdLocation()" required>
+                              <option selected value="">Ciudad/Provincia</option>
+                            </select>
+                          </div>
+                          <div class="form-column">
+                            <label tipe class="required">Dirección destino</label>
+                            <input type="text" id="direccionDestino" name="direccionDestino" maxlength="150" required>
+                          </div>
+                          <div class="form-column-full">
+                            <button class="btn btn-primary" type="submit" onclick="grabarClickEcommerce()" style="width: inherit;">Cargar</button>
+                          </div>
+                          <input hidden="true" id="pais" value="Colombia">
+                          <input hidden="true" id="ciudadIdRegistro" value="0" />
+                          <input hidden="true" id="ciudadTipoRegistro" />
+                          <input hidden="true" id="zipCode" />
                           <input hidden="true" id="posicionArancelaria" value="9807200000"/>
                         </form><br>
-
                       </div>
                     </div>
                   </div>
@@ -421,8 +468,9 @@
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
   <script src="js/fivepaq.js"></script>
+  <script src="js/mc-alertaEcommerce.js"></script>
   <script src="js/mc-alerta.js"></script>
-  <script src="js/utilidades.js"></script>
+  <script src="js/registroCiudades.js"></script>
 
   <script>
     function cerrarsesion() {
@@ -438,91 +486,7 @@
     $("#nombreCliente").html(dataout.U);
     $("#numCasillero").html(dataout.N);
 
-    function grabarClick() {
-      $('form[id="formAlerta"]').validate({
-        ignore: ".ignore",
-        submitHandler: function (form) {
-          var dataout = JSON.parse(sessionStorage.getItem('appData'));
-          // var fil = JSON.parse(sessionStorage.getItem('file'));
-          // console.log(fil);
-          var datos = {
-            clientID: dataout.C,
-            trackingNumber: $("#trackingNumber").val(),
-            idCarrier: $("#idCarrier").val(),
-            idLocation: $("#direcciones").val(),
-            destinatario: $("#destinatario").val(),
-            TariffCode: $("#posicionArancelaria").val(),
-            description: $("#descripcion").val(),
-            value: $("#Valor").val().replace(",", ".")
-          };
-
-          if (document.getElementById('ImageUrl').value == "") {
-            fivepaq.prealertaValue(datos.clientID,
-              datos.trackingNumber, datos.idCarrier, datos.idLocation, datos.TariffCode, datos.description,
-              datos.value);
-          } else {
-            fivepaq.prealertaImage(datos.clientID,
-              datos.trackingNumber, datos.idCarrier, datos.idLocation, datos.TariffCode, datos.description);
-          }
-        }
-      });
-    }
-
-    function validarExtencion() {
-      let fileInput = (document.getElementById('ImageUrl')).value;
-      let fileName = document.getElementById('ImageUrl').files[0].name;
-      let extPermitidas = /(.jpg|.png|.jpeg|.gif|.pdf)$/i;
-      if (!extPermitidas.exec(fileInput)) {
-        console.log('Extension invalida')
-        Swal.fire({
-          title: 'Extension invalida!',
-          text: 'Valida que el archivo sea extension .jpg, .png, .gif, .pdf',
-          icon: 'error',
-          confirmButtonText: 'Ok',
-          type: 'error'
-        })
-      } 
-    }
-
-    function DireccionesOk(data) {
-      $.each(data, function (i, item) {
-        $('#direcciones').append(
-          '<option value="' + data[i].idLocation + '">' + data[i].direccion + '</option>'
-        )
-      });
-    }
-
-    function AlertSuccessImage(response) {
-      $('#formAlerta').trigger("reset");
-      Swal.fire(
-        '¡Se Alerto tu paquete! \n Con el Numero: ' + response.PreAlertId + ' ¡Guardalo!',
-        '¡Nosotros nos encargamos!',
-        'success'
-      );
-    }
-
-    function AlertSuccessValue(response) {
-      $('#formAlerta').trigger("reset");
-      Swal.fire(
-        '¡Se Alerto tu paquete! \n Con el Numero: ' + response.PreAlertId + ' ¡Guardalo!',
-        '¡Nosotros nos encargamos!',
-        'success'
-      );
-    }
-
-    function limpiarAlerta() {
-      $('#idCarrier').val('');
-      $('#trackingNumber').val('');
-      $('#direcciones').val('');
-      $('#destinatario').val('');
-      $('#posicionArancelaria').val('');
-      $('#descripcion').val('');
-      $('#Valor').val('');
-      $('#ImageUrl').val('');
-    }
-
     fivepaq.cargarDireccionesCliente();
   </script>
 </body>
-
 </html>

@@ -232,11 +232,16 @@
                 <h5 class="widget-title">Categorias</h5>
                 <ul class="info-links">
                   <li><a href="perfil.html">Perfil</a></li>
-                  <li><a href="paquetes.html">Paquetes</a></li>
-                  <li><a href="alerta.html">Alerta Envíos</a></li>
-                  <li><a href="#">Consolidación</a></li>
+                  <li><a href="mc-actuales.html">Paquetes</a></li>
+                  <div id="appEcommerce" class="info-links">
+                    <template v-if="ecommerce == true">
+                      <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
+                    </template>
+                    <template v-else>
+                      <li><a href="alerta.html">Alertar Envíos</a></li>
+                    </template>
+                  </div>
                 </ul>
-                
               </div>
             </div>
 
@@ -464,6 +469,7 @@
   ============================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/utilidades.js"></script>
 
 </body>
 </html>
