@@ -51,7 +51,6 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
 
 </head>
-
 <body class="wide-layout">
 
   <div class="loader"></div>
@@ -238,141 +237,6 @@
                     </select>
                   </div>
                 </form>
-<!-- 
-                <form class="form-style1 fx-cols-4" id="registro">
-                  <div class="form-column">
-                    <label class="required">Nombres</label>
-                    <input type="text" id="nombre" name="nombre" maxlength="50" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Apellidos</label>
-                    <input type="text" id="apellidos" name="apellidos" maxlength="50" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Correo electrónico</label>
-                    <input type="email" id="emailRegistro" name="emailRegistro" maxlength="100" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Confirma tu correo</label>
-                    <input type="email" id="emailRegistroConfirm" name="emailRegistroConfirm" maxlength="100" required>
-                  </div>
-                  <div class="form-column">
-                    <label>Teléfono Fijo</label>
-                    <input type="number" maxlength="20">
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Teléfono Celular</label>
-                    <input type="number" id="telefono" name="telefono" maxlength="20" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Plan comercial</label>
-                    <select class="custom-select" id="idConvenio" onchange="change();">
-                      <option value="30">Box Cargo</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Fecha de Nacimiento </label>
-                    <input type="date" placeholder="Apartamento, interior" id="fechaNacimiento" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Forma de Pago</label>
-                    <select class="custom-select" id="tipoDePago" required>
-                      <option value="" selected disabled>Seleccione una opcion</option>
-                      <option value="menu">Efectivo</option>
-                      <option value="menu">Crédito</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">¿Como supiste de Nosotros?</label>
-                    <select class="custom-select" id="AsesorID" required>
-                      <option value="" selected disabled>Seleccione una opcion</option>
-                      <option value="13">En la empresa</option>
-                      <option value="14">Me lo recomendó un amigo</option>
-                      <option value="15">Publicidad en otro sitio WEB</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Dirección</label>
-                    <input type="adress" placeholder="Dirección de entrega" id="direccion" name="direccion"
-                      maxlength="100" required>
-                  </div>
-                  <div class="form-column">
-                    <label>Apartamento </label>
-                    <input type="adress" placeholder="Apartamento, interior" id="apartamento">
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Departamento</label>
-                    <select class="custom-select" name="estado" id="estado" onchange="cargaCiudades()" required>
-                      <option value="" selected>Seleccione una opción</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Ciudad</label>
-                    <select class="custom-select" name="ciudad" id="ciudad" onchange="getIdLocation()" required>
-                      <option value="" selected>Seleccione una opción</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Tipo de persona</label>
-                    <select class="custom-select" id="account-TipoIdentificacion">
-                      <option value="" selected>Seleccione una opcion</option>
-                      <option value="MuestraEmp">Natural</option>
-                      <option value="MuestraEmp">Juridica</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Tipo Documento</label>
-                    <select class="custom-select" id="tipoDoc" required>
-                      <option value="" disabled selected>Seleccione una opcion</option>
-                      <option value="13">Cédula</option>
-                      <option value="14">Pasaport</option>
-                      <option value="15">Nit</option>
-                    </select>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Número de Documento</label>
-                    <input type="number" id="documento" name="documento" maxlength="50"
-                      placeholder="Número de Documento" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Código Postal</label>
-                    <input type="number" placeholder="Código postal" id="cpostal" value="" name="cpostal" maxlength="50"
-                      required>
-                    <div data-align-outer="">
-                      <div data-align-inner="">
-                        <span class="TextBlock" id="W0009ZONAPOSTAL" data-gx-evt-control="ZONAPOSTAL"
-                          data-gx-context="[&quot;W0009&quot;,false]">
-                          <a href="https://visor.codigopostal.gov.co/472/visor/" target="new" data-gx-evt="7">Buscar
-                            Zona Postal</a></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Contraseña</label>
-                    <input type="password" placeholder="Contraseña" id="passwordRegistro" name="passwordRegistro"
-                      maxlength="100" required>
-                  </div>
-                  <div class="form-column">
-                    <label class="required">Confirmar contraseña</label>
-                    <input type="password" placeholder="Confirmar contraseña" id="passwordRegistroConfirm"
-                      name="passwordRegistroConfirm" maxlength="100" required>
-                  </div>
-                  <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account" required>
-                  <label for="bd_create_an_account">Acepto términos y condiciones <br> <span><a style="color: #ff4500;"
-                        href="terminos.html" target="new">&nbsp;&nbsp;Ver terminos</a></span></label>
-
-                  <input hidden="true" id="ciudadIdRegistro" />
-                  <input hidden="true" id="ciudadTipoRegistro" />
-                  <input hidden="true" id="zipCode" />
-                  <input hidden id="convenioRegistro" value="30">
-                  <input hidden="true" id="pais" value="Colombia">
-
-                  <div class="form-column-full">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit"
-                      onclick="grabarClick();">Confirmar</button>
-                    <a href="#" class="btn" type="submit">Cancelar</a>
-                  </div>
-                </form> -->
               </div><br><br><br><br>
               </form>
             </div>
@@ -552,15 +416,17 @@
             Nombre:  $("#nombre").val() + " " + $("#apellidos").val(),
             Direccion: $("#direccion").val(),
             CiudadId: $("#ciudadIdRegistro").val(),
-            CodigoPostal: $("#cpostal").val(),
+            CodigoPostal: $("#zipCode").val(),
             Telefono: $("#telefono").val(),
             Password: $("#passwordRegistro").val(),
             EMail: $("#emailRegistro").val(),
-            TicketId: $("#ticketId").val()
+            TicketId: $("#ticketId").val(),
+            NumeroContacto: $("#numeroContacto").val(),
+            FechaNacimiento: $("#fechaNacimiento").val()
           };
           fivepaq.CuentaAdd(datos.ConvenioCta, datos.Documento, datos.Empresa, datos.Nombre, datos.Direccion,
             datos.CiudadId, datos.CodigoPostal, datos.Telefono, datos.Password, datos.EMail, datos.Asesor,
-            datos.TicketId);
+            datos.TicketId, datos.NumeroContacto, datos.FechaNacimiento);
         }
       });
 
@@ -661,7 +527,7 @@
                   </div>
                   <div class="form-column flex">
                     <label class="required col-lg-4">Fecha de Nacimiento </label>
-                    <input class="col-lg-8" type="date" placeholder="Apartamento, interior" id="fechaNacimiento"
+                    <input class="col-lg-8" id="fechaNacimiento" type="date" placeholder="Apartamento, interior"
                       required>
                   </div>
                   <div class="form-column flex">
@@ -678,7 +544,7 @@
                   </div>
                   <div class="form-column flex">
                     <label class="col-lg-4">Teléfono Fijo</label>
-                    <input class="col-lg-8" type="tel" maxlength="20">
+                    <input class="col-lg-8" id="numeroContacto" type="tel" maxlength="20">
                   </div>
                   <div class="form-column flex">
                     <label class="required col-lg-4">Departamento</label>
@@ -698,17 +564,6 @@
                     <label class="required col-lg-4">Dirección</label>
                     <input class="col-lg-8" type="adress" placeholder="Dirección de entrega" id="direccion"
                       name="direccion" maxlength="100" required>
-                  </div>
-                  <div class="form-column flex">
-                    <label class="required col-lg-3">Código Postal</label>
-                    <div class="col-lg-10 flex">
-                      <input class="col-lg-6" type="number" placeholder="Código postal" id="cpostal" value=""
-                        name="cpostal" maxlength="50" required>
-                      <span class="TextBlock col-lg-6" id="W0009ZONAPOSTAL" data-gx-evt-control="ZONAPOSTAL"
-                        data-gx-context="[&quot;W0009&quot;,false]">
-                        <a href="https://visor.codigopostal.gov.co/472/visor/" target="new" data-gx-evt="7">Buscar
-                          Zona Postal</a></span>
-                    </div>
                   </div>
                   <div class="form-column flex">
                     <label class="required col-lg-4">Forma de Pago</label>
@@ -734,7 +589,8 @@
                   <div class="form-column flex">
                     <label class="required col-lg-4">Contraseña</label>
                     <input class="col-lg-8" type="password" placeholder="Contraseña" id="passwordRegistro"
-                      name="passwordRegistro" maxlength="100" required>
+                      name="passwordRegistro" maxlength="100" data-toggle="tooltip" data-placement="bottom" title="La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico."  
+                      required>
                   </div>
                   <div class="form-column">
                     <input type="checkbox" id="bd_create_an_account" class="type-2" name="bd_create_an_account"
@@ -786,7 +642,7 @@
                   </div>
                   <div class="form-column flex">
                     <label class="col-lg-4">Teléfono Fijo</label>
-                    <input class="col-lg-8" type="tel" maxlength="20">
+                    <input class="col-lg-8" type="tel" id="numeroContacto" maxlength="20">
                   </div>
                   <div class="form-column flex">
                     <label class="required col-lg-4">Departamento</label>
@@ -806,17 +662,6 @@
                     <label class="required col-lg-4">Dirección</label>
                     <input class="col-lg-8" type="adress" placeholder="Dirección de entrega" id="direccion"
                       name="direccion" maxlength="100" required>
-                  </div>
-                  <div class="form-column flex">
-                    <label class="required col-lg-3">Código Postal</label>
-                    <div class="col-lg-10 flex">
-                      <input class="col-lg-6" type="number" placeholder="Código postal" id="cpostal" value=""
-                        name="cpostal" maxlength="50" required>
-                      <span class="TextBlock col-lg-6" id="W0009ZONAPOSTAL" data-gx-evt-control="ZONAPOSTAL"
-                        data-gx-context="[&quot;W0009&quot;,false]">
-                        <a href="https://visor.codigopostal.gov.co/472/visor/" target="new" data-gx-evt="7">Buscar
-                          Zona Postal</a></span>
-                    </div>
                   </div>
                   <div class="form-column flex">
                     <label class="col-lg-4">Actividad económica</label>

@@ -10,6 +10,8 @@ async function trackingHub() {
     let request = await fetch(urlTracking, requestOptions);
     if (request.status === 200) {
       let response = await request.json();
+      let tracking = response.Tracking;
+      tracking.sort((a,b) => new Date(b.DateState) - new Date(a.DateState));
       return response.Tracking;
     }
   } catch (ex) {
@@ -20,19 +22,29 @@ async function trackingHub() {
 async function obtenerTraza(e) {
   e.preventDefault();
   let tracking = await trackingHub();
-  console.log(tracking);
+  // console.log(tracking);
   let trackingDiv = document.getElementById("divTracking");
   trackingDiv.innerHTML = "";
   document.getElementById("filaTracking").hidden = false;
 
   tracking.forEach((item) => {
-    trackingDiv.innerHTML += `
-                <tr>
-                  <td>${item.StateCode}</td>
-                  <td>${item.DescriptionState}</td>
-                  <td>${horarioUTC_5(item.DateState)}</td>
-                </tr>
-        `;
+    if(item.StateCode == 'ENT'){
+      trackingDiv.innerHTML += `
+      <tr style="background: #94EA96; font-weight: bold;">
+        <td>${item.StateCode}</td>
+        <td>${item.DescriptionState}</td>
+        <td>${horarioUTC_5(item.DateState)}</td>
+      </tr>
+    `
+    }else{
+      trackingDiv.innerHTML += `
+      <tr>
+        <td>${item.StateCode}</td>
+        <td>${item.DescriptionState}</td>
+        <td>${horarioUTC_5(item.DateState)}</td>
+      </tr>
+    `
+    };
   });
 }
 

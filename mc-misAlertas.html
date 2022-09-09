@@ -78,26 +78,10 @@
         <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
 
         <header id="header" class="header-3">
-
-            <!--search form-->
-            <!--<div class="searchform-wrap">
-        <div class="vc-child h-inherit">
-          <form>
-            <input type="text" name="search" placeholder="Start typing...">
-            <button type="button"></button>
-          </form>
-
-        </div>
-      </div>-->
-
             <!-- top-bar -->
-
             <div class="top-bar">
-
                 <div class="container">
-
                     <div class="table-row">
-
                         <div class="col-sm-6">
                             <ul class="contact-info">
                                 <li><span style="color: #34ccff;font-size: 18px;" class="licon-telephone"></span> <a
@@ -107,9 +91,7 @@
                                         href="mailto:servicioalcliente@boxcargoexpress.com">servicioalcliente@boxcargoexpress.com</a>
                                 </li>
                                 <li>Whatsapp: <a href=""><span style="color: #fff;">+57 316 4542339</span></li> </a>
-
                             </ul>
-
                         </div>
                         <div class="col-sm-6">
 
@@ -124,51 +106,35 @@
                                 <i class="licon-pencil">
                                 </i>
                                 <li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
-
                             </ul>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
             <!-- top-header -->
 
             <div class="top-header">
 
                 <div class="container">
-
                     <div class="table-row">
-
                         <div class="col-md-3">
-
                             <!--Logo-->
-
                             <a href="index.html" class="index">
-
                                 <img src="images/logo.png" alt="logo">
-
                             </a>
-
                         </div>
                         <div class="col-md-9">
-
                             <!-- - - - - - - - - - - - / Mobile Menu - - - - - - - - - - - - - -->
-
                             <!--main menu-->
-
                             <div class="menu-holder">
-
                                 <div class="menu-wrap">
-
                                     <div class="nav-item">
                                         <nav style="display: flex; justify-content: center;" id="main-navigation"
                                             class="main-navigation">
                                             <ul id="menu" class="clearfix">
-                                                <img src="images/perfil.png" alt="">
-                                                <li class="dropdown"><a href="#">MI BODEGA</a>
+                                                <!-- <img src="images/perfil.png" alt=""> -->
+                                                <li class="dropdown"><a href="#"><i class="licon-user"></i>&nbsp; Mi
+                                                        Bodega</a>
                                                     <!--sub menu-->
                                                     <div class="sub-menu-wrap">
                                                         <ul>
@@ -178,24 +144,20 @@
                                                         </ul>
                                                     </div>
                                                 </li>
+                                                <li>
+                                                    <a onclick="cerrarsesion()"><i class="licon-exit"></i>&nbsp; Cerrar
+                                                        sesión</a>
+                                                </li>
                                             </ul>
                                         </nav>
                                         <!-- <div class="search-holder"><button class="search-button"></button></div> -->
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </header>
 
         <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
@@ -244,10 +206,10 @@
                                     <li><a href="mc-actuales.html">Paquetes</a></li>
                                     <div id="appEcommerce" class="info-links">
                                         <template v-if="ecommerce == true">
-                                          <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
+                                            <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
                                         </template>
                                         <template v-else>
-                                          <li><a href="alerta.html">Alertar Envíos</a></li>
+                                            <li><a href="alerta.html">Alertar Envíos</a></li>
                                         </template>
                                     </div>
                                 </ul>
@@ -261,15 +223,6 @@
                         <div class="page-section">
 
                             <div class="content-element" id="envio">
-                                <div style="  display: flex;
-                flex-direction: unset;
-                justify-content: space-between;
-              " class="alert alert-info">
-                                    <button type="button" class="close" data-dismiss="alert"></button>
-                                    Hace falta que agregar un método de pago. <a href="perfil.html" class="btn">Agregar
-                                        tarjeta</a>
-                                </div>
-                                <br><br>
                                 <h4 style="display: grid; justify-content: center;" class="fw-medium">Envíos recientes
                                 </h4>
                                 <div class="table-type-1 recent-order responsive-table">
@@ -292,7 +245,8 @@
                                                             href="mc-historicos.html">HISTORICOS</a></label>
                                                 </li>
                                                 <li>
-                                                    <label for="misAlertas" class="active"><a href="mc-misAlertas.html">MIS
+                                                    <label for="misAlertas" class="active"><a
+                                                            href="mc-misAlertas.html">MIS
                                                             ALERTAS</a></label>
                                                 </li>
                                                 <li>
@@ -300,7 +254,8 @@
                                                             href="mc-paquetesBloqueados.htm">BLOQUEADOS</a></label>
                                                 </li>
                                                 <li>
-                                                    <label for="bloqueado"><a href="mc-consolidacion.html">CONSOLIDACIÒN</a></label>
+                                                    <label for="bloqueado"><a
+                                                            href="mc-consolidacion.html">CONSOLIDACIÒN</a></label>
                                                 </li>
                                             </ol>
                                         </div>
@@ -316,6 +271,7 @@
                                                     <th>Numero Carrier</th>
                                                     <th>Estado</th>
                                                     <th>Numero Paquete</th>
+                                                    <th>Hub</th>
                                                 </tr>
                                             </thead>
                                             <tbody v-for="paq in results" class="table-responsive">
@@ -337,6 +293,10 @@
                                                         N/A</td>
                                                     <td class="table-responsive" v-else>
                                                         {{ paq.paqueteId }}</td>
+                                                    <td class="table-responsive" v-if="paq.Hub == null">
+                                                        N/A</td>
+                                                    <td class="table-responsive" v-else>
+                                                        {{ paq.Hub }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -359,7 +319,8 @@
                             <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
                             <div class="widget">
                                 <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
-                                <p>Nuestro compromiso es suplir sus requerimiento y expectativas, para contribuir al desarrollo comercial de la empresas y del país.
+                                <p>Nuestro compromiso es suplir sus requerimiento y expectativas, para contribuir al
+                                    desarrollo comercial de la empresas y del país.
                                 </p>
                             </div>
                             <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
@@ -487,4 +448,5 @@
         $("#numCasillero").html(dataout.N);
     </script>
 </body>
+
 </html>

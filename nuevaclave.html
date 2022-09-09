@@ -52,6 +52,18 @@
 <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
 <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+<script>
+  var user;
+  var codeReset;
+  function extractVars() {
+    user = fivepaq.getUrlVariables()["userEmail"];
+    debugger;
+    codeReset = fivepaq.getUrlVariables()["code"];
+  }
+
+</script>
+
   
 </head>
 
@@ -120,26 +132,18 @@
                 </i><li><a href="calcular.html"><span style="color: #fff;"> Mi Calculadora</span> </a></li>
                 <i class="licon-pencil">
               </i><li><a href="registro.html"><span style="color: #fff;"> Registrarse</span> </a></li>
-              
               </ul>
             </div>
-  
           </div>
-
         </div>
-
       </div>
 
       <!-- top-header -->
 
       <div class="top-header">
-
         <div class="container">
-
           <div class="table-row">
-            
             <div class="col-md-3">
-
               <!--Logo-->
               
               <a href="index.html" class="index">
@@ -251,15 +255,18 @@
                   </div>
                 </li>
               </ul>
-              <div class="form-column">
-                <input type="text" name="cf-email" placeholder="Nueva clave">
-              </div><br>
-              <div class="form-column">
-                <input type="text" name="cf-email" placeholder="Confirmar nueva clave">
-              </div><br>
-              <div class="form-column-full">
-                <a style="display: grid; font-size: 20px;" href="#" class="btn" type="submit">Envíar solicitud</a>
-              </div>
+              <form id="newPasswordForm">
+                <div class="form-column">
+                  <input type="text" id="NewPassword" name="NewPassword" placeholder="Nueva clave" required>
+                </div><br>
+                <div class="form-column">
+                  <input type="text" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirmar nueva clave" required>
+                </div><br>
+                <div class="form-column-full">
+                  <button class="btn btn-primary" type="submit" onclick="cambioPass()">Enviar Solicitud</button>
+                  <!-- <a style="display: grid; font-size: 20px;" href="#" class="btn" type="submit">Envíar solicitud</a> -->
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -404,6 +411,7 @@
   ============================================ -->
   <script src="js/libs/jquery.modernizr.js"></script>
   <script src="js/libs/jquery-2.2.4.min.js"></script>
+  <script src="js/libs/jquery.validate.js"></script>
   <script src="js/libs/jquery-ui.min.js"></script>
   <script src="js/libs/retina.min.js"></script>
   <script src="plugins/jquery.scrollTo.min.js"></script>
@@ -416,6 +424,107 @@
   ============================================ -->
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
-  
+  <script src="js/fivepaq.js"></script>
+  <script>
+
+    $(function () {
+      $("#loader").hide();
+      var includes = $('[data-include]');
+      jQuery.each(includes, function () {
+        var file = "inc/" + $(this).data('include') + '.html';
+        $(this).load(file);
+      });
+    });
+
+    $('#borrar').remove();
+
+    var LoginOk = function () {
+      $("#mensajeLogin").html('<strong>Ha ingresado al sistema</strong>');
+      $("#mensajeLogin").removeClass('alert alert-danger');
+      $("#mensajeLogin").addClass('alert alert-success');
+      $("#loader").hide();
+      location.href = "mc-actuales.html";
+    }
+
+    var LoginFail = function () {
+      $("#mensajeLogin").html('<strong>Error en intento de Login!</strong>');
+      $("#mensajeLogin").removeClass('alert alert-success');
+      $("#mensajeLogin").addClass('alert alert-danger');
+      $("#loader").hide();
+    }
+
+    $("#btnLogin").click(function () {
+
+      $("#loader").show();
+      var datos = {
+        Email: $("#Email").val(),
+        Password: $("#Password").val(),
+        RememberMe: $("#RememberMe").prop('checked')
+      };
+      fivepaq.Login(datos.Email, datos.Password, datos.RememberMe, LoginOk, LoginFail);
+    });
+
+    function validar(id) {
+      var elemento = document.getElementById(id);
+      if (elemento.checkValidity()) {
+        elemento.style.borderColor = "blue";
+      } else {
+        elemento.style.borderColor = "red";
+      }
+    }
+    extractVars();
+    function enviarValidar() {
+      var codigovalido = document.getElementById("Email").checkValidity();
+      var passwordvalido = document.getElementById("Password").checkValidity();
+      var btnLoginvalido = document.getElementById("btnLogin").checkValidity();
+
+      if (codigovalido && Emailvalido && Password && btnLogin) {
+        alert("Formulario porcesado exitosamente");
+      } else {
+        alert("Formulario procesado exitosamente");
+      }
+    }
+    function cambioPass() {
+      $('form[id="newPasswordForm"]').validate({
+        rules: {
+          NewPassword: {
+            required: true,
+          },
+          ConfirmPassword: {
+            required: true,
+            maxlength: 16,
+            equalTo: "#NewPassword",
+          }
+        },
+        messages: {
+         
+        },
+        submitHandler: function (form) {
+          var datos = {
+            Password: $("#NewPassword").val(),
+            ConfirmPassword: $("#ConfirmPassword").val(),
+            Code: codeReset,
+            Email: user,
+          }
+          fivepaq.saveNewPass(datos.Password, datos.Code, datos.Email, datos.ConfirmPassword);
+        }
+      });
+      $.validator.addMethod(
+        "regex",
+        function (value, element, regexp) {
+          var re = new RegExp(regexp);
+          return this.optional(element) || re.test(value);
+        },
+        "La contraseña no cumple con los requerimientos minimos"
+      );
+      $("#NewPassword").rules("add", { regex: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/ })
+    }
+
+    function limpiarRegistro() {
+      $("#NewPassword").val("");
+      $("#ConfirmPassword").val("");
+    }
+
+  </script>
 </body>
 </html>

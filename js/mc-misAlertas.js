@@ -1,4 +1,4 @@
-const endPoint = "https://fpaq.azurewebsites.net/api/PreAlerts/GetCurrentPrealertsByClient/";
+const endPoint = "https://fpaqtest.azurewebsites.net/api/PreAlerts/GetCurrentPrealertsByClient/";
 
 Vue.filter('formatDate', function (value) {
     if (value) {
@@ -27,7 +27,7 @@ const vp = new Vue({
                     this.results = response.data;
                 }).catch((error) => {
                     console.log(error);
-                });
+            });
         }
     }
 });

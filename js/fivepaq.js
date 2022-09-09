@@ -20,7 +20,7 @@ var fivepaq = {
 
 		var ajaxObj = {
 			type: 'POST',
-			url: "https://fpaq.azurewebsites.net/api/auth",
+			url: "https://fpaqtest.azurewebsites.net/api/auth",
 			contentType: 'application/json; charset=utf-8',
 			data: JSON.stringify(datos)
 		};
@@ -48,7 +48,7 @@ var fivepaq = {
 	},
 
 	cargarDataUser: function (dataIn, LoginOk, LoginFail) {
-		var infUrl = "https://fpaq.azurewebsites.net/api/auth/userinfo/" + dataIn.E;
+		var infUrl = "https://fpaqtest.azurewebsites.net/api/auth/userinfo/" + dataIn.E;
 
 		var ajaxObj = {
 			type: 'GET',
@@ -78,6 +78,8 @@ var fivepaq = {
 				dataIn.L = true;
 				dataIn.Con = result.ConvenioId;
 				dataIn.Ecommerce = result.Ecommerce;
+				dataIn.F = result.FechaNacimiento;
+				dataIn.NC = result.NumeroContacto;
 				sessionStorage.setItem('appData', JSON.stringify(dataIn));
 				LoginOk();
 			} else {
@@ -101,7 +103,7 @@ var fivepaq = {
 	},
 
 	cargarCarriers: function (CarriersOk, CarriersFail) {
-		var infUrl = "https://fpaq.azurewebsites.net/api/carriers";
+		var infUrl = "https://fpaqtest.azurewebsites.net/api/carriers";
 		var dataIn = fivepaq.dataOut();
 
 		var ajaxObj = {
@@ -126,7 +128,7 @@ var fivepaq = {
 
 	cargarDireccionesCliente: function () {
 		var dataIn = fivepaq.dataOut();
-		var infUrl = "https://fpaq.azurewebsites.net/api/locations/" + dataIn.C;
+		var infUrl = "https://fpaqtest.azurewebsites.net/api/locations/" + dataIn.C;
 		var ajaxObj = {
 			type: 'GET',
 			url: infUrl,
@@ -144,7 +146,7 @@ var fivepaq = {
 		request.fail(function (jqXHR, textStatus) {
 		});
 	},
-	CuentaAdd: function (ConvenioCta, Documento, Empresa, Nombre, Direccion, CiudadId, CodigoPostal, Telefono, Password, EMail, Asesor, Ticket) {
+	CuentaAdd: function (ConvenioCta, Documento, Empresa, Nombre, Direccion, CiudadId, CodigoPostal, Telefono, Password, EMail, Asesor, Ticket, NumeroContacto, FechaNacimiento ) {
 		Cuenta = new Object();
 		Cuenta.Convenio = "BC";
 		Cuenta.LlaveConvenio = "9156efa1-f3f4-43d3-87ad-6a7df66bee13";
@@ -159,9 +161,11 @@ var fivepaq = {
 		Cuenta.EMail = EMail
 		Cuenta.Asesor = Asesor
 		Cuenta.TicketId = Ticket
+		Cuenta.NumeroContacto = NumeroContacto
+		Cuenta.FechaNacimiento = FechaNacimiento
 
 		$.ajax({
-			url: "https://fpaq.azurewebsites.net/api/cuentas",
+			url: "https://fpaqtest.azurewebsites.net/api/cuentas",
 			type: 'POST',
 			contentType: "application/json;charset=utf-8",
 			data: JSON.stringify(Cuenta),
@@ -177,7 +181,7 @@ var fivepaq = {
 
 		var ajaxObj = {
 			type: 'GET',
-			url: "https://fpaq.azurewebsites.net/api/Ciudades/",
+			url: "https://fpaqtest.azurewebsites.net/api/Ciudades/",
 			contentType: 'application/json; charset=utf-8'
 		};
 
@@ -223,7 +227,7 @@ var fivepaq = {
 		Datos.NewPassword = NewPassword;
 
 		var ajaxObj = {
-			url: "https://fpaq.azurewebsites.net/api/Cuentas/ChangePassword",
+			url: "https://fpaqtest.azurewebsites.net/api/Cuentas/ChangePassword",
 			type: 'POST',
 			contentType: "application/json;charset=utf-8",
 			data: JSON.stringify(Datos)
@@ -260,7 +264,7 @@ var fivepaq = {
 		Datos = new Object();
 		Datos.Email = Email;
 		var ajaxObj = {
-			url: "https://fpaq.azurewebsites.net/api/cuentas/forgotpassword",
+			url: "https://fpaqtest.azurewebsites.net/api/cuentas/forgotpassword",
 			type: 'POST',
 			contentType: "application/json;charset=utf-8",
 			data: JSON.stringify(Datos)
@@ -304,7 +308,7 @@ var fivepaq = {
 		Datos.ConfirmPassword = ConfirmPassword;
 		Datos.Code = Code;
 		var ajaxObj = {
-			url: "https://fpaq.azurewebsites.net/api/cuentas/resetpassword",
+			url: "https://fpaqtest.azurewebsites.net/api/cuentas/resetpassword",
 			type: 'POST',
 			contentType: "application/json;charset=utf-8",
 			data: JSON.stringify(Datos)
@@ -345,11 +349,12 @@ var fivepaq = {
 
 	},
 	prealertaImage: function (clientID,
-		trackingNumber, idCarrier, idLocation, TariffCode, description) {
+		trackingNumber, idCarrier, idLocation, TariffCode, description, hubId) {
 		var dataIn = fivepaq.dataOut();
 		let formData = new FormData();
 		formData.append('clientID', clientID);
 		formData.append('trackingNumber', trackingNumber);
+		formData.append('hubId', hubId);
 		let file = document.getElementById('ImageUrl').files[0];
 		let arrayType = file.type.split("/");
 		let extension = arrayType[1];
@@ -361,7 +366,7 @@ var fivepaq = {
 		formData.append('TariffCode', TariffCode);
 
 		$.ajax({
-			url: "https://fpaq.azurewebsites.net/api/PreAlerts/CreatePrealertWithImageAsync",
+			url: "https://fpaqtest.azurewebsites.net/api/PreAlerts/CreatePrealertWithImageAsync",
 			type: 'POST',
 			contentType: false,
 			processData: false,
@@ -386,7 +391,7 @@ var fivepaq = {
 		});
 	},
 	prealertaValue: function (clientID,
-		trackingNumber, idCarrier, idLocation, TariffCode, description, value) {
+		trackingNumber, idCarrier, idLocation, TariffCode, description, value, hubId) {
 		var dataIn = fivepaq.dataOut();
 		Alerta = new Object();
 		Alerta.clientID = clientID;
@@ -396,8 +401,9 @@ var fivepaq = {
 		Alerta.description = description;
 		Alerta.idLocation = idLocation;
 		Alerta.TariffCode = TariffCode;
+		Alerta.hubId = hubId;
 		$.ajax({
-			url: "https://fpaq.azurewebsites.net/api/PreAlerts/CreatePrealertWithValueAsync",
+			url: "https://fpaqtest.azurewebsites.net/api/PreAlerts/CreatePrealertWithValueAsync",
 			type: 'POST',
 			contentType: "application/json;charset=utf-8",
 			data: JSON.stringify(Alerta),
@@ -426,7 +432,7 @@ var fivepaq = {
 	prealertaEcommerce: function (data){
 		var dataIn = fivepaq.dataOut();
 		$.ajax({
-			url: "https://fpaq.azurewebsites.net/api/PreAlerts/CreatePrealert/EcommerceIdentityDocumentAsync",
+			url: "https://fpaqtest.azurewebsites.net/api/PreAlerts/CreatePrealert/EcommerceIdentityDocumentAsync",
 			type: 'POST',
 			contentType: 'application/json; charset=utf-8',
 			data: JSON.stringify(data),

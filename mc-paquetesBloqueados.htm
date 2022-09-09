@@ -167,8 +167,9 @@
                                         <nav style="display: flex; justify-content: center;" id="main-navigation"
                                             class="main-navigation">
                                             <ul id="menu" class="clearfix">
-                                                <img src="images/perfil.png" alt="">
-                                                <li class="dropdown"><a href="#">MI BODEGA</a>
+                                                <!-- <img src="images/perfil.png" alt=""> -->
+                                                <li class="dropdown"><a href="#"><i class="licon-user"></i>&nbsp; Mi
+                                                        Bodega</a>
                                                     <!--sub menu-->
                                                     <div class="sub-menu-wrap">
                                                         <ul>
@@ -177,6 +178,10 @@
                                                             <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
                                                         </ul>
                                                     </div>
+                                                </li>
+                                                <li>
+                                                    <a onclick="cerrarsesion()"><i class="licon-exit"></i>&nbsp; Cerrar
+                                                        sesión</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -235,10 +240,10 @@
                                     <li><a href="mc-actuales.html">Paquetes</a></li>
                                     <div id="appEcommerce" class="info-links">
                                         <template v-if="ecommerce == true">
-                                          <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
+                                            <li><a href="alertaEcommerce.html">Alertar ecommerce</a></li>
                                         </template>
                                         <template v-else>
-                                          <li><a href="alerta.html">Alertar Envíos</a></li>
+                                            <li><a href="alerta.html">Alertar Envíos</a></li>
                                         </template>
                                     </div>
                                 </ul>
@@ -252,15 +257,6 @@
                         <div class="page-section">
 
                             <div class="content-element" id="envio">
-                                <div style="  display: flex;
-                flex-direction: unset;
-                justify-content: space-between;
-              " class="alert alert-info">
-                                    <button type="button" class="close" data-dismiss="alert"></button>
-                                    Hace falta que agregar un método de pago. <a href="perfil.html" class="btn">Agregar
-                                        tarjeta</a>
-                                </div>
-                                <br><br>
                                 <h4 style="display: grid; justify-content: center;" class="fw-medium">Envíos recientes
                                 </h4>
                                 <div class="table-type-1 recent-order responsive-table">
@@ -272,7 +268,6 @@
                                             <input type="radio" id="historico" name="categories" value="historico">
                                             <input type="radio" id="misAlertas" name="categories" value="misAlertas">
                                             <input type="radio" id="bloqueado" name="categories" value="bloqueado">
-                                                checked>
                                             <ol class="filters">
                                                 <li>
                                                     <label for="actuales"><a
@@ -291,7 +286,8 @@
                                                             href="mc-paquetesBloqueados.htm">BLOQUEADOS</a></label>
                                                 </li>
                                                 <li>
-                                                    <label for="bloqueado"><a href="mc-consolidacion.html">CONSOLIDACIÒN</a></label>
+                                                    <label for="bloqueado"><a
+                                                            href="mc-consolidacion.html">CONSOLIDACIÒN</a></label>
                                                 </li>
                                             </ol>
                                         </div>
@@ -345,7 +341,8 @@
                             <!-- - - - - - - - - - - - - - Widget - - - - - - - - - - - - - - - - -->
                             <div class="widget">
                                 <img style="margin-bottom: 2rem;" src="images/logo_white.png" alt="logístico">
-                                <p>Nuestro compromiso es suplir sus requerimiento y expectativas, para contribuir al desarrollo comercial de la empresas y del país.
+                                <p>Nuestro compromiso es suplir sus requerimiento y expectativas, para contribuir al
+                                    desarrollo comercial de la empresas y del país.
                                 </p>
                             </div>
                             <!-- - - - - - - - - - - - - - End of Widget - - - - - - - - - - - - - - - - -->
@@ -473,4 +470,5 @@
         $("#numCasillero").html(dataout.N);
     </script>
 </body>
+
 </html>

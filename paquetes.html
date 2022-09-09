@@ -149,13 +149,12 @@
               <!--main menu-->
 
               <div class="menu-holder">
-                
                 <div class="menu-wrap">
-
                   <div class="nav-item">
                     <nav style="display: flex; justify-content: center;" id="main-navigation" class="main-navigation">
                       <ul id="menu" class="clearfix">
-                        <img src="images/perfil.png" alt=""><li class="dropdown"><a href="#">MI BODEGA</a>
+                        <!-- <img src="images/perfil.png" alt=""> -->
+                        <li class="dropdown"><a href="#"><i class="licon-user"></i>&nbsp; Mi Bodega</a>
                           <!--sub menu-->
                           <div class="sub-menu-wrap">
                             <ul>
@@ -165,24 +164,19 @@
                             </ul>
                           </div>
                         </li>
+                        <li>
+                          <a onclick="cerrarsesion()"><i class="licon-exit"></i>&nbsp; Cerrar sesión</a> 
+                        </li>
                       </ul>
                     </nav>
                     <!-- <div class="search-holder"><button class="search-button"></button></div> -->
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-  
           </div>
-          
         </div>
-
       </div>
-
     </header>
 
     <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
@@ -254,14 +248,6 @@
             <div class="page-section">
             
               <div class="content-element"  id="envio">
-                <div style="  display: flex;
-                flex-direction: unset;
-                justify-content: space-between;
-              " class="alert alert-info">
-                  <button  type="button" class="close" data-dismiss="alert"></button>
-                  Hace falta que agregar un método de pago.  <a href="perfil.html" class="btn">Agregar tarjeta</a>
-                </div>
-                <br><br>
                 <h4 style="display: grid; justify-content: center;" class="fw-medium">Envíos recientes</h4>
                 <div class="table-type-1 recent-order responsive-table">
 

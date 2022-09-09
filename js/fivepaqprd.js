@@ -78,6 +78,8 @@ var fivepaq = {
 				dataIn.L = true;
 				dataIn.Con = result.ConvenioId;
 				dataIn.Ecommerce = result.Ecommerce;
+				dataIn.F = result.FechaNacimiento;
+				dataIn.NC = result.NumeroContacto;
 				sessionStorage.setItem('appData', JSON.stringify(dataIn));
 				LoginOk();
 			} else {
@@ -144,7 +146,7 @@ var fivepaq = {
 		request.fail(function (jqXHR, textStatus) {
 		});
 	},
-	CuentaAdd: function (ConvenioCta, Documento, Empresa, Nombre, Direccion, CiudadId, CodigoPostal, Telefono, Password, EMail, Asesor, Ticket) {
+	CuentaAdd: function (ConvenioCta, Documento, Empresa, Nombre, Direccion, CiudadId, CodigoPostal, Telefono, Password, EMail, Asesor, Ticket, NumeroContacto, FechaNacimiento ) {
 		Cuenta = new Object();
 		Cuenta.Convenio = "BC";
 		Cuenta.LlaveConvenio = "9156efa1-f3f4-43d3-87ad-6a7df66bee13";
@@ -159,6 +161,8 @@ var fivepaq = {
 		Cuenta.EMail = EMail
 		Cuenta.Asesor = Asesor
 		Cuenta.TicketId = Ticket
+		Cuenta.NumeroContacto = NumeroContacto
+		Cuenta.FechaNacimiento = FechaNacimiento
 
 		$.ajax({
 			url: "https://fpaq.azurewebsites.net/api/cuentas",
@@ -345,13 +349,17 @@ var fivepaq = {
 
 	},
 	prealertaImage: function (clientID,
-		trackingNumber, idCarrier, idLocation, TariffCode, description) {
+		trackingNumber, idCarrier, idLocation, TariffCode, description, hubId) {
 		var dataIn = fivepaq.dataOut();
 		let formData = new FormData();
 		formData.append('clientID', clientID);
 		formData.append('trackingNumber', trackingNumber);
-		let imagen = document.getElementById('ImageUrl').files[0];
-		formData.append('ImageUrl', imagen);
+		formData.append('hubId', hubId);
+		let file = document.getElementById('ImageUrl').files[0];
+		let arrayType = file.type.split("/");
+		let extension = arrayType[1];
+		let newFile = new File([file], `${trackingNumber}ID${clientID}.${extension}`, {type: file.type});
+		formData.append('ImageUrl', newFile);
 		formData.append('idCarrier', idCarrier);
 		formData.append('description', description);
 		formData.append('idLocation', idLocation);
@@ -383,7 +391,7 @@ var fivepaq = {
 		});
 	},
 	prealertaValue: function (clientID,
-		trackingNumber, idCarrier, idLocation, TariffCode, description, value) {
+		trackingNumber, idCarrier, idLocation, TariffCode, description, value, hubId) {
 		var dataIn = fivepaq.dataOut();
 		Alerta = new Object();
 		Alerta.clientID = clientID;
@@ -393,6 +401,7 @@ var fivepaq = {
 		Alerta.description = description;
 		Alerta.idLocation = idLocation;
 		Alerta.TariffCode = TariffCode;
+		Alerta.hubId = hubId;
 		$.ajax({
 			url: "https://fpaq.azurewebsites.net/api/PreAlerts/CreatePrealertWithValueAsync",
 			type: 'POST',

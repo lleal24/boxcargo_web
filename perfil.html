@@ -169,8 +169,8 @@
                   <div class="nav-item">
                     <nav style="display: flex; justify-content: center;" id="main-navigation" class="main-navigation">
                       <ul id="menu" class="clearfix">
-                        <img src="images/perfil.png" alt="">
-                        <li class="dropdown"><a href="#">Mi Bodega</a>
+                        <!-- <img src="images/perfil.png" alt=""> -->
+                        <li class="dropdown"><a href="#"><i class="licon-user"></i>&nbsp; Mi Bodega</a>
                           <!--sub menu-->
                           <div class="sub-menu-wrap">
                             <ul>
@@ -179,6 +179,9 @@
                               <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
                             </ul>
                           </div>
+                        </li>
+                        <li>
+                          <a onclick="cerrarsesion()"><i class="licon-exit"></i>&nbsp; Cerrar sesión</a> 
                         </li>
                       </ul>
                     </nav>
@@ -191,7 +194,6 @@
         </div>
       </div>
     </header>
-
     <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
 
     <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
@@ -222,7 +224,6 @@
       <div class="container">
 
         <div class="row">
-
           <!-- Sidebar-->
           <aside id="sidebar" class="col-md-2">
 
@@ -258,14 +259,6 @@
             <!-- page-section -->
             <div class="page-section">
               <div class="content-element" id="envio">
-                <div style="  display: flex;
-                flex-direction: unset;
-                justify-content: space-between;
-              " class="alert alert-info">
-                  <button type="button" class="close" data-dismiss="alert"></button>
-                  Hace falta que agregar un método de pago. <a href="perfil.html" class="btn">Agregar tarjeta</a>
-                </div>
-                <br><br>
                 <!-- Bodega -->
                 <div class="content-element">
                   <div class="content-element-type-2">
@@ -283,7 +276,7 @@
                       <!--tabs navigation-->
                       <ul class="tabs-nav clearfix">
                         <li class=""><a href="#tab-1">Información general</a></li>
-                        <li class=""><a href="#tab-2">Pagos</a></li>
+                        <li class=""><a href="#tab-2">Direcciones guardadas</a></li>
                       </ul>
                       <!--tabs content-->
                       <div class="tabs-content">
@@ -298,45 +291,36 @@
                                   paquetes.</span><br><br>
                                 <form class="form-style1 fx-cols-2">
                                   <div class="form-column">
-                                    <label class="required">Nombres</label>
+                                    <label>Nombres</label>
                                     <input type="text" id="nombreGeneral" disabled>
                                   </div>
                                   <div class="form-column">
-                                    <label class="required">Bodega</label>
-                                    <input type="number" id="bodegaGeneral" disabled>
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Correo electrónico</label>
+                                    <label>Correo electrónico</label>
                                     <input type="text" id="correoGeneral" disabled>
                                   </div>
                                   <div class="form-column">
-                                    <label class="required">Teléfono</label>
+                                    <label>Teléfono</label>
                                     <input type="number" id="telefonoGeneral" disabled>
                                   </div>
                                   <div class="form-column">
-                                    <label class="required">Fecha de nacimento</label>
-                                    <input type="date" placeholder="18/09/79">
+                                    <label>Fecha de nacimento</label>
+                                    <input type="text" id="fechaNacimiento" readonly>
                                   </div>
                                   <div class="form-column">
-                                    <label class="required">Teléfono Celular</label>
-                                    <input type="number"><br><br>
-                                    <a style="display: flex; justify-content: center;" href="#"
-                                      class="btn btn-large btn-style-6">Edit</a><br>
-                                    <div class="form-column-full">
-                                      <a style="display: grid; font-size: 20px;" href="#" class="btn"
-                                        type="submit">GUARDAR CAMBIOS</a>
-                                    </div>
+                                    <label>Teléfono Celular</label>
+                                    <input type="number" id="numeroContacto" readonly>
                                   </div>
+                                  <!-- <div class="form-column">
+                                    <label>&nbsp;</label>
+                                    <a style="display: grid;" href="#" class="btn"
+                                      type="submit">Guardar cambios</a>
+                                  </div> -->
                                 </form>
                                 <hr class="item-divider"><br>
                                 <form class="form-style1 fx-cols-2" id="appModal">
                                   <div class="form-column-full">
                                     <h4 style="font-size: 30px; font-weight: 600;" class="section-sub-title">Agregar
                                       dirección Entrega</h4>
-                                  </div>
-                                  <div class="form-column">
-                                    <input v-model="DetalleValid.input" type="text"
-                                      placeholder="CASA/OFICINA/MAMA/ETC..." required>
                                   </div>
                                   <div class="form-column">
                                     <input v-model="NombreDestinatarioValid.input" type="text"
@@ -346,8 +330,11 @@
                                     <input v-model="DireccionValid.input" type="text" placeholder="DIRECCION" required>
                                   </div>
                                   <div class="form-column">
-                                    <input v-model="CodigoPostalValid.input" type="text" placeholder="CODIGO POSTAL"
-                                      required>
+                                    <input v-model="DetalleValid.input" type="text"
+                                      placeholder="CASA/OFICINA/MAMA/ETC..." required>
+                                  </div>
+                                  <div class="form-column">
+                                    <input v-model="CodigoPostalValid.input" type="text" placeholder="CODIGO POSTAL" >
                                   </div>
                                   <div class="form-column-full">
                                     <div class="form-column">
@@ -366,87 +353,6 @@
                                   <button class="btn btn-primary" v-on:click.prevent="enviar()">
                                     Grabar</button>
                                 </form>
-                                <!--Direccionde entrega -->
-                                <!-- <form class="form-style1 fx-cols-2">
-                                  <h4 style="font-size: 30px; font-weight: 600;" class="section-sub-title">Dirección
-                                    Entrega</h4><br>
-
-                                  <div class="form-column-full">
-                                    <label class="required">Dirección</label>
-                                    <input type="adress" placeholder="Dirección de entrega">
-                                    <input type="text" placeholder="Apartmento, interior, unbidad etc. (opcional)">
-                                  </div>
-
-                                  <div class="form-column">
-                                    <label class="required">Departamento</label>
-                                    <div class="custom-select">
-                                      <div class="select-title">Seleccionar Dpto</div>
-                                      <ul id="menu-type" class="select-list"></ul>
-                                      <select class="hide">
-                                        <option value="menu">Opción 1</option>
-                                        <option value="menu">Opción 2</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Ciudad</label>
-                                    <div class="custom-select">
-                                      <div class="select-title">Seleccionar Ciudad</div>
-                                      <ul id="menu-type" class="select-list"></ul>
-                                      <select class="hide">
-                                        <option value="menu">Opción 1</option>
-                                        <option value="menu">Opción 2</option>
-                                      </select>
-                                    </div>
-                                  </div>
-
-                                  <div class="form-column">
-                                    <label class="required">Tipo de persona</label>
-                                    <div class="custom-select">
-                                      <div class="select-title">Persona</div>
-                                      <ul id="menu-type" class="select-list"></ul>
-                                      <select class="hide">
-                                        <option value="menu">Natural</option>
-                                        <option value="menu">Juridica</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Tipo Documento</label>
-                                    <div class="custom-select">
-                                      <div class="select-title">Documento</div>
-                                      <ul id="menu-type" class="select-list"></ul>
-                                      <select class="hide">
-                                        <option value="menu">Cédula</option>
-                                        <option value="menu">Pasaport</option>
-                                        <option value="menu">Nit</option>
-
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Número de Documento</label>
-                                    <input type="number" placeholder="Número de Documento">
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Código Postal</label>
-                                    <input type="number" placeholder="Código postal">
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Contraseña</label>
-                                    <input type="password" placeholder="Contraseña">
-                                  </div>
-                                  <div class="form-column">
-                                    <label class="required">Confirmar contraseña</label>
-                                    <input type="password" placeholder="Confirmar contraseña">
-                                    <a style="display: flex; justify-content: center;" href="#"
-                                      class="btn btn-large btn-style-6">Edit</a><br>
-                                    <div class="form-column-full">
-                                      <a style="display: grid; font-size: 20px;" href="#" class="btn"
-                                        type="submit">GUARDAR CAMBIOS</a>
-                                    </div>
-                                  </div>
-                                </form> -->
                                 <hr class="item-divider"><br>
                                 <!--Contraseña -->
                                 <form class="form-style1 fx-cols-2" id="cambioContrasena">
@@ -474,141 +380,31 @@
                               <!--End Contraseña -->
                             </div>
                           </div>
-                        </div><br><br>
-                        <!-- Tarjeta -->
-                        <div class="contenedor">
-
-                          <!-- Tarjeta -->
-                          <section class="tarjeta" id="tarjeta">
-                            <div class="delantera">
-                              <div class="logo-marca" id="logo-marca">
-                                <!-- <img src="img/logos/visa.png" alt=""> -->
-                              </div>
-                              <img src="img/chip-tarjeta.png" class="chip" alt="">
-                              <div class="datos">
-                                <div class="grupo" id="numero">
-                                  <p class="label">Número Tarjeta</p>
-                                  <p class="numero">#### #### #### ####</p>
-                                </div>
-                                <div class="flexbox">
-                                  <div class="grupo" id="nombre">
-                                    <p class="label">Nombre Tarjeta</p>
-                                    <p class="nombre">Jhon Doe</p>
-                                  </div>
-                                  <div class="grupo" id="expiracion">
-                                    <p class="label">Expiracion</p>
-                                    <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
-                                  </div>
+                        </div>
+                        <div id="tab-2">
+                          <div class="content-element-type-2">
+                            <div id="appDirecciones" class="row" v-cloak>
+                              <h4 style="font-size: 30px; font-weight: 600;" class="section-sub-title">Listado general</h4>
+                              <span style="font-size: 20px; font-weight: 700;" class="section-pre-title">Direcciones registradas.</span>
+                              <div class="card" v-for="address in results">
+                                <div class="form-column">
+                                  <!-- <h5 class="card-title">{{ address.detalle }}</h5> -->
+                                  <input v-if="address.principal" type="text" v-bind:value="address.detalle+' (Dirección Principal) &#11088;'" style="color: white; background: #183650" readonly>
+                                  <input v-else type="text" v-bind:value="address.detalle" style="color: white; background: #183650" readonly>
+                                  <textarea v-bind:value="address.nombreDestinatario+','+address.direccion+','+address.nombreCiudad" readonly></textarea>
+                                  <!-- <p class="card-text">{{ address.nombreDestinatario }}, {{ address.direccion }}, {{ address.nombreCiudad }}</p> -->
                                 </div>
                               </div>
                             </div>
-                            <div class="trasera">
-                              <div class="barra-magnetica"></div>
-                              <div class="datos">
-                                <div class="grupo" id="firma">
-                                  <p class="label">Firma</p>
-                                  <div class="firma">
-                                    <p></p>
-                                  </div>
-                                </div>
-                                <div class="grupo" id="ccv">
-                                  <p class="label">CCV</p>
-                                  <p class="ccv"></p>
-                                </div>
-                              </div>
-                              <p class="leyenda">Recibinos todas las tarjetas de credito</p>
-                              <a href="#" class="link-banco">www.tubanco.com</a>
-                            </div>
-                          </section>
-
-                          <!-- Contenedor Boton Abrir Formulario -->
-                          <div class="contenedor-btn">
-                            <button class="btn-abrir-formulario" id="btn-abrir-formulario">
-                              <i class="fas fa-plus"></i>
-                            </button>
                           </div>
-
-                          <!-- Formulario -->
-                          <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
-                            <div class="grupo">
-                              <label for="inputNumero">Número Tarjeta</label>
-                              <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
-                            </div>
-                            <div class="grupo">
-                              <label for="inputNombre">Nombre</label>
-                              <input type="text" id="inputNombre" maxlength="19" autocomplete="off">
-                            </div>
-                            <div class="flexbox">
-                              <div class="grupo expira">
-                                <label for="selectMes">Expiracion</label>
-                                <div class="flexbox">
-                                  <div class="grupo-select">
-                                    <select name="mes" id="selectMes">
-                                      <option disabled selected>Mes</option>
-                                    </select>
-                                    <i class="fas fa-angle-down"></i>
-                                  </div>
-                                  <div class="grupo-select">
-                                    <select name="year" id="selectYear">
-                                      <option disabled selected>Año</option>
-                                    </select>
-                                    <i class="fas fa-angle-down"></i>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="grupo ccv">
-                                <label for="inputCCV">CCV</label>
-                                <input type="text" id="inputCCV" maxlength="3">
-                              </div>
-                            </div>
-                            <button type="submit" class="btn-enviar">Enviar</button>
-                          </form>
-                          <!-- Formulario -->
-                          <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
-                            <div class="grupo">
-                              <label for="inputNumero">Número Tarjeta</label>
-                              <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
-                            </div>
-                            <div class="grupo">
-                              <label for="inputNombre">Nombre</label>
-                              <input type="text" id="inputNombre" maxlength="19" autocomplete="off">
-                            </div>
-                            <div class="flexbox">
-                              <div class="grupo expira">
-                                <label for="selectMes">Expiracion</label>
-                                <div class="flexbox">
-                                  <div class="grupo-select">
-                                    <select name="mes" id="selectMes">
-                                      <option disabled selected>Mes</option>
-                                    </select>
-                                    <i class="fas fa-angle-down"></i>
-                                  </div>
-                                  <div class="grupo-select">
-                                    <select name="year" id="selectYear">
-                                      <option disabled selected>Año</option>
-                                    </select>
-                                    <i class="fas fa-angle-down"></i>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="grupo ccv">
-                                <label for="inputCCV">CCV</label>
-                                <input type="text" id="inputCCV" maxlength="3">
-                              </div>
-                            </div>
-                            <button type="submit" class="btn-enviar">Guardar</button>
-                          </form>
                         </div>
                       </div>
-
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
+          </main>
         </div>
         </main><br><br><br>
         <!--Ende Main -->
@@ -735,8 +531,6 @@
   <script src="plugins/bootstrap.js"></script>
 
   <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-  <script src="js/credito.js"></script>
-
 
   <!-- JS theme files
   ============================================ -->
@@ -764,6 +558,8 @@
     $("#bodegaGeneral").val(dataout.N);
     $("#correoGeneral").val(dataout.E);
     $("#telefonoGeneral").val(dataout.Tel);
+    $("#numeroContacto").val(dataout.NC);
+    $("#fechaNacimiento").val(dataout.F.substring(0, dataout.F.indexOf(' ')));
 
     function cambioPass(e) {
       $('form[id="cambioContrasena"]').validate({

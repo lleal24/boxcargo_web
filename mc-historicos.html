@@ -50,54 +50,115 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
+    <style>
+        #modal1 {
+          overflow-y: scroll !important;
+          z-index: 999;
+        }
+    
+        /*Efecto*/
+        .modalmask {
+          position: fixed;
+          font-family: Arial, sans-serif;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 99999;
+          opacity: 0;
+          -webkit-transition: opacity 400ms ease-in;
+          -moz-transition: opacity 400ms ease-in;
+          transition: opacity 400ms ease-in;
+          pointer-events: none;
+        }
+    
+        .modalmask:target {
+          opacity: 1;
+          pointer-events: auto;
+        }
+    
+        /*Formato de la ventana*/
+        .modalbox {
+          width: 500px;
+          position: relative;
+          padding: 5px 20px 13px 20px;
+          background: #fff;
+          border-radius: 3px;
+          -webkit-transition: all 500ms ease-in;
+          -moz-transition: all 500ms ease-in;
+          transition: all 500ms ease-in;
+    
+        }
+    
+        /*Movimientos*/
+        .movedown {
+          margin: 0 auto;
+        }
+    
+        .rotate {
+          margin: 10% auto;
+          -webkit-transform: scale(-5, -5);
+          transform: scale(-5, -5);
+        }
+    
+        .resize {
+          margin: 10% auto;
+          width: 0;
+          height: 0;
+    
+        }
+    
+        .modalmask:target .movedown {
+          margin: 10% auto;
+        }
+    
+        .modalmask:target .rotate {
+          transform: rotate(360deg) scale(1, 1);
+          -webkit-transform: rotate(360deg) scale(1, 1);
+        }
+    
+        .modalmask:target .resize {
+          width: 400px;
+          height: 200px;
+        }
+    
+        /*Boton de cerrar*/
+        .close {
+          background: #606061;
+          color: #FFFFFF;
+          line-height: 25px;
+          position: absolute;
+          right: 1px;
+          text-align: center;
+          top: 1px;
+          width: 24px;
+          text-decoration: none;
+          font-weight: bold;
+          border-radius: 3px;
+    
+        }
+    
+        .close:hover {
+          background: #FAAC58;
+          color: #222;
+        }
+      </style>
 </head>
 
 <body class="wide-layout">
-
     <div class="loader"></div>
-
-    <!--cookies-->
-    <!-- <div class="cookies">
-          <div class="container">
-            <div class="clearfix">
-              <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
-              <div class="f-right"><a href="#" class="btn btn-small btn-style-2">Accept Cookies</a><a href="#" class="btn btn-small btn-style-4">Read More</a></div>
-            </div>
-          </div>
-        </div>  -->
-
     <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
 
     <div id="wrapper" class="wrapper-container">
-
         <!-- - - - - - - - - - - - - Menu Mobile - - - - - - - - - - - - - - -->
-
         <nav id="mobile-advanced" class="mobile-advanced"></nav>
-
         <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
-
         <header id="header" class="header-3">
-
-            <!--search form-->
-            <!--<div class="searchform-wrap">
-        <div class="vc-child h-inherit">
-          <form>
-            <input type="text" name="search" placeholder="Start typing...">
-            <button type="button"></button>
-          </form>
-
-        </div>
-      </div>-->
-
             <!-- top-bar -->
-
             <div class="top-bar">
-
                 <div class="container">
-
                     <div class="table-row">
-
                         <div class="col-sm-6">
                             <ul class="contact-info">
                                 <li><span style="color: #34ccff;font-size: 18px;" class="licon-telephone"></span> <a
@@ -107,12 +168,9 @@
                                         href="mailto:servicioalcliente@boxcargoexpress.com">servicioalcliente@boxcargoexpress.com</a>
                                 </li>
                                 <li>Whatsapp: <a href=""><span style="color: #fff;">+57 316 4542339</span></li> </a>
-
                             </ul>
-
                         </div>
                         <div class="col-sm-6">
-
                             <ul class="client-info">
                                 <i class="licon-eye"></i>
                                 <li><a href="tracking.html"><span style="color: #fff;">RASTREO PAQUETE </span> </a></li>
@@ -124,64 +182,48 @@
                                 <i class="licon-pencil">
                                 </i>
                                 <li><a href="registro.html"><span style="color: #fff;"> MI REGISTRO</span> </a></li>
-
                             </ul>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
             <!-- top-header -->
 
             <div class="top-header">
-
                 <div class="container">
-
                     <div class="table-row">
-
                         <div class="col-md-3">
-
                             <!--Logo-->
-
                             <a href="index.html" class="index">
-
                                 <img src="images/logo.png" alt="logo">
-
                             </a>
-
                         </div>
                         <div class="col-md-9">
-
                             <!-- - - - - - - - - - - - / Mobile Menu - - - - - - - - - - - - - -->
-
                             <!--main menu-->
-
                             <div class="menu-holder">
-
                                 <div class="menu-wrap">
-
                                     <div class="nav-item">
-                                        <nav style="display: flex; justify-content: center;" id="main-navigation"
-                                            class="main-navigation">
-                                            <ul id="menu" class="clearfix">
-                                                <img src="images/perfil.png" alt="">
-                                                <li class="dropdown"><a href="#">MI BODEGA</a>
-                                                    <!--sub menu-->
-                                                    <div class="sub-menu-wrap">
-                                                        <ul>
-                                                            <!-- <li style="margin-left: 1rem;">-Número: BC0976543-</li> -->
-                                                            <li><a href="perfil.html">-Perfil-</a></li>
-                                                            <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                        <nav style="display: flex; justify-content: center;" id="main-navigation" class="main-navigation">
+                                          <ul id="menu" class="clearfix">
+                                            <!-- <img src="images/perfil.png" alt=""> -->
+                                            <li class="dropdown"><a href="#"><i class="licon-user"></i>&nbsp; Mi Bodega</a>
+                                              <!--sub menu-->
+                                              <div class="sub-menu-wrap">
+                                                <ul>
+                                                  <!-- <li style="margin-left: 1rem;">-Número: BC0976543-</li> -->
+                                                  <li><a href="perfil.html">-Perfil-</a></li>
+                                                  <li><a onclick="cerrarsesion()">-Cerrar BODEGA</a></li>
+                                                </ul>
+                                              </div>
+                                            </li>
+                                            <li>
+                                              <a onclick="cerrarsesion()"><i class="licon-exit"></i>&nbsp; Cerrar sesión</a>
+                                            </li>
+                                          </ul>
                                         </nav>
                                         <!-- <div class="search-holder"><button class="search-button"></button></div> -->
-                                    </div>
+                                      </div>
                                 </div>
                             </div>
                         </div>
@@ -255,15 +297,6 @@
                         <!-- page-section -->
                         <div class="page-section">
                             <div class="content-element" id="envio">
-                                <div style="  display: flex;
-                flex-direction: unset;
-                justify-content: space-between;
-              " class="alert alert-info">
-                                    <button type="button" class="close" data-dismiss="alert"></button>
-                                    Hace falta que agregar un método de pago. <a href="perfil.html" class="btn">Agregar
-                                        tarjeta</a>
-                                </div>
-                                <br><br>
                                 <h4 style="display: grid; justify-content: center;" class="fw-medium">Envíos recientes
                                 </h4>
                                 <div class="table-type-1 recent-order responsive-table">
@@ -311,7 +344,7 @@
                                                     <th>Vr-USD</th>
                                                     <th>Peso(LB)</th>
                                                     <th>Estado</th>
-                                                    <th class="order-view"></th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody v-for="paq in results" class="table-responsive">
@@ -330,12 +363,34 @@
                                                     <td class="table-responsive">
                                                         {{ paq.Weight/454 | formatNumber }}</td>
                                                     <td class="table-responsive">{{ paq.StateDescription }}</td>
-                                                    <td class="table-responsive"><a
-                                                            :href="'mc-tracking.html?id=' + paq.PackageId +'#headingTrack'">Tracking</a>
+                                                    <td class="table-responsive"><a @click="openModal(paq.PackageId)">Tracking</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <div id="modal1" class="modalmask">
+                                            <div class="modalbox movedown">
+                                              <a href="#close" title="Close" class="close">X</a>
+                                              <h2>Trazabilidad</h2>
+                                              <p><b>Destinatario:</b> {{ tracking.ClientName }}</p>
+                                              <p><b>Dirección:</b> {{ tracking.DestinationAddress }}</p>
+                                              <p><b>Descripción:</b> {{ tracking.DescriptionPackage }}</p>
+                                              <p><b>Valor declarado:</b> $ {{ tracking.DeclaredValue }} USD</p>
+                                              <table class="table">
+                                                <tr>
+                                                  <th>Fecha</th>
+                                                  <th>Descripción</th>
+                                                </tr>
+                                                <tbody id="modalBody" v-for="track in tracking.Tracking">
+                                                  <tr>
+                                                    <td>{{ track.DateState | formatDate }}</td>
+                                                    <td>{{ track.DescriptionState }}</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                              <img alt="Paquete" :src="tracking.UrlPackage">
+                                            </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -344,6 +399,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
         <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
 
